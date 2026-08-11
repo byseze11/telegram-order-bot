@@ -25,5 +25,5 @@ jobs:
       - name: Botu çalıştır
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-        run: python bot.py
-        ORDER_CHAT_ID: ${{ secrets.ORDER_CHAT_ID }}
+          ORDER_CHAT_ID: ${{ secrets.ORDER_CHAT_ID }}
+          run: python bot.py

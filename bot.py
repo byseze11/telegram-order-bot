@@ -1,4 +1,4 @@
-import os
+mport os
 from telegram import (
     Update,
     InlineKeyboardButton,
@@ -9,6 +9,7 @@ from telegram import (
 )
 from telegram.ext import (
     Application,
+    ChatJoinRequestHandler,
     CommandHandler,
     CallbackQueryHandler,
     MessageHandler,
@@ -25,6 +26,11 @@ TOKEN = os.getenv("BOT_TOKEN")
 # BUNLARI SONRA BİRLİKTE AYARLAYACAĞIZ
 # Siparişlerin geleceği özel Telegram grubunun ID'si
 ORDER_CHAT_ID = os.getenv("ORDER_CHAT_ID")
+
+# Katılma isteği geldiğinde özelden karşılanacak PinkPanther grubu
+PINKPANTHER_GROUP_ID = int(
+    os.getenv("PINKPANTHER_GROUP_ID", "-1004472680906")
+)
 
 # Canlı destek için Telegram kullanıcı adın
 # @ işareti OLMADAN yazılacak. Örnek: PinkPantherSupport
@@ -345,6 +351,31 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🌍 Choose your language / Sprache auswählen",
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
+
+
+async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    request = update.chat_join_request
+
+    if request is None or request.chat.id != PINKPANTHER_GROUP_ID:
+        return
+
+    keyboard = [
+        [
+            InlineKeyboardButton("🇬🇧 English", callback_data="lang_en"),
+            InlineKeyboardButton("🇩🇪 Deutsch", callback_data="lang_de"),
+        ]
+    ]
+
+    try:
+        # Telegram bu özel sohbet kimliğini katılma isteğiyle birlikte verir.
+        # Böylece kullanıcı daha önce /start yazmamış olsa da mesaj gönderilebilir.
+        await context.bot.send_message(
+            chat_id=request.user_chat_id,
+            text="🌍 Choose your language / Sprache auswählen",
+            reply_markup=InlineKeyboardMarkup(keyboard)
+        )
+    except Exception as error:
+        print("Katılma isteğine özel mesaj gönderilemedi:", error)
 
 
 # =========================================================
@@ -674,10 +705,20 @@ def main():
     if not TOKEN:
         raise RuntimeError("BOT_TOKEN bulunamadı!")
 
+    if not ORDER_CHAT_ID:
+        raise RuntimeError("ORDER_CHAT_ID bulunamadı!")
+
     app = Application.builder().token(TOKEN).build()
 
     app.add_handler(
         CommandHandler("start", start)
+    )
+
+    app.add_handler(
+        ChatJoinRequestHandler(
+            join_request,
+            chat_id=PINKPANTHER_GROUP_ID
+        )
     )
 
     app.add_handler(
@@ -707,3 +748,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

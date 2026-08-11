@@ -638,7 +638,8 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # =========================================================
 # KONUM MESAJI
 # =========================================================
-
+async def show_id(update, context):
+    await update.message.reply_text(f"Bu grubun ID'si: {update.effective_chat.id}")
 async def location_handler(
     update: Update,
     context: ContextTypes.DEFAULT_TYPE
@@ -698,7 +699,7 @@ def main():
     )
 
     print("PinkPanther Bot çalışıyor...")
-
+app.add_handler(CommandHandler("id", show_id))
     app.run_polling(
         allowed_updates=Update.ALL_TYPES
     )

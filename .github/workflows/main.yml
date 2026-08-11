@@ -22,8 +22,8 @@ jobs:
       - name: Gerekli paketleri kur
         run: pip install -r requirements.txt
 
-      - name: Botu çalıştır
+            - name: Botu çalıştır
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           ORDER_CHAT_ID: ${{ secrets.ORDER_CHAT_ID }}
-          run: python bot.py
+        run: python bot.py

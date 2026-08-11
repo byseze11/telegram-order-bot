@@ -699,7 +699,7 @@ def main():
     )
 
     print("PinkPanther Bot çalışıyor...")
-app.add_handler(CommandHandler("id", show_id))
+    app.add_handler(CommandHandler("id", show_id))
     app.run_polling(
         allowed_updates=Update.ALL_TYPES
     )

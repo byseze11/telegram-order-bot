@@ -2,8 +2,6 @@ name: Telegram Bot
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 */6 * * *"
 
 jobs:
   run-bot:
@@ -22,7 +20,7 @@ jobs:
       - name: Gerekli paketleri kur
         run: pip install -r requirements.txt
 
-            - name: Botu çalıştır
+      - name: Botu çalıştır
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           ORDER_CHAT_ID: ${{ secrets.ORDER_CHAT_ID }}

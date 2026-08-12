@@ -36,19 +36,43 @@ PINKPANTHER_GROUP_ID = int(
 # @ işareti OLMADAN yazılacak. Örnek: PinkPantherSupport
 SUPPORT_USERNAME = os.getenv("SUPPORT_USERNAME", "")
 
-# Kıyafet çeşitleri ve her çeşidin adet -> toplam fiyat (€) listesi
+# Ürün çeşitleri ve seçim -> toplam fiyat (€) listesi
 PRODUCTS = {
     "leaf": {
-        "en": "🍃 Leaf",
-        "prices": {5: 50, 10: 100, 15: 130, 25: 190},
-    },
-    "snow": {
-        "en": "❄️ Snow",
-        "prices": {0.5: 50, 1: 100, 2: 150, 5: 300},
+        "en": "🍀 Leaf",
+        "de": "🍀 Blatt",
+        "tr": "🍀 Yaprak",
+        "es": "🍀 Hoja",
+        "it": "🍀 Foglia",
+        "ru": "🍀 Лист",
+        "pl": "🍀 Liść",
+        "fr": "🍀 Feuille",
+        "grams_per_unit": 5,
+        "prices": {1: 50, 2: 100, 3: 130, 5: 190},
     },
     "chocolate": {
         "en": "🍫 Chocolate",
-        "prices": {5: 50, 10: 100, 15: 130, 25: 190},
+        "de": "🍫 Schokolade",
+        "tr": "🍫 Çikolata",
+        "es": "🍫 Chocolate",
+        "it": "🍫 Cioccolato",
+        "ru": "🍫 Шоколад",
+        "pl": "🍫 Czekolada",
+        "fr": "🍫 Chocolat",
+        "grams_per_unit": 5,
+        "prices": {1: 50, 2: 100, 3: 130, 5: 190},
+    },
+    "snow": {
+        "en": "❄️ Snow",
+        "de": "❄️ Schnee",
+        "tr": "❄️ Kar",
+        "es": "❄️ Nieve",
+        "it": "❄️ Neve",
+        "ru": "❄️ Снег",
+        "pl": "❄️ Śnieg",
+        "fr": "❄️ Neige",
+        "unit": "g",
+        "prices": {0.5: 50, 1: 100, 3: 225},
     },
 }
 
@@ -80,12 +104,17 @@ TEXTS = {
         "support_button": "🆘 Live Support",
 
         "product": (
-            "🛍 CLOTHING CATALOG\n\n"
-            "🍃 Leaf Print T-Shirt\n"
-            "❄️ Snow Print Sweatshirt\n"
-            "🍫 Chocolate Print Hoodie\n\n"
+            "🛍 PRODUCT CATALOG\n\n"
+            "🍀 Leaf\n"
+            "🍫 Chocolate\n"
+            "❄️ Snow\n\n"
             "Select one or more products and quantities below.\n"
             "Then press Continue."
+        ),
+
+        "brand_prompt": (
+            "✍️ Please type the brand/name of your selected product.\n\n"
+            "Send it as a normal text message; there is no button for this step."
         ),
 
         "quantity": (
@@ -174,12 +203,17 @@ TEXTS = {
         "support_button": "🆘 Live-Support",
 
         "product": (
-            "🛍 KLEIDUNGSKATALOG\n\n"
-            "🍃 T-Shirt mit Blattmotiv\n"
-            "❄️ Sweatshirt mit Schneemotiv\n"
-            "🍫 Hoodie mit Schokoladenmotiv\n\n"
+            "🛍 PRODUKTKATALOG\n\n"
+            "🍀 Blatt\n"
+            "🍫 Schokolade\n"
+            "❄️ Schnee\n\n"
             "Wähle unten ein oder mehrere Produkte und Mengen aus.\n"
             "Drücke anschließend auf Weiter."
+        ),
+
+        "brand_prompt": (
+            "✍️ Bitte schreibe die Marke/den Namen des ausgewählten Produkts.\n\n"
+            "Sende sie als normale Textnachricht; für diesen Schritt gibt es keine Schaltfläche."
         ),
 
         "quantity": (
@@ -249,12 +283,236 @@ TEXTS = {
 }
 
 
+# Ek dil çevirileri
+TEXTS.update({
+    "tr": {
+        "language_selected": "🇹🇷 Türkçe seçildi.",
+        "welcome": (
+            "⚠️ ÖNEMLİ – LÜTFEN DİKKATLİCE OKUYUN\n\n"
+            "🐾 PinkPanther Bot'a hoş geldiniz\n\n"
+            "Siparişinizi hızlı ve kolayca oluşturmanıza yardımcı olacağım.\n\n"
+            "💵 Yalnızca nakit ödeme.\n✅ Ürünü teslim almadan ödeme yapmayın.\n"
+            "🚗 Kurye teslimatı ÜCRETSİZDİR.\n📍 Konumunuzu Telegram üzerinden paylaşabilirsiniz.\n\n"
+            "Lütfen aşağıdan bir seçenek belirleyin:"
+        ),
+        "order_button": "🛍 Sipariş Ver",
+        "support_button": "🆘 Canlı Destek",
+        "product": (
+            "🛍 ÜRÜN KATALOĞU\n\n"
+            "🍀 Yaprak\n"
+            "🍫 Çikolata\n"
+            "❄️ Kar\n\n"
+            "Bir veya daha fazla ürün ve miktar seçin. Sonra Devam'a basın."
+        ),
+        "brand_prompt": "✍️ Seçtiğiniz ürünün markasını/adını normal mesaj olarak yazın.",
+        "quantity": "🔢 Lütfen miktarı seçin.",
+        "address": (
+            "📍 TESLİMAT BİLGİLERİ\n\nTam adresinizi ve posta kodunuzu birlikte yazın.\n\n"
+            "Örnek: Musterstraße 12, 12345 Berlin\n\nTam adresi bilmiyorsanız bölgenizi yazabilirsiniz."
+        ),
+        "share_location": "📍 Konum Paylaş",
+        "skip_location": "➡️ Konum Olmadan Devam Et",
+        "location_question": "📍 İsterseniz tam konumunuzu paylaşabilirsiniz. Konum paylaşmadan da devam edebilirsiniz.",
+        "location_received": "✅ Konum alındı.",
+        "confirm": "✅ Siparişi Onayla",
+        "change": "✏️ Bilgileri Değiştir",
+        "cancel": "❌ Siparişi İptal Et",
+        "cancelled": "❌ Siparişiniz iptal edildi.\n\n/start ile yeniden başlayabilirsiniz.",
+        "success": "✅ SİPARİŞİNİZ ALINDI.\n\nTeslimat için sizinle iletişime geçilecektir.\n\n🚗 Teslimat: ÜCRETSİZ\n💵 Ödeme: Teslimatta nakit",
+        "support_not_ready": "🆘 Canlı destek hazırlanıyor. Lütfen daha sonra tekrar deneyin.",
+        "restart": "🔄 Lütfen ürün adını veya kodunu tekrar girin.",
+        "invalid_quantity": "⚠️ Lütfen geçerli bir miktar seçin.",
+    },
+    "es": {
+        "language_selected": "🇪🇸 Español seleccionado.",
+        "welcome": (
+            "⚠️ IMPORTANTE – LEE ATENTAMENTE\n\n🐾 Bienvenido a PinkPanther Bot\n\n"
+            "Te ayudaré a realizar tu pedido de forma rápida y sencilla.\n\n"
+            "💵 Solo pago en efectivo.\n✅ No pagues antes de recibir el producto.\n"
+            "🚗 La entrega es GRATIS.\n📍 Puedes compartir tu ubicación por Telegram.\n\n"
+            "Elige una opción:"
+        ),
+        "order_button": "🛍 Hacer un pedido",
+        "support_button": "🆘 Soporte en vivo",
+        "product": (
+            "🛍 CATÁLOGO DE PRODUCTOS\n\n"
+            "🍀 Hoja\n🍫 Chocolate\n❄️ Nieve\n\n"
+            "Selecciona productos y cantidades. Luego pulsa Continuar."
+        ),
+        "brand_prompt": "✍️ Escribe la marca o el nombre del producto seleccionado como mensaje normal.",
+        "quantity": "🔢 Selecciona una cantidad.",
+        "address": "📍 DATOS DE ENTREGA\n\nEscribe tu dirección completa y código postal.\n\nEjemplo: Musterstraße 12, 12345 Berlin\n\nSi no conoces la dirección completa, escribe tu zona.",
+        "share_location": "📍 Compartir ubicación",
+        "skip_location": "➡️ Continuar sin ubicación",
+        "location_question": "📍 Si quieres, comparte tu ubicación exacta. También puedes continuar sin compartirla.",
+        "location_received": "✅ Ubicación recibida.",
+        "confirm": "✅ Confirmar pedido",
+        "change": "✏️ Cambiar información",
+        "cancel": "❌ Cancelar pedido",
+        "cancelled": "❌ Tu pedido ha sido cancelado.\n\nPuedes empezar de nuevo con /start.",
+        "success": "✅ PEDIDO RECIBIDO.\n\nNos pondremos en contacto contigo para la entrega.\n\n🚗 Entrega: GRATIS\n💵 Pago: En efectivo al recibir",
+        "support_not_ready": "🆘 El soporte se está configurando. Inténtalo más tarde.",
+        "restart": "🔄 Introduce de nuevo el nombre o código del producto.",
+        "invalid_quantity": "⚠️ Selecciona una cantidad válida.",
+    },
+    "it": {
+        "language_selected": "🇮🇹 Italiano selezionato.",
+        "welcome": (
+            "⚠️ IMPORTANTE – LEGGI ATTENTAMENTE\n\n🐾 Benvenuto nel PinkPanther Bot\n\n"
+            "Ti aiuterò a effettuare l'ordine in modo semplice e veloce.\n\n"
+            "💵 Solo pagamento in contanti.\n✅ Non pagare prima di ricevere il prodotto.\n"
+            "🚗 Consegna GRATUITA.\n📍 Puoi condividere la posizione tramite Telegram.\n\nScegli un'opzione:"
+        ),
+        "order_button": "🛍 Effettua un ordine",
+        "support_button": "🆘 Assistenza",
+        "product": (
+            "🛍 CATALOGO PRODOTTI\n\n"
+            "🍀 Foglia\n🍫 Cioccolato\n❄️ Neve\n\n"
+            "Seleziona prodotti e quantità, poi premi Continua."
+        ),
+        "brand_prompt": "✍️ Scrivi la marca o il nome del prodotto scelto come messaggio normale.",
+        "quantity": "🔢 Seleziona una quantità.",
+        "address": "📍 DATI DI CONSEGNA\n\nScrivi indirizzo completo e codice postale.\n\nEsempio: Musterstraße 12, 12345 Berlin\n\nSe non conosci l'indirizzo completo, scrivi la zona.",
+        "share_location": "📍 Condividi posizione",
+        "skip_location": "➡️ Continua senza posizione",
+        "location_question": "📍 Se vuoi, condividi la posizione esatta. Puoi anche continuare senza condividerla.",
+        "location_received": "✅ Posizione ricevuta.",
+        "confirm": "✅ Conferma ordine",
+        "change": "✏️ Modifica dati",
+        "cancel": "❌ Annulla ordine",
+        "cancelled": "❌ Il tuo ordine è stato annullato.\n\nPuoi ricominciare con /start.",
+        "success": "✅ ORDINE RICEVUTO.\n\nTi contatteremo per la consegna.\n\n🚗 Consegna: GRATUITA\n💵 Pagamento: Contanti alla consegna",
+        "support_not_ready": "🆘 L'assistenza è in fase di configurazione. Riprova più tardi.",
+        "restart": "🔄 Inserisci nuovamente nome o codice del prodotto.",
+        "invalid_quantity": "⚠️ Seleziona una quantità valida.",
+    },
+    "ru": {
+        "language_selected": "🇷🇺 Выбран русский язык.",
+        "welcome": (
+            "⚠️ ВАЖНО – ПРОЧИТАЙТЕ ВНИМАТЕЛЬНО\n\n🐾 Добро пожаловать в PinkPanther Bot\n\n"
+            "Я помогу быстро и легко оформить заказ.\n\n💵 Только наличные.\n"
+            "✅ Не платите до получения товара.\n🚗 Доставка БЕСПЛАТНАЯ.\n"
+            "📍 Вы можете отправить геолокацию через Telegram.\n\nВыберите действие:"
+        ),
+        "order_button": "🛍 Сделать заказ",
+        "support_button": "🆘 Поддержка",
+        "product": (
+            "🛍 КАТАЛОГ ТОВАРОВ\n\n"
+            "🍀 Лист\n🍫 Шоколад\n❄️ Снег\n\n"
+            "Выберите товары и количество, затем нажмите Продолжить."
+        ),
+        "brand_prompt": "✍️ Напишите марку или название выбранного товара обычным сообщением.",
+        "quantity": "🔢 Выберите количество.",
+        "address": "📍 ДАННЫЕ ДЛЯ ДОСТАВКИ\n\nНапишите полный адрес и почтовый индекс.\n\nПример: Musterstraße 12, 12345 Berlin\n\nЕсли полного адреса нет, укажите район.",
+        "share_location": "📍 Отправить геолокацию",
+        "skip_location": "➡️ Продолжить без геолокации",
+        "location_question": "📍 При желании отправьте точную геолокацию. Можно продолжить без неё.",
+        "location_received": "✅ Геолокация получена.",
+        "confirm": "✅ Подтвердить заказ",
+        "change": "✏️ Изменить данные",
+        "cancel": "❌ Отменить заказ",
+        "cancelled": "❌ Заказ отменён.\n\nНачать заново: /start.",
+        "success": "✅ ЗАКАЗ ПРИНЯТ.\n\nМы свяжемся с вами по поводу доставки.\n\n🚗 Доставка: БЕСПЛАТНО\n💵 Оплата: Наличными при получении",
+        "support_not_ready": "🆘 Поддержка настраивается. Попробуйте позже.",
+        "restart": "🔄 Введите название или код товара ещё раз.",
+        "invalid_quantity": "⚠️ Выберите допустимое количество.",
+    },
+    "pl": {
+        "language_selected": "🇵🇱 Wybrano język polski.",
+        "welcome": (
+            "⚠️ WAŻNE – PRZECZYTAJ UWAŻNIE\n\n🐾 Witamy w PinkPanther Bot\n\n"
+            "Pomogę Ci szybko i łatwo złożyć zamówienie.\n\n💵 Tylko płatność gotówką.\n"
+            "✅ Nie płać przed otrzymaniem produktu.\n🚗 Dostawa jest BEZPŁATNA.\n"
+            "📍 Możesz udostępnić lokalizację przez Telegram.\n\nWybierz opcję:"
+        ),
+        "order_button": "🛍 Złóż zamówienie",
+        "support_button": "🆘 Pomoc na żywo",
+        "product": (
+            "🛍 KATALOG PRODUKTÓW\n\n"
+            "🍀 Liść\n🍫 Czekolada\n❄️ Śnieg\n\n"
+            "Wybierz produkty i ilości, a następnie naciśnij Dalej."
+        ),
+        "brand_prompt": "✍️ Wpisz markę lub nazwę wybranego produktu jako zwykłą wiadomość.",
+        "quantity": "🔢 Wybierz ilość.",
+        "address": "📍 DANE DOSTAWY\n\nWpisz pełny adres i kod pocztowy.\n\nPrzykład: Musterstraße 12, 12345 Berlin\n\nJeśli nie znasz pełnego adresu, podaj dzielnicę.",
+        "share_location": "📍 Udostępnij lokalizację",
+        "skip_location": "➡️ Kontynuuj bez lokalizacji",
+        "location_question": "📍 Jeśli chcesz, udostępnij dokładną lokalizację. Możesz też kontynuować bez niej.",
+        "location_received": "✅ Otrzymano lokalizację.",
+        "confirm": "✅ Potwierdź zamówienie",
+        "change": "✏️ Zmień dane",
+        "cancel": "❌ Anuluj zamówienie",
+        "cancelled": "❌ Zamówienie zostało anulowane.\n\nMożesz zacząć ponownie przez /start.",
+        "success": "✅ ZAMÓWIENIE PRZYJĘTE.\n\nSkontaktujemy się w sprawie dostawy.\n\n🚗 Dostawa: BEZPŁATNA\n💵 Płatność: Gotówką przy odbiorze",
+        "support_not_ready": "🆘 Pomoc jest konfigurowana. Spróbuj później.",
+        "restart": "🔄 Wpisz ponownie nazwę lub kod produktu.",
+        "invalid_quantity": "⚠️ Wybierz prawidłową ilość.",
+    },
+    "fr": {
+        "language_selected": "🇫🇷 Français sélectionné.",
+        "welcome": (
+            "⚠️ IMPORTANT – LISEZ ATTENTIVEMENT\n\n🐾 Bienvenue sur PinkPanther Bot\n\n"
+            "Je vais vous aider à passer votre commande rapidement et facilement.\n\n"
+            "💵 Paiement en espèces uniquement.\n✅ Ne payez pas avant de recevoir le produit.\n"
+            "🚗 Livraison GRATUITE.\n📍 Vous pouvez partager votre position via Telegram.\n\nChoisissez une option :"
+        ),
+        "order_button": "🛍 Passer une commande",
+        "support_button": "🆘 Assistance en direct",
+        "product": (
+            "🛍 CATALOGUE DE PRODUITS\n\n"
+            "🍀 Feuille\n🍫 Chocolat\n❄️ Neige\n\n"
+            "Sélectionnez les produits et quantités, puis appuyez sur Continuer."
+        ),
+        "brand_prompt": "✍️ Écrivez la marque ou le nom du produit choisi dans un message normal.",
+        "quantity": "🔢 Sélectionnez une quantité.",
+        "address": "📍 INFORMATIONS DE LIVRAISON\n\nÉcrivez votre adresse complète et votre code postal.\n\nExemple : Musterstraße 12, 12345 Berlin\n\nSi vous ne connaissez pas l'adresse complète, indiquez votre quartier.",
+        "share_location": "📍 Partager la position",
+        "skip_location": "➡️ Continuer sans position",
+        "location_question": "📍 Si vous le souhaitez, partagez votre position exacte. Vous pouvez aussi continuer sans la partager.",
+        "location_received": "✅ Position reçue.",
+        "confirm": "✅ Confirmer la commande",
+        "change": "✏️ Modifier les informations",
+        "cancel": "❌ Annuler la commande",
+        "cancelled": "❌ Votre commande a été annulée.\n\nVous pouvez recommencer avec /start.",
+        "success": "✅ COMMANDE REÇUE.\n\nNous vous contacterons pour la livraison.\n\n🚗 Livraison : GRATUITE\n💵 Paiement : En espèces à la livraison",
+        "support_not_ready": "🆘 L'assistance est en cours de configuration. Réessayez plus tard.",
+        "restart": "🔄 Saisissez à nouveau le nom ou le code du produit.",
+        "invalid_quantity": "⚠️ Sélectionnez une quantité valide.",
+    },
+})
+
+
+LANGUAGE_OPTIONS = (
+    ("en", "🇬🇧 English"), ("de", "🇩🇪 Deutsch"),
+    ("tr", "🇹🇷 Türkçe"), ("es", "🇪🇸 Español"),
+    ("it", "🇮🇹 Italiano"), ("ru", "🇷🇺 Русский"),
+    ("pl", "🇵🇱 Polski"), ("fr", "🇫🇷 Français"),
+)
+
+ADMIN_LANGUAGE_NAMES = {
+    "en": "İngilizce", "de": "Almanca", "tr": "Türkçe", "es": "İspanyolca",
+    "it": "İtalyanca", "ru": "Rusça", "pl": "Lehçe", "fr": "Fransızca",
+}
+
+UI_TEXT = {
+    "en": {"selected": "Selected", "total": "Total", "continue": "Continue", "brand": "Brand", "brand_ok": "Brand", "received": "Received", "not_shared": "Not shared", "empty": "Please select at least one product.", "summary": "ORDER SUMMARY", "products": "Products", "total_price": "Total price", "address": "Address / Area", "location": "Location", "delivery": "Delivery: FREE", "payment": "Payment: Cash on delivery", "warning": "Do not make any payment before receiving your product."},
+    "de": {"selected": "Ausgewählt", "total": "Gesamt", "continue": "Weiter", "brand": "Marke", "brand_ok": "Marke", "received": "Erhalten", "not_shared": "Nicht gesendet", "empty": "Bitte wähle mindestens ein Produkt aus.", "summary": "BESTELLÜBERSICHT", "products": "Produkte", "total_price": "Gesamtpreis", "address": "Adresse / Gebiet", "location": "Standort", "delivery": "Lieferung: KOSTENLOS", "payment": "Zahlung: Barzahlung bei Übergabe", "warning": "Bitte bezahle nichts, bevor du dein Produkt erhalten hast."},
+    "tr": {"selected": "Seçilenler", "total": "Toplam", "continue": "Devam", "brand": "Marka", "brand_ok": "Marka", "received": "Alındı", "not_shared": "Paylaşılmadı", "empty": "Lütfen en az bir ürün seçin.", "summary": "SİPARİŞ ÖZETİ", "products": "Ürünler", "total_price": "Toplam fiyat", "address": "Adres / Bölge", "location": "Konum", "delivery": "Teslimat: ÜCRETSİZ", "payment": "Ödeme: Teslimatta nakit", "warning": "Ürününüzü teslim almadan ödeme yapmayın."},
+    "es": {"selected": "Seleccionado", "total": "Total", "continue": "Continuar", "brand": "Marca", "brand_ok": "Marca", "received": "Recibida", "not_shared": "No compartida", "empty": "Selecciona al menos un producto.", "summary": "RESUMEN DEL PEDIDO", "products": "Productos", "total_price": "Precio total", "address": "Dirección / Zona", "location": "Ubicación", "delivery": "Entrega: GRATIS", "payment": "Pago: En efectivo al recibir", "warning": "No pagues antes de recibir el producto."},
+    "it": {"selected": "Selezionato", "total": "Totale", "continue": "Continua", "brand": "Marca", "brand_ok": "Marca", "received": "Ricevuta", "not_shared": "Non condivisa", "empty": "Seleziona almeno un prodotto.", "summary": "RIEPILOGO ORDINE", "products": "Prodotti", "total_price": "Prezzo totale", "address": "Indirizzo / Zona", "location": "Posizione", "delivery": "Consegna: GRATUITA", "payment": "Pagamento: Contanti alla consegna", "warning": "Non pagare prima di ricevere il prodotto."},
+    "ru": {"selected": "Выбрано", "total": "Итого", "continue": "Продолжить", "brand": "Марка", "brand_ok": "Марка", "received": "Получена", "not_shared": "Не отправлена", "empty": "Выберите хотя бы один товар.", "summary": "СВОДКА ЗАКАЗА", "products": "Товары", "total_price": "Итоговая цена", "address": "Адрес / Район", "location": "Геолокация", "delivery": "Доставка: БЕСПЛАТНО", "payment": "Оплата: Наличными при получении", "warning": "Не платите до получения товара."},
+    "pl": {"selected": "Wybrano", "total": "Razem", "continue": "Dalej", "brand": "Marka", "brand_ok": "Marka", "received": "Otrzymana", "not_shared": "Nieudostępniona", "empty": "Wybierz co najmniej jeden produkt.", "summary": "PODSUMOWANIE ZAMÓWIENIA", "products": "Produkty", "total_price": "Cena łączna", "address": "Adres / Rejon", "location": "Lokalizacja", "delivery": "Dostawa: BEZPŁATNA", "payment": "Płatność: Gotówką przy odbiorze", "warning": "Nie płać przed otrzymaniem produktu."},
+    "fr": {"selected": "Sélectionné", "total": "Total", "continue": "Continuer", "brand": "Marque", "brand_ok": "Marque", "received": "Reçue", "not_shared": "Non partagée", "empty": "Sélectionnez au moins un produit.", "summary": "RÉSUMÉ DE LA COMMANDE", "products": "Produits", "total_price": "Prix total", "address": "Adresse / Quartier", "location": "Position", "delivery": "Livraison : GRATUITE", "payment": "Paiement : En espèces à la livraison", "warning": "Ne payez pas avant de recevoir le produit."},
+}
+
+
 # =========================================================
 # YARDIMCI FONKSİYONLAR
 # =========================================================
 
 def get_lang(context):
-    return context.user_data.get("lang", "en")
+    lang = context.user_data.get("lang", "en")
+    return lang if lang in TEXTS else "en"
 
 
 def reset_order(context):
@@ -280,12 +538,36 @@ def support_keyboard(lang):
     return buttons
 
 
-def cart_lines(lang, cart):
+def language_keyboard():
+    return [
+        [
+            InlineKeyboardButton(label, callback_data=f"lang_{code}")
+            for code, label in LANGUAGE_OPTIONS[index:index + 2]
+        ]
+        for index in range(0, len(LANGUAGE_OPTIONS), 2)
+    ]
+
+
+def quantity_text(lang, product, quantity):
+    if product.get("grams_per_unit"):
+        grams = quantity * product["grams_per_unit"]
+        return f"{quantity}x ({grams} g)"
+
+    unit = product.get("unit", "g")
+    return f"{quantity} {unit}"
+
+
+def cart_lines(lang, cart, brand=None):
     lines = []
     for product_key, quantity in cart.items():
         product = PRODUCTS[product_key]
         price = product["prices"][quantity]
-        lines.append(f"{product[lang]} — {quantity} = {price} €")
+        amount = quantity_text(lang, product, quantity)
+        lines.append(f"{product[lang]} — {amount} = {price} €")
+
+    if brand and cart:
+        brand_label = UI_TEXT[lang]["brand"]
+        lines.append(f"🏷️ {brand_label}: {brand}")
     return lines
 
 
@@ -301,8 +583,8 @@ def selection_text(lang, cart):
     if not cart:
         return text
 
-    selected_title = "✅ Selected:" if lang == "en" else "✅ Ausgewählt:"
-    total_label = "Total" if lang == "en" else "Gesamt"
+    selected_title = f"✅ {UI_TEXT[lang]['selected']}:"
+    total_label = UI_TEXT[lang]["total"]
     return (
         f"{text}\n\n{selected_title}\n"
         + "\n".join(cart_lines(lang, cart))
@@ -320,8 +602,9 @@ def selection_keyboard(lang, cart):
         for quantity, price in product["prices"].items():
             selected = cart.get(product_key) == quantity
             prefix = "✅ " if selected else ""
+            amount = quantity_text(lang, product, quantity)
             option_row.append(InlineKeyboardButton(
-                f"{prefix}{quantity} = {price} €",
+                f"{prefix}{amount} = {price} €",
                 callback_data=f"pick_{product_key}_{quantity}"
             ))
             if len(option_row) == 2:
@@ -330,7 +613,7 @@ def selection_keyboard(lang, cart):
         if option_row:
             keyboard.append(option_row)
 
-    continue_text = "➡️ Continue" if lang == "en" else "➡️ Weiter"
+    continue_text = f"➡️ {UI_TEXT[lang]['continue']}"
     keyboard.append([
         InlineKeyboardButton(continue_text, callback_data="cart_continue")
     ])
@@ -361,40 +644,30 @@ async def show_summary(update, context):
     lang = get_lang(context)
 
     cart = context.user_data.get("cart", {})
-    order_lines = "\n".join(cart_lines(lang, cart)) or "-"
+    order_lines = "\n".join(
+        cart_lines(lang, cart, context.user_data.get("brand"))
+    ) or "-"
     price = cart_total(cart)
     address = context.user_data.get("address", "-")
 
     latitude = context.user_data.get("latitude")
     longitude = context.user_data.get("longitude")
 
-    if latitude and longitude:
-        location_status = "✅ Received" if lang == "en" else "✅ Erhalten"
-    else:
-        location_status = "➖ Not shared" if lang == "en" else "➖ Nicht gesendet"
-
-    if lang == "en":
-        summary = (
-            "🧾 ORDER SUMMARY\n\n"
-            f"🛍 Products:\n{order_lines}\n"
-            f"💶 Total price: {price} €\n"
-            f"📍 Address / Area: {address}\n"
-            f"🗺 Location: {location_status}\n\n"
-            "🚗 Delivery: FREE\n"
-            "💵 Payment: Cash on delivery\n\n"
-            "⚠️ Do not make any payment before receiving your product."
-        )
-    else:
-        summary = (
-            "🧾 BESTELLÜBERSICHT\n\n"
-            f"🛍 Produkte:\n{order_lines}\n"
-            f"💶 Gesamtpreis: {price} €\n"
-            f"📍 Adresse / Gebiet: {address}\n"
-            f"🗺 Standort: {location_status}\n\n"
-            "🚗 Lieferung: KOSTENLOS\n"
-            "💵 Zahlung: Barzahlung bei Übergabe\n\n"
-            "⚠️ Bitte bezahle nichts, bevor du dein Produkt erhalten hast."
-        )
+    ui = UI_TEXT[lang]
+    location_status = (
+        f"✅ {ui['received']}" if latitude and longitude
+        else f"➖ {ui['not_shared']}"
+    )
+    summary = (
+        f"🧾 {ui['summary']}\n\n"
+        f"🛍 {ui['products']}:\n{order_lines}\n"
+        f"💶 {ui['total_price']}: {price} €\n"
+        f"📍 {ui['address']}: {address}\n"
+        f"🗺 {ui['location']}: {location_status}\n\n"
+        f"🚗 {ui['delivery']}\n"
+        f"💵 {ui['payment']}\n\n"
+        f"⚠️ {ui['warning']}"
+    )
 
     keyboard = [
         [
@@ -439,6 +712,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ]
     ]
 
+    keyboard = language_keyboard()
+
     await update.message.reply_text(
         "🌍 Choose your language / Sprache auswählen",
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -457,6 +732,8 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("🇩🇪 Deutsch", callback_data="lang_de"),
         ]
     ]
+
+    keyboard = language_keyboard()
 
     try:
         # Telegram bu özel sohbet kimliğini katılma isteğiyle birlikte verir.
@@ -515,13 +792,10 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # DİL SEÇİMİ
     # -------------------------
 
-    if data == "lang_en":
-        await select_language(query, context, "en")
-        return
-
-
-    if data == "lang_de":
-        await select_language(query, context, "de")
+    if data.startswith("lang_"):
+        selected_lang = data.removeprefix("lang_")
+        if selected_lang in TEXTS:
+            await select_language(query, context, selected_lang)
         return
 
 
@@ -551,7 +825,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if data.startswith("pick_"):
         _, product_key, quantity_text = data.split("_", 2)
-        quantity = int(quantity_text)
+        quantity = float(quantity_text) if "." in quantity_text else int(quantity_text)
         if (
             product_key not in PRODUCTS
             or quantity not in PRODUCTS[product_key]["prices"]
@@ -571,19 +845,15 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if data == "cart_continue":
         cart = context.user_data.get("cart", {})
         if not cart:
-            warning = (
-                "⚠️ Please select at least one product."
-                if lang == "en"
-                else "⚠️ Bitte wähle mindestens ein Produkt aus."
-            )
+            warning = f"⚠️ {UI_TEXT[lang]['empty']}"
             await query.edit_message_text(
                 f"{selection_text(lang, cart)}\n\n{warning}",
                 reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, cart))
             )
             return
 
-        context.user_data["state"] = "address"
-        await query.edit_message_text(TEXTS[lang]["address"])
+        context.user_data["state"] = "brand_entry"
+        await query.edit_message_text(TEXTS[lang]["brand_prompt"])
         return
 
 
@@ -594,7 +864,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if data == "confirm_order":
 
         cart = context.user_data.get("cart", {})
-        order_lines = "\n".join(cart_lines("en", cart)) or "-"
+        order_lines = "\n".join(
+            cart_lines("en", cart, context.user_data.get("brand"))
+        ) or "-"
         price = cart_total(cart)
         address = context.user_data.get("address", "-")
 
@@ -618,7 +890,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"👤 Müşteri: {customer_name}\n"
             f"📱 Telegram: {username}\n"
             f"🆔 Kullanıcı ID: {user.id}\n"
-            f"🌍 Dil: {'İngilizce' if lang == 'en' else 'Almanca'}\n\n"
+            f"🌍 Dil: {ADMIN_LANGUAGE_NAMES.get(lang, lang)}\n\n"
             f"🛍 Ürünler:\n{order_lines}\n"
             f"💶 Toplam fiyat: {price} €\n"
             f"🏠 Adres / Bölge: {address}\n\n"
@@ -721,6 +993,21 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lang = get_lang(context)
 
     text = update.message.text.strip()
+
+
+    # -------------------------
+    # MARKA (YAZILI MESAJ)
+    # -------------------------
+
+    if state == "brand_entry":
+        context.user_data["brand"] = text
+        context.user_data["state"] = "address"
+
+        brand_label = UI_TEXT[lang]["brand_ok"]
+        await update.message.reply_text(
+            f"✅ {brand_label}: {text}\n\n{TEXTS[lang]['address']}"
+        )
+        return
 
 
     # -------------------------

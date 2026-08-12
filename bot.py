@@ -36,6 +36,14 @@ PINKPANTHER_GROUP_ID = int(
 # @ işareti OLMADAN yazılacak. Örnek: PinkPantherSupport
 SUPPORT_USERNAME = os.getenv("SUPPORT_USERNAME", "")
 
+# Sipariş Miktarı: G -> toplam fiyat (€)
+PRICE_BY_QUANTITY = {
+    5: 50, €
+    10: 100, €
+    15: 130, €
+    25: 190, €
+}
+
 
 # =========================================================
 # METİNLER
@@ -70,7 +78,12 @@ TEXTS = {
 
         "quantity": (
             "🔢 How many would you like to order?\n\n"
-            "Please enter the quantity."
+            "Minimum order: 5 pieces\n\n"
+            "5 pieces = 50 €\n"
+            "10 pieces = 100 €\n"
+            "15 pieces = 130 €\n"
+            "25 pieces = 190 €\n\n"
+            "Please enter one of these quantities: 5, 10, 15 or 25."
         ),
 
         "address": (
@@ -122,8 +135,8 @@ TEXTS = {
         "restart": "🔄 Please enter the product name or product code again.",
 
         "invalid_quantity": (
-            "⚠️ Please enter a valid quantity.\n"
-            "Example: 1"
+            "⚠️ Minimum order is 5 pieces.\n"
+            "Please enter one of these quantities: 5, 10, 15 or 25."
         ),
     },
 
@@ -155,7 +168,12 @@ TEXTS = {
 
         "quantity": (
             "🔢 Wie viele Stück möchtest du bestellen?\n\n"
-            "Bitte gib die gewünschte Menge ein."
+            "Mindestbestellmenge: 5 Stück\n\n"
+            "5 Stück = 50 €\n"
+            "10 Stück = 100 €\n"
+            "15 Stück = 130 €\n"
+            "25 Stück = 190 €\n\n"
+            "Bitte gib eine dieser Mengen ein: 5, 10, 15 oder 25."
         ),
 
         "address": (
@@ -208,8 +226,8 @@ TEXTS = {
         "restart": "🔄 Bitte gib den Produktnamen oder Produktcode erneut ein.",
 
         "invalid_quantity": (
-            "⚠️ Bitte gib eine gültige Menge ein.\n"
-            "Beispiel: 1"
+            "⚠️ Die Mindestbestellmenge beträgt 5 Stück.\n"
+            "Bitte gib eine dieser Mengen ein: 5, 10, 15 oder 25."
         ),
     }
 }
@@ -271,6 +289,7 @@ async def show_summary(update, context):
 
     product = context.user_data.get("product", "-")
     quantity = context.user_data.get("quantity", "-")
+    price = context.user_data.get("price", "-")
     address = context.user_data.get("address", "-")
 
     latitude = context.user_data.get("latitude")
@@ -286,6 +305,7 @@ async def show_summary(update, context):
             "🧾 ORDER SUMMARY\n\n"
             f"🛍 Product: {product}\n"
             f"🔢 Quantity: {quantity}\n"
+            f"💶 Total price: {price} €\n"
             f"📍 Address / Area: {address}\n"
             f"🗺 Location: {location_status}\n\n"
             "🚗 Delivery: FREE\n"
@@ -297,6 +317,7 @@ async def show_summary(update, context):
             "🧾 BESTELLÜBERSICHT\n\n"
             f"🛍 Produkt: {product}\n"
             f"🔢 Menge: {quantity}\n"
+            f"💶 Gesamtpreis: {price} €\n"
             f"📍 Adresse / Gebiet: {address}\n"
             f"🗺 Standort: {location_status}\n\n"
             "🚗 Lieferung: KOSTENLOS\n"
@@ -467,6 +488,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         product = context.user_data.get("product", "-")
         quantity = context.user_data.get("quantity", "-")
+        price = context.user_data.get("price", "-")
         address = context.user_data.get("address", "-")
 
         latitude = context.user_data.get("latitude")
@@ -492,6 +514,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"🌍 Dil: {'İngilizce' if lang == 'en' else 'Almanca'}\n\n"
             f"🛍 Ürün: {product}\n"
             f"🔢 Miktar: {quantity}\n"
+            f"💶 Toplam fiyat: {price} €\n"
             f"🏠 Adres / Bölge: {address}\n\n"
             f"📍 Konum:\n{location_text}\n\n"
             "🚗 Teslimat: Ücretsiz\n"
@@ -625,13 +648,14 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         quantity = int(clean_quantity)
 
-        if quantity <= 0:
+        if quantity not in PRICE_BY_QUANTITY:
             await update.message.reply_text(
                 TEXTS[lang]["invalid_quantity"]
             )
             return
 
         context.user_data["quantity"] = quantity
+        context.user_data["price"] = PRICE_BY_QUANTITY[quantity]
         context.user_data["state"] = "address"
 
         support_buttons = support_keyboard(lang)

@@ -38,10 +38,10 @@ SUPPORT_USERNAME = os.getenv("SUPPORT_USERNAME", "")
 
 # Sipariş Miktarı: G -> toplam fiyat (€)
 PRICE_BY_QUANTITY = {
-    5: 50, €
-    10: 100, €
-    15: 130, €
-    25: 190, €
+    5: 50, 
+    10: 100, 
+    15: 130, 
+    25: 190, 
 }
 
 

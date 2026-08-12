@@ -1,4 +1,4 @@
-mport os
+import os
 from telegram import (
     Update,
     InlineKeyboardButton,
@@ -374,8 +374,13 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
             text="🌍 Choose your language / Sprache auswählen",
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
+
+        await context.bot.approve_chat_join_request(
+            chat_id=request.chat.id,
+            user_id=request.from_user.id
+        )
     except Exception as error:
-        print("Katılma isteğine özel mesaj gönderilemedi:", error)
+        print("Katılma isteği işlenemedi:", error)
 
 
 # =========================================================
@@ -748,4 +753,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

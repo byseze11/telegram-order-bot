@@ -128,7 +128,7 @@ TEXTS = {
     },
 
     "de": {
-       "language_selected": "🇩🇪 Deutsch ausgewählt.",
+        "language_selected": "🇩🇪 Deutsch ausgewählt.",
 
         "welcome": (
             "⚠️ WICHTIG – BITTE SORGFÄLTIG LESEN\n\n"
@@ -359,6 +359,11 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if request is None or request.chat.id != PINKPANTHER_GROUP_ID:
         return
 
+    # Katılımı dil seçildikten ve ana menü gönderildikten sonra onaylayacağız.
+    # Telegram'ın geçici özel mesaj izni, istek onaylanınca sona erebilir.
+    context.user_data["pending_join_chat_id"] = request.chat.id
+    context.user_data["pending_join_user_id"] = request.from_user.id
+
     keyboard = [
         [
             InlineKeyboardButton("🇬🇧 English", callback_data="lang_en"),
@@ -374,13 +379,28 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
             text="🌍 Choose your language / Sprache auswählen",
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
-
-        await context.bot.approve_chat_join_request(
-            chat_id=request.chat.id,
-            user_id=request.from_user.id
-        )
     except Exception as error:
         print("Katılma isteği işlenemedi:", error)
+
+
+async def select_language(query, context, lang):
+    pending_chat_id = context.user_data.get("pending_join_chat_id")
+    pending_user_id = context.user_data.get("pending_join_user_id")
+
+    context.user_data.clear()
+    context.user_data["lang"] = lang
+
+    await query.edit_message_text(TEXTS[lang]["language_selected"])
+    await show_main_menu(query.message, context)
+
+    if pending_chat_id and pending_user_id:
+        try:
+            await context.bot.approve_chat_join_request(
+                chat_id=pending_chat_id,
+                user_id=pending_user_id
+            )
+        except Exception as error:
+            print("Katılma isteği onaylanamadı:", error)
 
 
 # =========================================================
@@ -399,20 +419,12 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # -------------------------
 
     if data == "lang_en":
-        context.user_data.clear()
-        context.user_data["lang"] = "en"
-
-        await query.edit_message_text("🇬🇧 English selected.")
-        await show_main_menu(query.message, context)
+        await select_language(query, context, "en")
         return
 
 
     if data == "lang_de":
-        context.user_data.clear()
-        context.user_data["lang"] = "de"
-
-        await query.edit_message_text("🇩🇪 Deutsch ausgewählt.")
-        await show_main_menu(query.message, context)
+        await select_language(query, context, "de")
         return
 
 

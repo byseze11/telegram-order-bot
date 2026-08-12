@@ -390,8 +390,20 @@ async def select_language(query, context, lang):
     context.user_data.clear()
     context.user_data["lang"] = lang
 
-    await query.edit_message_text(TEXTS[lang]["language_selected"])
-    await show_main_menu(query.message, context)
+    # Katılma isteğiyle açılan geçici özel sohbette Telegram bazen ikinci bir
+    # mesajı reddeder. Bu yüzden dil mesajını doğrudan ana menüye çeviriyoruz.
+    keyboard = [[
+        InlineKeyboardButton(
+            TEXTS[lang]["order_button"],
+            callback_data="new_order"
+        )
+    ]]
+    keyboard.extend(support_keyboard(lang))
+
+    await query.edit_message_text(
+        TEXTS[lang]["welcome"],
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
 
     if pending_chat_id and pending_user_id:
         try:
@@ -440,9 +452,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         context.user_data["state"] = "product"
 
-        await query.message.reply_text(
+        # Aynı geçici özel sohbet mesajını ürün sorusuna dönüştür.
+        await query.edit_message_text(
             TEXTS[lang]["product"],
-            reply_markup=ReplyKeyboardRemove()
         )
         return
 

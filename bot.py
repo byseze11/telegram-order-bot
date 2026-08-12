@@ -44,7 +44,7 @@ PRODUCTS = {
     },
     "snow": {
         "en": "❄️ Snow",
-        "prices": {0.5: 50, 2: 150, 5: 300},
+        "prices": {0.5: 50, 1: 100, 2: 150, 5: 300},
     },
     "chocolate": {
         "en": "🍫 Chocolate",

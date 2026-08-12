@@ -128,7 +128,7 @@ TEXTS = {
     },
 
     "de": {
-        "language_selected": "🇩🇪 Deutsch ausgewählt.",
+       "language_selected": "🇩🇪 Deutsch ausgewählt.",
 
         "welcome": (
             "⚠️ WICHTIG – BITTE SORGFÄLTIG LESEN\n\n"

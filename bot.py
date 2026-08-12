@@ -3,8 +3,6 @@ from telegram import (
     Update,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
-    KeyboardButton,
-    ReplyKeyboardMarkup,
     ReplyKeyboardRemove,
 )
 from telegram.ext import (
@@ -1019,24 +1017,6 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.user_data["address"] = text
         context.user_data["state"] = "location"
 
-        location_keyboard = ReplyKeyboardMarkup(
-            [
-                [
-                    KeyboardButton(
-                        TEXTS[lang]["share_location"],
-                        request_location=True
-                    )
-                ]
-            ],
-            resize_keyboard=True,
-            one_time_keyboard=True
-        )
-
-        await update.message.reply_text(
-            TEXTS[lang]["location_question"],
-            reply_markup=location_keyboard
-        )
-
         skip_keyboard = [
             [
                 InlineKeyboardButton(
@@ -1049,7 +1029,7 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         skip_keyboard.extend(support_keyboard(lang))
 
         await update.message.reply_text(
-            "👇",
+            TEXTS[lang]["location_question"],
             reply_markup=InlineKeyboardMarkup(skip_keyboard)
         )
 

@@ -84,8 +84,8 @@ TEXTS = {
             "🍃 Leaf Print T-Shirt\n"
             "❄️ Snow Print Sweatshirt\n"
             "🍫 Chocolate Print Hoodie\n\n"
-            "Please enter the product name or product code.\n"
-            "Example: Leaf Print T-Shirt"
+            "Select one or more products and quantities below.\n"
+            "Then press Continue."
         ),
 
         "quantity": (
@@ -178,8 +178,8 @@ TEXTS = {
             "🍃 T-Shirt mit Blattmotiv\n"
             "❄️ Sweatshirt mit Schneemotiv\n"
             "🍫 Hoodie mit Schokoladenmotiv\n\n"
-            "Bitte gib den Produktnamen oder Produktcode ein.\n"
-            "Beispiel: T-Shirt mit Blattmotiv"
+            "Wähle unten ein oder mehrere Produkte und Mengen aus.\n"
+            "Drücke anschließend auf Weiter."
         ),
 
         "quantity": (
@@ -280,43 +280,61 @@ def support_keyboard(lang):
     return buttons
 
 
-def product_keyboard(lang):
-    return [
-        [InlineKeyboardButton(
-            product[lang], callback_data=f"product_{product_key}"
-        )]
-        for product_key, product in PRODUCTS.items()
-    ]
+def cart_lines(lang, cart):
+    lines = []
+    for product_key, quantity in cart.items():
+        product = PRODUCTS[product_key]
+        price = product["prices"][quantity]
+        lines.append(f"{product[lang]} — {quantity} = {price} €")
+    return lines
 
 
-def quantity_prompt(lang, product_key):
-    product = PRODUCTS[product_key]
-    prices = product["prices"]
-    price_lines = "\n".join(
-        f"{quantity} {'pieces' if lang == 'en' else 'Stück'} = {price} €"
-        for quantity, price in prices.items()
+def cart_total(cart):
+    return sum(
+        PRODUCTS[product_key]["prices"][quantity]
+        for product_key, quantity in cart.items()
     )
-    choices = ", ".join(str(quantity) for quantity in prices)
 
-    if lang == "en":
-        return (
-            f"{product['en']}\n\n{price_lines}\n\n"
-            f"Please enter one of these quantities: {choices}."
-        )
 
+def selection_text(lang, cart):
+    text = TEXTS[lang]["product"]
+    if not cart:
+        return text
+
+    selected_title = "✅ Selected:" if lang == "en" else "✅ Ausgewählt:"
+    total_label = "Total" if lang == "en" else "Gesamt"
     return (
-        f"{product['de']}\n\n{price_lines}\n\n"
-        f"Bitte gib eine dieser Mengen ein: {choices}."
+        f"{text}\n\n{selected_title}\n"
+        + "\n".join(cart_lines(lang, cart))
+        + f"\n\n💶 {total_label}: {cart_total(cart)} €"
     )
 
 
-def invalid_quantity_message(lang, product_key):
-    choices = ", ".join(
-        str(quantity) for quantity in PRODUCTS[product_key]["prices"]
-    )
-    if lang == "en":
-        return f"⚠️ Please enter one of these quantities: {choices}."
-    return f"⚠️ Bitte gib eine dieser Mengen ein: {choices}."
+def selection_keyboard(lang, cart):
+    keyboard = []
+    for product_key, product in PRODUCTS.items():
+        keyboard.append([
+            InlineKeyboardButton(product[lang], callback_data="selection_info")
+        ])
+        option_row = []
+        for quantity, price in product["prices"].items():
+            selected = cart.get(product_key) == quantity
+            prefix = "✅ " if selected else ""
+            option_row.append(InlineKeyboardButton(
+                f"{prefix}{quantity} = {price} €",
+                callback_data=f"pick_{product_key}_{quantity}"
+            ))
+            if len(option_row) == 2:
+                keyboard.append(option_row)
+                option_row = []
+        if option_row:
+            keyboard.append(option_row)
+
+    continue_text = "➡️ Continue" if lang == "en" else "➡️ Weiter"
+    keyboard.append([
+        InlineKeyboardButton(continue_text, callback_data="cart_continue")
+    ])
+    return keyboard
 
 
 async def show_main_menu(message, context):
@@ -342,9 +360,9 @@ async def show_main_menu(message, context):
 async def show_summary(update, context):
     lang = get_lang(context)
 
-    product = context.user_data.get("product", "-")
-    quantity = context.user_data.get("quantity", "-")
-    price = context.user_data.get("price", "-")
+    cart = context.user_data.get("cart", {})
+    order_lines = "\n".join(cart_lines(lang, cart)) or "-"
+    price = cart_total(cart)
     address = context.user_data.get("address", "-")
 
     latitude = context.user_data.get("latitude")
@@ -358,8 +376,7 @@ async def show_summary(update, context):
     if lang == "en":
         summary = (
             "🧾 ORDER SUMMARY\n\n"
-            f"🛍 Product: {product}\n"
-            f"🔢 Quantity: {quantity}\n"
+            f"🛍 Products:\n{order_lines}\n"
             f"💶 Total price: {price} €\n"
             f"📍 Address / Area: {address}\n"
             f"🗺 Location: {location_status}\n\n"
@@ -370,8 +387,7 @@ async def show_summary(update, context):
     else:
         summary = (
             "🧾 BESTELLÜBERSICHT\n\n"
-            f"🛍 Produkt: {product}\n"
-            f"🔢 Menge: {quantity}\n"
+            f"🛍 Produkte:\n{order_lines}\n"
             f"💶 Gesamtpreis: {price} €\n"
             f"📍 Adresse / Gebiet: {address}\n"
             f"🗺 Standort: {location_status}\n\n"
@@ -435,11 +451,6 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if request is None or request.chat.id != PINKPANTHER_GROUP_ID:
         return
 
-    # Katılımı dil seçildikten ve ana menü gönderildikten sonra onaylayacağız.
-    # Telegram'ın geçici özel mesaj izni, istek onaylanınca sona erebilir.
-    context.user_data["pending_join_chat_id"] = request.chat.id
-    context.user_data["pending_join_user_id"] = request.from_user.id
-
     keyboard = [
         [
             InlineKeyboardButton("🇬🇧 English", callback_data="lang_en"),
@@ -456,13 +467,19 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
     except Exception as error:
-        print("Katılma isteği işlenemedi:", error)
+        print("Katılma isteğine özel mesaj gönderilemedi:", error)
+
+    # Özel mesaj başarısız olsa bile katılım onayı ayrıca çalışır.
+    try:
+        await context.bot.approve_chat_join_request(
+            chat_id=request.chat.id,
+            user_id=request.from_user.id
+        )
+    except Exception as error:
+        print("Katılma isteği otomatik onaylanamadı:", error)
 
 
 async def select_language(query, context, lang):
-    pending_chat_id = context.user_data.get("pending_join_chat_id")
-    pending_user_id = context.user_data.get("pending_join_user_id")
-
     context.user_data.clear()
     context.user_data["lang"] = lang
 
@@ -481,14 +498,6 @@ async def select_language(query, context, lang):
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-    if pending_chat_id and pending_user_id:
-        try:
-            await context.bot.approve_chat_join_request(
-                chat_id=pending_chat_id,
-                user_id=pending_user_id
-            )
-        except Exception as error:
-            print("Katılma isteği onaylanamadı:", error)
 
 
 # =========================================================
@@ -527,26 +536,54 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reset_order(context)
 
         context.user_data["state"] = "product_selection"
+        context.user_data["cart"] = {}
 
         await query.edit_message_text(
-            TEXTS[lang]["product"],
-            reply_markup=InlineKeyboardMarkup(product_keyboard(lang))
+            selection_text(lang, {}),
+            reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, {}))
         )
         return
 
 
-    if data.startswith("product_"):
-        product_key = data.removeprefix("product_")
-        if product_key not in PRODUCTS:
+    if data == "selection_info":
+        return
+
+
+    if data.startswith("pick_"):
+        _, product_key, quantity_text = data.split("_", 2)
+        quantity = int(quantity_text)
+        if (
+            product_key not in PRODUCTS
+            or quantity not in PRODUCTS[product_key]["prices"]
+        ):
             return
 
-        context.user_data["product_key"] = product_key
-        context.user_data["product"] = PRODUCTS[product_key][lang]
-        context.user_data["state"] = "quantity"
+        cart = context.user_data.setdefault("cart", {})
+        cart[product_key] = quantity
 
         await query.edit_message_text(
-            quantity_prompt(lang, product_key)
+            selection_text(lang, cart),
+            reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, cart))
         )
+        return
+
+
+    if data == "cart_continue":
+        cart = context.user_data.get("cart", {})
+        if not cart:
+            warning = (
+                "⚠️ Please select at least one product."
+                if lang == "en"
+                else "⚠️ Bitte wähle mindestens ein Produkt aus."
+            )
+            await query.edit_message_text(
+                f"{selection_text(lang, cart)}\n\n{warning}",
+                reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, cart))
+            )
+            return
+
+        context.user_data["state"] = "address"
+        await query.edit_message_text(TEXTS[lang]["address"])
         return
 
 
@@ -556,9 +593,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if data == "confirm_order":
 
-        product = context.user_data.get("product", "-")
-        quantity = context.user_data.get("quantity", "-")
-        price = context.user_data.get("price", "-")
+        cart = context.user_data.get("cart", {})
+        order_lines = "\n".join(cart_lines("en", cart)) or "-"
+        price = cart_total(cart)
         address = context.user_data.get("address", "-")
 
         latitude = context.user_data.get("latitude")
@@ -582,8 +619,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"📱 Telegram: {username}\n"
             f"🆔 Kullanıcı ID: {user.id}\n"
             f"🌍 Dil: {'İngilizce' if lang == 'en' else 'Almanca'}\n\n"
-            f"🛍 Ürün: {product}\n"
-            f"🔢 Miktar: {quantity}\n"
+            f"🛍 Ürünler:\n{order_lines}\n"
             f"💶 Toplam fiyat: {price} €\n"
             f"🏠 Adres / Bölge: {address}\n\n"
             f"📍 Konum:\n{location_text}\n\n"
@@ -633,10 +669,11 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reset_order(context)
 
         context.user_data["state"] = "product_selection"
+        context.user_data["cart"] = {}
 
-        await query.message.reply_text(
-            TEXTS[lang]["product"],
-            reply_markup=InlineKeyboardMarkup(product_keyboard(lang))
+        await query.edit_message_text(
+            selection_text(lang, {}),
+            reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, {}))
         )
 
         return
@@ -684,68 +721,6 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lang = get_lang(context)
 
     text = update.message.text.strip()
-
-
-    # -------------------------
-    # ÜRÜN
-    # -------------------------
-
-    if state == "product":
-
-        context.user_data["product"] = text
-        context.user_data["state"] = "quantity"
-
-        await update.message.reply_text(
-            TEXTS[lang]["quantity"]
-        )
-
-        return
-
-
-    # -------------------------
-    # MİKTAR
-    # -------------------------
-
-    if state == "quantity":
-
-        clean_quantity = text.replace(" ", "")
-        product_key = context.user_data.get("product_key")
-
-        if product_key not in PRODUCTS:
-            return
-
-        if not clean_quantity.isdigit():
-            await update.message.reply_text(
-                invalid_quantity_message(lang, product_key)
-            )
-            return
-
-        quantity = int(clean_quantity)
-        prices = PRODUCTS[product_key]["prices"]
-
-        if quantity not in prices:
-            await update.message.reply_text(
-                invalid_quantity_message(lang, product_key)
-            )
-            return
-
-        context.user_data["quantity"] = quantity
-        context.user_data["price"] = prices[quantity]
-        context.user_data["state"] = "address"
-
-        support_buttons = support_keyboard(lang)
-
-        if support_buttons:
-            await update.message.reply_text(
-                TEXTS[lang]["address"],
-                reply_markup=InlineKeyboardMarkup(support_buttons)
-            )
-        else:
-            await update.message.reply_text(
-                TEXTS[lang]["address"]
-            )
-
-        return
 
 
     # -------------------------

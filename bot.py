@@ -36,12 +36,20 @@ PINKPANTHER_GROUP_ID = int(
 # @ işareti OLMADAN yazılacak. Örnek: PinkPantherSupport
 SUPPORT_USERNAME = os.getenv("SUPPORT_USERNAME", "")
 
-# Sipariş Miktarı: G -> toplam fiyat (€)
-PRICE_BY_QUANTITY = {
-    5: 50, 
-    10: 100, 
-    15: 130, 
-    25: 190, 
+# Kıyafet çeşitleri ve her çeşidin adet -> toplam fiyat (€) listesi
+PRODUCTS = {
+    "leaf": {
+        "en": "🍃 Leaf",
+        "prices": {5: 50, 10: 100, 15: 130, 25: 190},
+    },
+    "snow": {
+        "en": "❄️ Snow",
+        "prices": {0.5: 50, 2: 150, 5: 300},
+    },
+    "chocolate": {
+        "en": "🍫 Chocolate",
+        "prices": {5: 50, 10: 100, 15: 130, 25: 190},
+    },
 }
 
 
@@ -72,8 +80,12 @@ TEXTS = {
         "support_button": "🆘 Live Support",
 
         "product": (
-            "🛍 Please enter the product name or product code.\n\n"
-            "Example: PP-104"
+            "🛍 CLOTHING CATALOG\n\n"
+            "🍃 Leaf Print T-Shirt\n"
+            "❄️ Snow Print Sweatshirt\n"
+            "🍫 Chocolate Print Hoodie\n\n"
+            "Please enter the product name or product code.\n"
+            "Example: Leaf Print T-Shirt"
         ),
 
         "quantity": (
@@ -162,8 +174,12 @@ TEXTS = {
         "support_button": "🆘 Live-Support",
 
         "product": (
-            "🛍 Bitte gib den Produktnamen oder den Produktcode ein.\n\n"
-            "Beispiel: PP-104"
+            "🛍 KLEIDUNGSKATALOG\n\n"
+            "🍃 T-Shirt mit Blattmotiv\n"
+            "❄️ Sweatshirt mit Schneemotiv\n"
+            "🍫 Hoodie mit Schokoladenmotiv\n\n"
+            "Bitte gib den Produktnamen oder Produktcode ein.\n"
+            "Beispiel: T-Shirt mit Blattmotiv"
         ),
 
         "quantity": (
@@ -262,6 +278,45 @@ def support_keyboard(lang):
         ])
 
     return buttons
+
+
+def product_keyboard(lang):
+    return [
+        [InlineKeyboardButton(
+            product[lang], callback_data=f"product_{product_key}"
+        )]
+        for product_key, product in PRODUCTS.items()
+    ]
+
+
+def quantity_prompt(lang, product_key):
+    product = PRODUCTS[product_key]
+    prices = product["prices"]
+    price_lines = "\n".join(
+        f"{quantity} {'pieces' if lang == 'en' else 'Stück'} = {price} €"
+        for quantity, price in prices.items()
+    )
+    choices = ", ".join(str(quantity) for quantity in prices)
+
+    if lang == "en":
+        return (
+            f"{product['en']}\n\n{price_lines}\n\n"
+            f"Please enter one of these quantities: {choices}."
+        )
+
+    return (
+        f"{product['de']}\n\n{price_lines}\n\n"
+        f"Bitte gib eine dieser Mengen ein: {choices}."
+    )
+
+
+def invalid_quantity_message(lang, product_key):
+    choices = ", ".join(
+        str(quantity) for quantity in PRODUCTS[product_key]["prices"]
+    )
+    if lang == "en":
+        return f"⚠️ Please enter one of these quantities: {choices}."
+    return f"⚠️ Bitte gib eine dieser Mengen ein: {choices}."
 
 
 async def show_main_menu(message, context):
@@ -471,11 +526,26 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if data == "new_order":
         reset_order(context)
 
-        context.user_data["state"] = "product"
+        context.user_data["state"] = "product_selection"
 
-        # Aynı geçici özel sohbet mesajını ürün sorusuna dönüştür.
         await query.edit_message_text(
             TEXTS[lang]["product"],
+            reply_markup=InlineKeyboardMarkup(product_keyboard(lang))
+        )
+        return
+
+
+    if data.startswith("product_"):
+        product_key = data.removeprefix("product_")
+        if product_key not in PRODUCTS:
+            return
+
+        context.user_data["product_key"] = product_key
+        context.user_data["product"] = PRODUCTS[product_key][lang]
+        context.user_data["state"] = "quantity"
+
+        await query.edit_message_text(
+            quantity_prompt(lang, product_key)
         )
         return
 
@@ -562,11 +632,11 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if data == "change_order":
         reset_order(context)
 
-        context.user_data["state"] = "product"
+        context.user_data["state"] = "product_selection"
 
         await query.message.reply_text(
-            TEXTS[lang]["restart"],
-            reply_markup=ReplyKeyboardRemove()
+            TEXTS[lang]["product"],
+            reply_markup=InlineKeyboardMarkup(product_keyboard(lang))
         )
 
         return
@@ -639,23 +709,28 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if state == "quantity":
 
         clean_quantity = text.replace(" ", "")
+        product_key = context.user_data.get("product_key")
+
+        if product_key not in PRODUCTS:
+            return
 
         if not clean_quantity.isdigit():
             await update.message.reply_text(
-                TEXTS[lang]["invalid_quantity"]
+                invalid_quantity_message(lang, product_key)
             )
             return
 
         quantity = int(clean_quantity)
+        prices = PRODUCTS[product_key]["prices"]
 
-        if quantity not in PRICE_BY_QUANTITY:
+        if quantity not in prices:
             await update.message.reply_text(
-                TEXTS[lang]["invalid_quantity"]
+                invalid_quantity_message(lang, product_key)
             )
             return
 
         context.user_data["quantity"] = quantity
-        context.user_data["price"] = PRICE_BY_QUANTITY[quantity]
+        context.user_data["price"] = prices[quantity]
         context.user_data["state"] = "address"
 
         support_buttons = support_keyboard(lang)

@@ -401,7 +401,980 @@ TEXTS = {
             "Thank you for your order. You will be contacted regarding the delivery.\n\n"
             "ğŸš— Delivery: FREE\n"
             "ğŸ’µ Payment: Cash on delivery\n\n"
-            "âš ï¸ Please do not make any payment before recó;¶‰ËkºwµçUáĞ¡±…¹œ°ÁÉ½‘ÕĞ°ÅÕ…¹Ñ¥Ñä¤(€€€€€€€€€€€½ÁÑ¥½¹}É½Ü¹…ÁÁ•¹¡%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ (€€€€€€€€€€€€€€€˜‰íÁÉ•™¥áõí…µ½Õ¹Ñô€ôíÁÉ¥•ôƒŠ
-°ˆ°(€€€€€€€€€€€€€€€…±±‰…­}‘…Ñ„õ˜‰Á¥­}íÁÉ½‘ÕÑ}­•åõ}íÅÕ…¹Ñ¥Ñåôˆ(€€€€€€€€€€€€¤¤(€€€€€€€€€€€¥˜±•¸¡½ÁÑ¥½¹}É½Ü¤€ôô€Èè(€€€€€€€€€€€€€€€­•å‰½…É¹…ÁÁ•¹¡½ÁÑ¥½¹}É½Ü¤(€€€€€€€€€€€€€€€½ÁÑ¥½¹}É½Ü€ômt(€€€€€€€¥˜½ÁÑ¥½¹}É½Üè(€€€€€€€€€€€­•å‰½…É¹…ÁÁ•¹¡½ÁÑ¥½¹}É½Ü¤((€€€½¹Ñ¥¹Õ•}Ñ•áĞ€ô˜‹Šz‡¾â<íU%}QaQm±…¹ul½¹Ñ¥¹Õ”uôˆ(€€€­•å‰½…É¹…ÁÁ•¹¡l(€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸¡½¹Ñ¥¹Õ•}Ñ•áĞ°…±±‰…­}‘…Ñ„ô‰…ÉÑ}½¹Ñ¥¹Õ”ˆ¤(€€€t¤(€€€É•ÑÕÉ¸­•å‰½…É(4(4)…Íå¹Œ‘•˜Í¡½İ}µ…¥¹}µ•¹Ô¡µ•ÍÍ…”°½¹Ñ•áĞ¤è4(€€€±…¹œ€ô•Ñ}±…¹œ¡½¹Ñ•áĞ¤4(4(€€€­•å‰½…É€ôl4(€€€€€€€l4(€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ 4(€€€€€€€€€€€€€€€QaQMm±…¹ul‰½É‘•É}‰ÕÑÑ½¸‰t°4(€€€€€€€€€€€€€€€…±±‰…­}‘…Ñ„ô‰¹•İ}½É‘•Èˆ4(€€€€€€€€€€€€¤4(€€€€€€€t4(€€€t4(4(€€€­•å‰½…É¹•áÑ•¹¡ÍÕÁÁ½ÉÑ}­•å‰½…É¡±…¹œ¤¤4(4(€€€…İ…¥Ğµ•ÍÍ…”¹É•Á±å}Ñ•áĞ 4(€€€€€€€QaQMm±…¹ul‰İ•±½µ”‰t°4(€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡­•å‰½…É¤4(€€€€¤4(4(4)…Íå¹Œ‘•˜Í¡½İ}ÍÕµµ…Éä¡ÕÁ‘…Ñ”°½¹Ñ•áĞ¤è(€€€±…¹œ€ô•Ñ}±…¹œ¡½¹Ñ•áĞ¤((€€€…ÉĞ€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰…ÉĞˆ°íô¤(€€€½É‘•É}±¥¹•Ì€ô€‰q¸ˆ¹©½¥¸ (€€€€€€€…ÉÑ}±¥¹•Ì¡±…¹œ°…ÉĞ°½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰‰É…¹ˆ¤¤(€€€€¤½È€ˆ´ˆ(€€€ÁÉ¥”€ô…ÉÑ}Ñ½Ñ…°¡…ÉĞ¤(€€€…‘‘É•ÍÌ€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰…‘‘É•ÍÌˆ°€ˆ´ˆ¤4(4(€€€±…Ñ¥ÑÕ‘”€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰±…Ñ¥ÑÕ‘”ˆ¤4(€€€±½¹¥ÑÕ‘”€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰±½¹¥ÑÕ‘”ˆ¤4(4(€€€Õ¤€ôU%}QaQm±…¹t(€€€±½…Ñ¥½¹}ÍÑ…ÑÕÌ€ô€ (€€€€€€€˜‹ŠríÕ¥lÉ••¥Ù•uôˆ¥˜±…Ñ¥ÑÕ‘”…¹±½¹¥ÑÕ‘”(€€€€€€€•±Í”˜‹ŠzXíÕ¥l¹½Ñ}Í¡…É•uôˆ(€€€€¤(€€€ÍÕµµ…Éä€ô€ (€€€€€€€˜‹Â~øíÕ¥lÍÕµµ…Éäuõq¹q¸ˆ(€€€€€€€˜‹Â~n4íÕ¥lÁÉ½‘ÕÑÌuôéq¹í½É‘•É}±¥¹•Íõq¸ˆ(€€€€€€€˜‹Â~JØíÕ¥lÑ½Ñ…±}ÁÉ¥”uôèíÁÉ¥•ôƒŠ
-±q¸ˆ(€€€€€€€˜‹Â~N4íÕ¥l…‘‘É•ÍÌuôèí…‘‘É•ÍÍõq¸ˆ(€€€€€€€˜‹Â~^èíÕ¥l±½…Ñ¥½¸uôèí±½…Ñ¥½¹}ÍÑ…ÑÕÍõq¹q¸ˆ(€€€€€€€˜‹Â~j\íÕ¥l‘•±¥Ù•Éäuõq¸ˆ(€€€€€€€˜‹Â~JÔíÕ¥lÁ…åµ•¹Ğuõq¹q¸ˆ(€€€€€€€˜‹Šjƒ¾â<íÕ¥lİ…É¹¥¹œuôˆ(€€€€¤(4(€€€­•å‰½…É€ôl4(€€€€€€€l4(€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ 4(€€€€€€€€€€€€€€€QaQMm±…¹ul‰½¹™¥É´‰t°4(€€€€€€€€€€€€€€€…±±‰…­}‘…Ñ„ô‰½¹™¥Éµ}½É‘•Èˆ4(€€€€€€€€€€€€¤4(€€€€€€€t°4(€€€€€€€l4(€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ 4(€€€€€€€€€€€€€€€QaQMm±…¹ul‰¡…¹”‰t°4(€€€€€€€€€€€€€€€…±±‰…­}‘…Ñ„ô‰¡…¹•}½É‘•Èˆ4(€€€€€€€€€€€€¤4(€€€€€€€t°4(€€€€€€€l4(€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ 4(€€€€€€€€€€€€€€€QaQMm±…¹ul‰…¹•°‰t°4(€€€€€€€€€€€€€€€…±±‰…­}‘…Ñ„ô‰…¹•±}½É‘•Èˆ4(€€€€€€€€€€€€¤4(€€€€€€€t4(€€€t4(4(€€€…İ…¥ĞÕÁ‘…Ñ”¹•™™•Ñ¥Ù•}µ•ÍÍ…”¹É•Á±å}Ñ•áĞ 4(€€€€€€€ÍÕµµ…Éä°4(€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡­•å‰½…É¤4(€€€€¤4(4(€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰ÍÑ…Ñ”‰t€ô€‰ÍÕµµ…Éäˆ4(4(4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(Œ€½MQIP4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(4)…Íå¹Œ‘•˜ÍÑ…ÉĞ¡ÕÁ‘…Ñ”èUÁ‘…Ñ”°½¹Ñ•áĞè½¹Ñ•áÑQåÁ•Ì¹U1Q}QeA¤è(€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹±•…È ¤4(4(€€€­•å‰½…É€ôl4(€€€€€€€l4(€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ ‹Â~³Â~œ¹±¥Í ˆ°…±±‰…­}‘…Ñ„ô‰±…¹}•¸ˆ¤°4(€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ ‹Â~§Â~¨•ÕÑÍ ˆ°…±±‰…­}‘…Ñ„ô‰±…¹}‘”ˆ¤°4(€€€€€€€t4(€€€t4(4(€€€­•å‰½…É€ô±…¹Õ…•}­•å‰½…É ¤((€€€…İ…¥ĞÕÁ‘…Ñ”¹µ•ÍÍ…”¹É•Á±å}Ñ•áĞ (€€€€€€€€‹Â~24¡½½Í”å½ÕÈ±…¹Õ…”€¼MÁÉ…¡”…ÕÍß‘¡±•¸ˆ°(€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡­•å‰½…É¤(€€€€¤(()…Íå¹Œ‘•˜©½¥¹}É•ÅÕ•ÍĞ¡ÕÁ‘…Ñ”èUÁ‘…Ñ”°½¹Ñ•áĞè½¹Ñ•áÑQåÁ•Ì¹U1Q}QeA¤è(€€€É•ÅÕ•ÍĞ€ôÕÁ‘…Ñ”¹¡…Ñ}©½¥¹}É•ÅÕ•ÍĞ((€€€¥˜É•ÅÕ•ÍĞ¥Ì9½¹”½ÈÉ•ÅÕ•ÍĞ¹¡…Ğ¹¥€„ôA%9-A9Q!I}I=UA}%è(€€€€€€€É•ÑÕÉ¸((€€€­•å‰½…É€ôl(€€€€€€€l(€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ ‹Â~³Â~œ¹±¥Í ˆ°…±±‰…­}‘…Ñ„ô‰±…¹}•¸ˆ¤°(€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ ‹Â~§Â~¨•ÕÑÍ ˆ°…±±‰…­}‘…Ñ„ô‰±…¹}‘”ˆ¤°(€€€€€€€t(€€€t((€€€­•å‰½…É€ô±…¹Õ…•}­•å‰½…É ¤((€€€ÑÉäè(€€€€€€€€ŒQ•±•É…´‰ÔƒÙé•°Í½¡‰•Ğ­¥µ±§}¥¹¤­…ÓÅ±µ„¥ÍÑ—}¥å±”‰¥É±¥­Ñ”Ù•É¥È¸(€€€€€€€€ŒÙå±•”­Õ±±…»ÅÄ‘…¡„ƒÙ¹”€½ÍÑ…ÉĞå…éµ…·Ç|½±Í„‘„µ•Í…¨ŸÙ¹‘•É¥±•‰¥±¥È¸(€€€€€€€…İ…¥Ğ½¹Ñ•áĞ¹‰½Ğ¹Í•¹‘}µ•ÍÍ…” (€€€€€€€€€€€¡…Ñ}¥õÉ•ÅÕ•ÍĞ¹ÕÍ•É}¡…Ñ}¥°(€€€€€€€€€€€Ñ•áĞô‹Â~24¡½½Í”å½ÕÈ±…¹Õ…”€¼MÁÉ…¡”…ÕÍß‘¡±•¸ˆ°(€€€€€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡­•å‰½…É¤(€€€€€€€€¤(€€€•á•ÁĞá•ÁÑ¥½¸…Ì•ÉÉ½Èè(€€€€€€€ÁÉ¥¹Ğ ‰-…ÓÅ±µ„¥ÍÑ—}¥¹”ƒÙé•°µ•Í…¨ŸÙ¹‘•É¥±•µ•‘¤èˆ°•ÉÉ½È¤((€€€€ŒƒYé•°µ•Í…¨‰‡}…ËÅÏÅè½±Í„‰¥±”­…ÓÅ³Å´½¹…çÄ…åËÅ„ƒ…³ÇÅÈ¸(€€€ÑÉäè(€€€€€€€…İ…¥Ğ½¹Ñ•áĞ¹‰½Ğ¹…ÁÁÉ½Ù•}¡…Ñ}©½¥¹}É•ÅÕ•ÍĞ (€€€€€€€€€€€¡…Ñ}¥õÉ•ÅÕ•ÍĞ¹¡…Ğ¹¥°(€€€€€€€€€€€ÕÍ•É}¥õÉ•ÅÕ•ÍĞ¹™É½µ}ÕÍ•È¹¥(€€€€€€€€¤(€€€•á•ÁĞá•ÁÑ¥½¸…Ì•ÉÉ½Èè(€€€€€€€ÁÉ¥¹Ğ ‰-…ÓÅ±µ„¥ÍÑ—}¤½Ñ½µ…Ñ¥¬½¹…å±…¹…µ…“Äèˆ°•ÉÉ½È¤(()…Íå¹Œ‘•˜Í•±•Ñ}±…¹Õ…”¡ÅÕ•Éä°½¹Ñ•áĞ°±…¹œ¤è(€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹±•…È ¤(€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰±…¹œ‰t€ô±…¹œ((€€€€Œ-…ÓÅ±µ„¥ÍÑ—}¥å±”‡ŸÅ±…¸—¥¤ƒÙé•°Í½¡‰•ÑÑ”Q•±•É…´‰…é•¸¥­¥¹¤‰¥È(€€€€Œµ•Í…«ÄÉ•‘‘•‘•È¸	Ôçñé‘•¸‘¥°µ•Í…«Å»Ä‘¿}ÉÕ‘…¸…¹„µ•»ñå”ƒ•Ù¥É¥å½ÉÕè¸(€€€­•å‰½…É€ôml(€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ (€€€€€€€€€€€QaQMm±…¹ul‰½É‘•É}‰ÕÑÑ½¸‰t°(€€€€€€€€€€€…±±‰…­}‘…Ñ„ô‰¹•İ}½É‘•Èˆ(€€€€€€€€¤(€€€ut(€€€­•å‰½…É¹•áÑ•¹¡ÍÕÁÁ½ÉÑ}­•å‰½…É¡±…¹œ¤¤((€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}Ñ•áĞ (€€€€€€€QaQMm±…¹ul‰İ•±½µ”‰t°(€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡­•å‰½…É¤(€€€€¤((4(4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(Œ	UQ=91H4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(4)…Íå¹Œ‘•˜‰ÕÑÑ½¹}¡…¹‘±•È¡ÕÁ‘…Ñ”èUÁ‘…Ñ”°½¹Ñ•áĞè½¹Ñ•áÑQåÁ•Ì¹U1Q}QeA¤è4(€€€ÅÕ•Éä€ôÕÁ‘…Ñ”¹…±±‰…­}ÅÕ•Éä4(€€€…İ…¥ĞÅÕ•Éä¹…¹Íİ•È ¤4(4(€€€‘…Ñ„€ôÅÕ•Éä¹‘…Ñ„4(4(4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(€€€€ŒÁ0MÁ7À4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(4(€€€¥˜‘…Ñ„¹ÍÑ…ÉÑÍİ¥Ñ  ‰±…¹|ˆ¤è(€€€€€€€Í•±•Ñ•‘}±…¹œ€ô‘…Ñ„¹É•µ½Ù•ÁÉ•™¥à ‰±…¹|ˆ¤(€€€€€€€¥˜Í•±•Ñ•‘}±…¹œ¥¸QaQLè(€€€€€€€€€€€…İ…¥ĞÍ•±•Ñ}±…¹Õ…”¡ÅÕ•Éä°½¹Ñ•áĞ°Í•±•Ñ•‘}±…¹œ¤(€€€€€€€É•ÑÕÉ¸(4(4(€€€±…¹œ€ô•Ñ}±…¹œ¡½¹Ñ•áĞ¤4(4(4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(€€€€Œe;ÀOÁAKÃx4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(4(€€€¥˜‘…Ñ„€ôô€‰¹•İ}½É‘•Èˆè(€€€€€€€É•Í•Ñ}½É‘•È¡½¹Ñ•áĞ¤((€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰ÍÑ…Ñ”‰t€ô€‰ÁÉ½‘ÕÑ}Í•±•Ñ¥½¸ˆ(€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰…ÉĞ‰t€ôíô((€€€€€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}Ñ•áĞ (€€€€€€€€€€€Í•±•Ñ¥½¹}Ñ•áĞ¡±…¹œ°íô¤°(€€€€€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡Í•±•Ñ¥½¹}­•å‰½…É¡±…¹œ°íô¤¤(€€€€€€€€¤(€€€€€€€É•ÑÕÉ¸(((€€€¥˜‘…Ñ„€ôô€‰Í•±•Ñ¥½¹}¥¹™¼ˆè(€€€€€€€É•ÑÕÉ¸(((€€€¥˜‘…Ñ„¹ÍÑ…ÉÑÍİ¥Ñ  ‰Á¥­|ˆ¤è(€€€€€€€|°ÁÉ½‘ÕÑ}­•ä°ÅÕ…¹Ñ¥Ñå}Ñ•áĞ€ô‘…Ñ„¹ÍÁ±¥Ğ ‰|ˆ°€È¤(€€€€€€€ÅÕ…¹Ñ¥Ñä€ô™±½…Ğ¡ÅÕ…¹Ñ¥Ñå}Ñ•áĞ¤¥˜€ˆ¸ˆ¥¸ÅÕ…¹Ñ¥Ñå}Ñ•áĞ•±Í”¥¹Ğ¡ÅÕ…¹Ñ¥Ñå}Ñ•áĞ¤(€€€€€€€¥˜€ (€€€€€€€€€€€ÁÉ½‘ÕÑ}­•ä¹½Ğ¥¸AI=UQL(€€€€€€€€€€€½ÈÅÕ…¹Ñ¥Ñä¹½Ğ¥¸AI=UQMmÁÉ½‘ÕÑ}­•åul‰ÁÉ¥•Ì‰t(€€€€€€€€¤è(€€€€€€€€€€€É•ÑÕÉ¸((€€€€€€€…ÉĞ€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹Í•Ñ‘•™…Õ±Ğ ‰…ÉĞˆ°íô¤(€€€€€€€…ÉÑmÁÉ½‘ÕÑ}­•åt€ôÅÕ…¹Ñ¥Ñä((€€€€€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}Ñ•áĞ (€€€€€€€€€€€Í•±•Ñ¥½¹}Ñ•áĞ¡±…¹œ°…ÉĞ¤°(€€€€€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡Í•±•Ñ¥½¹}­•å‰½…É¡±…¹œ°…ÉĞ¤¤(€€€€€€€€¤(€€€€€€€É•ÑÕÉ¸(((€€€¥˜‘…Ñ„€ôô€‰…ÉÑ}½¹Ñ¥¹Õ”ˆè(€€€€€€€…ÉĞ€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰…ÉĞˆ°íô¤(€€€€€€€¥˜¹½Ğ…ÉĞè(€€€€€€€€€€€İ…É¹¥¹œ€ô˜‹Šjƒ¾â<íU%}QaQm±…¹ul•µÁÑäuôˆ(€€€€€€€€€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}Ñ•áĞ (€€€€€€€€€€€€€€€˜‰íÍ•±•Ñ¥½¹}Ñ•áĞ¡±…¹œ°…ÉĞ¥õq¹q¹íİ…É¹¥¹ôˆ°(€€€€€€€€€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡Í•±•Ñ¥½¹}­•å‰½…É¡±…¹œ°…ÉĞ¤¤(€€€€€€€€€€€€¤(€€€€€€€€€€€É•ÑÕÉ¸((€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰ÍÑ…Ñ”‰t€ô€‰‰É…¹‘}•¹ÑÉäˆ(€€€€€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}Ñ•áĞ¡QaQMm±…¹ul‰‰É…¹‘}ÁÉ½µÁĞ‰t¤(€€€€€€€É•ÑÕÉ¸(4(4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(€€€€ŒOÁAKÃ{À=9e14(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(4(€€€¥˜‘…Ñ„€ôô€‰½¹™¥Éµ}½É‘•Èˆè4(4(€€€€€€€…ÉĞ€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰…ÉĞˆ°íô¤(€€€€€€€½É‘•É}±¥¹•Ì€ô€‰q¸ˆ¹©½¥¸ (€€€€€€€€€€€…ÉÑ}±¥¹•Ì ‰•¸ˆ°…ÉĞ°½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰‰É…¹ˆ¤¤(€€€€€€€€¤½È€ˆ´ˆ(€€€€€€€ÁÉ¥”€ô…ÉÑ}Ñ½Ñ…°¡…ÉĞ¤(€€€€€€€…‘‘É•ÍÌ€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰…‘‘É•ÍÌˆ°€ˆ´ˆ¤4(4(€€€€€€€±…Ñ¥ÑÕ‘”€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰±…Ñ¥ÑÕ‘”ˆ¤4(€€€€€€€±½¹¥ÑÕ‘”€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰±½¹¥ÑÕ‘”ˆ¤4(4(€€€€€€€ÕÍ•È€ôÅÕ•Éä¹™É½µ}ÕÍ•È((€€€€€€€€Œ-••ÀÍ•±±•È‘•Ñ•Ñ¥½¸Í•Á…É…Ñ”™É½´Ñ¡”•á¥ÍÑ¥¹œ½É‘•ÈÍÑ…Ñ”µ…¡¥¹”¸(€€€€€€€É•½É‘}½É‘•È¡ÕÍ•È¤(4(€€€€€€€ÕÍ•É¹…µ”€ô˜‰íÕÍ•È¹ÕÍ•É¹…µ•ôˆ¥˜ÕÍ•È¹ÕÍ•É¹…µ”•±Í”€‰9¼ÕÍ•É¹…µ”ˆ4(4(€€€€€€€ÕÍÑ½µ•É}¹…µ”€ôÕÍ•È¹™Õ±±}¹…µ”½È€‰U¹­¹½İ¸ˆ4(4(€€€€€€€¥˜±…Ñ¥ÑÕ‘”…¹±½¹¥ÑÕ‘”è4(€€€€€€€€€€€µ…ÁÍ}±¥¹¬€ô˜‰¡ÑÑÁÌè¼½µ…ÁÌ¹½½±”¹½´¼ıÄõí±…Ñ¥ÑÕ‘•ô±í±½¹¥ÑÕ‘•ôˆ4(€€€€€€€€€€€±½…Ñ¥½¹}Ñ•áĞ€ô˜‹Šrí±…Ñ¥ÑÕ‘•ô°í±½¹¥ÑÕ‘•õq¹íµ…ÁÍ}±¥¹­ôˆ4(€€€€€€€•±Í”è4(€€€€€€€€€€€±½…Ñ¥½¹}Ñ•áĞ€ô€‹Šv0-½¹Õ´ŸÙ¹‘•É¥±µ•‘¤ˆ4(4(€€€€€€€…‘µ¥¹}µ•ÍÍ…”€ô€ 4(€€€€€€€€€€€€‹Â~j e;ÀOÁAKÃxƒÂ~j¡q¹q¸ˆ4(€€€€€€€€€€€˜‹Â~F7ó}Ñ•É¤èíÕÍÑ½µ•É}¹…µ•õq¸ˆ4(€€€€€€€€€€€˜‹Â~NÄQ•±•É…´èíÕÍ•É¹…µ•õq¸ˆ4(€€€€€€€€€€€˜‹Â~P-Õ±±…»ÅÄ%èíÕÍ•È¹¥‘õq¸ˆ4(€€€€€€€€€€€˜‹Â~24¥°èí5%9}19U}95L¹•Ğ¡±…¹œ°±…¹œ¥õq¹q¸ˆ(€€€€€€€€€€€˜‹Â~n4ƒqËñ¹±•Èéq¹í½É‘•É}±¥¹•Íõq¸ˆ(€€€€€€€€€€€˜‹Â~JØQ½Á±…´™¥å…ĞèíÁÉ¥•ôƒŠ
-±q¸ˆ(€€€€€€€€€€€˜‹Â~>€‘É•Ì€¼Ù±”èí…‘‘É•ÍÍõq¹q¸ˆ4(€€€€€€€€€€€˜‹Â~N4-½¹Õ´éq¹í±½…Ñ¥½¹}Ñ•áÑõq¹q¸ˆ4(€€€€€€€€€€€€‹Â~j\Q•Í±¥µ…ĞèƒqÉ•ÑÍ¥éq¸ˆ4(€€€€€€€€€€€€‹Â~JÔƒY‘•µ”èQ•Í±¥µ…ÑÑ„¹…­¥Ğˆ4(€€€€€€€€¤4(4(€€€€€€€¥˜=II}!Q}%è4(€€€€€€€€€€€ÑÉäè4(€€€€€€€€€€€€€€€…İ…¥Ğ½¹Ñ•áĞ¹‰½Ğ¹Í•¹‘}µ•ÍÍ…” 4(€€€€€€€€€€€€€€€€€€€¡…Ñ}¥õ=II}!Q}%°4(€€€€€€€€€€€€€€€€€€€Ñ•áĞõ…‘µ¥¹}µ•ÍÍ…”°4(€€€€€€€€€€€€€€€€€€€‘¥Í…‰±•}İ•‰}Á…•}ÁÉ•Ù¥•ÜõQÉÕ”4(€€€€€€€€€€€€€€€€¤4(4(€€€€€€€€€€€€€€€¥˜±…Ñ¥ÑÕ‘”…¹±½¹¥ÑÕ‘”è4(€€€€€€€€€€€€€€€€€€€…İ…¥Ğ½¹Ñ•áĞ¹‰½Ğ¹Í•¹‘}±½…Ñ¥½¸ 4(€€€€€€€€€€€€€€€€€€€€€€€¡…Ñ}¥õ=II}!Q}%°4(€€€€€€€€€€€€€€€€€€€€€€€±…Ñ¥ÑÕ‘”õ±…Ñ¥ÑÕ‘”°4(€€€€€€€€€€€€€€€€€€€€€€€±½¹¥ÑÕ‘”õ±½¹¥ÑÕ‘”4(€€€€€€€€€€€€€€€€€€€€¤4(4(€€€€€€€€€€€•á•ÁĞá•ÁÑ¥½¸…Ì”è4(€€€€€€€€€€€€€€€ÁÉ¥¹Ğ ‰M¥Á…É§|ÉÕ‰Õ¹„ŸÙ¹‘•Éµ”¡…Ñ…ÏÄèˆ°”¤4(4(€€€€€€€•±Í”è4(€€€€€€€€€€€ÁÉ¥¹Ğ ‰=II}!Q}%…å…É±…¹µ…·Ç|¸ˆ¤4(€€€€€€€€€€€ÁÉ¥¹Ğ¡…‘µ¥¹}µ•ÍÍ…”¤4(4(€€€€€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}É•Á±å}µ…É­ÕÀ¡É•Á±å}µ…É­ÕÀõ9½¹”¤4(4(€€€€€€€…İ…¥ĞÅÕ•Éä¹µ•ÍÍ…”¹É•Á±å}Ñ•áĞ 4(€€€€€€€€€€€QaQMm±…¹ul‰ÍÕ•ÍÌ‰t°4(€€€€€€€€€€€É•Á±å}µ…É­ÕÀõI•Á±å-•å‰½…É‘I•µ½Ù” ¤4(€€€€€€€€¤4(4(€€€€€€€É•Í•Ñ}½É‘•È¡½¹Ñ•áĞ¤4(4(€€€€€€€É•ÑÕÉ¸4(4(4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(€€€€ŒÁ1Á1KÀ{ÃySÁH4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(4(€€€¥˜‘…Ñ„€ôô€‰¡…¹•}½É‘•Èˆè(€€€€€€€É•Í•Ñ}½É‘•È¡½¹Ñ•áĞ¤((€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰ÍÑ…Ñ”‰t€ô€‰ÁÉ½‘ÕÑ}Í•±•Ñ¥½¸ˆ(€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰…ÉĞ‰t€ôíô((€€€€€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}Ñ•áĞ (€€€€€€€€€€€Í•±•Ñ¥½¹}Ñ•áĞ¡±…¹œ°íô¤°(€€€€€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡Í•±•Ñ¥½¹}­•å‰½…É¡±…¹œ°íô¤¤(€€€€€€€€¤(4(€€€€€€€É•ÑÕÉ¸4(4(4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(€€€€ŒOÁAKÃ{ÀƒÁAQ0P4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(4(€€€¥˜‘…Ñ„€ôô€‰…¹•±}½É‘•Èˆè4(€€€€€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}É•Á±å}µ…É­ÕÀ¡É•Á±å}µ…É­ÕÀõ9½¹”¤4(4(€€€€€€€…İ…¥ĞÅÕ•Éä¹µ•ÍÍ…”¹É•Á±å}Ñ•áĞ 4(€€€€€€€€€€€QaQMm±…¹ul‰…¹•±±•‰t°4(€€€€€€€€€€€É•Á±å}µ…É­ÕÀõI•Á±å-•å‰½…É‘I•µ½Ù” ¤4(€€€€€€€€¤4(4(€€€€€€€É•Í•Ñ}½É‘•È¡½¹Ñ•áĞ¤4(4(€€€€€€€É•ÑÕÉ¸4(4(4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(€€€€Œ-=9U4=158Y44(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(4(€€€¥˜‘…Ñ„€ôô€‰Í­¥Á}±½…Ñ¥½¸ˆè4(€€€€€€€…İ…¥ĞÅÕ•Éä¹•‘¥Ñ}µ•ÍÍ…•}É•Á±å}µ…É­ÕÀ¡É•Á±å}µ…É­ÕÀõ9½¹”¤4(4(€€€€€€€…İ…¥ĞÍ¡½İ}ÍÕµµ…Éä¡ÕÁ‘…Ñ”°½¹Ñ•áĞ¤4(4(€€€€€€€É•ÑÕÉ¸4(4(4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(Œei%1$5M)1H4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(4)…Íå¹Œ‘•˜Ñ•áÑ}¡…¹‘±•È¡ÕÁ‘…Ñ”èUÁ‘…Ñ”°½¹Ñ•áĞè½¹Ñ•áÑQåÁ•Ì¹U1Q}QeA¤è4(€€€ÍÑ…Ñ”€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰ÍÑ…Ñ”ˆ¤4(4(€€€¥˜¹½ĞÍÑ…Ñ”è4(€€€€€€€É•ÑÕÉ¸4(4(€€€±…¹œ€ô•Ñ}±…¹œ¡½¹Ñ•áĞ¤4(4(€€€Ñ•áĞ€ôÕÁ‘…Ñ”¹µ•ÍÍ…”¹Ñ•áĞ¹ÍÑÉ¥À ¤(((€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´(€€€€Œ5I-€¡ei%1$5M(¤(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´((€€€¥˜ÍÑ…Ñ”€ôô€‰‰É…¹‘}•¹ÑÉäˆè(€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰‰É…¹‰t€ôÑ•áĞ(€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰ÍÑ…Ñ”‰t€ô€‰…‘‘É•ÍÌˆ((€€€€€€€‰É…¹‘}±…‰•°€ôU%}QaQm±…¹ul‰‰É…¹‘}½¬‰t(€€€€€€€…İ…¥ĞÕÁ‘…Ñ”¹µ•ÍÍ…”¹É•Á±å}Ñ•áĞ (€€€€€€€€€€€˜‹Šrí‰É…¹‘}±…‰•±ôèíÑ•áÑõq¹q¹íQaQMm±…¹ul…‘‘É•ÍÌuôˆ(€€€€€€€€¤(€€€€€€€É•ÑÕÉ¸(4(4(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(€€€€ŒIL€¼Y14(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´4(4(€€€¥˜ÍÑ…Ñ”€ôô€‰…‘‘É•ÍÌˆè((€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰…‘‘É•ÍÌ‰t€ôÑ•áĞ(€€€€€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰ÍÑ…Ñ”‰t€ô€‰±½…Ñ¥½¸ˆ((€€€€€€€Í­¥Á}­•å‰½…É€ôl(€€€€€€€€€€€l4(€€€€€€€€€€€€€€€%¹±¥¹•-•å‰½…É‘	ÕÑÑ½¸ 4(€€€€€€€€€€€€€€€€€€€QaQMm±…¹ul‰Í­¥Á}±½…Ñ¥½¸‰t°4(€€€€€€€€€€€€€€€€€€€…±±‰…­}‘…Ñ„ô‰Í­¥Á}±½…Ñ¥½¸ˆ4(€€€€€€€€€€€€€€€€¤4(€€€€€€€€€€€t4(€€€€€€€t4(4(€€€€€€€Í­¥Á}­•å‰½…É¹•áÑ•¹¡ÍÕÁÁ½ÉÑ}­•å‰½…É¡±…¹œ¤¤((€€€€€€€…İ…¥ĞÕÁ‘…Ñ”¹µ•ÍÍ…”¹É•Á±å}Ñ•áĞ (€€€€€€€€€€€QaQMm±…¹ul‰±½…Ñ¥½¹}ÅÕ•ÍÑ¥½¸‰t°(€€€€€€€€€€€É•Á±å}µ…É­ÕÀõ%¹±¥¹•-•å‰½…É‘5…É­ÕÀ¡Í­¥Á}­•å‰½…É¤(€€€€€€€€¤(4(€€€€€€€É•ÑÕÉ¸4(4(4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(Œ-=9U45M)$4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4)…Íå¹Œ‘•˜Í¡½İ}¥¡ÕÁ‘…Ñ”°½¹Ñ•áĞ¤è4(€€€…İ…¥ĞÕÁ‘…Ñ”¹µ•ÍÍ…”¹É•Á±å}Ñ•áĞ¡˜‰	ÔÉÕ‰Õ¸%Í¤èíÕÁ‘…Ñ”¹•™™•Ñ¥Ù•}¡…Ğ¹¥‘ôˆ¤4)…Íå¹Œ‘•˜±½…Ñ¥½¹}¡…¹‘±•È 4(€€€ÕÁ‘…Ñ”èUÁ‘…Ñ”°4(€€€½¹Ñ•áĞè½¹Ñ•áÑQåÁ•Ì¹U1Q}QeA4(¤è4(4(€€€ÍÑ…Ñ”€ô½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ„¹•Ğ ‰ÍÑ…Ñ”ˆ¤4(4(€€€¥˜ÍÑ…Ñ”€„ô€‰±½…Ñ¥½¸ˆè4(€€€€€€€É•ÑÕÉ¸4(4(€€€±…¹œ€ô•Ñ}±…¹œ¡½¹Ñ•áĞ¤4(4(€€€±½…Ñ¥½¸€ôÕÁ‘…Ñ”¹µ•ÍÍ…”¹±½…Ñ¥½¸4(4(€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰±…Ñ¥ÑÕ‘”‰t€ô±½…Ñ¥½¸¹±…Ñ¥ÑÕ‘”4(€€€½¹Ñ•áĞ¹ÕÍ•É}‘…Ñ…l‰±½¹¥ÑÕ‘”‰t€ô±½…Ñ¥½¸¹±½¹¥ÑÕ‘”4(4(€€€…İ…¥ĞÕÁ‘…Ñ”¹µ•ÍÍ…”¹É•Á±å}Ñ•áĞ 4(€€€€€€€QaQMm±…¹ul‰±½…Ñ¥½¹}É••¥Ù•‰t°4(€€€€€€€É•Á±å}µ…É­ÕÀõI•Á±å-•å‰½…É‘I•µ½Ù” ¤4(€€€€¤4(4(€€€…İ…¥ĞÍ¡½İ}ÍÕµµ…Éä¡ÕÁ‘…Ñ”°½¹Ñ•áĞ¤4(4(4(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(Œ9AI=I44(Œ€ôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôôô4(4)‘•˜µ…¥¸ ¤è(4(€€€¥˜¹½ĞQ=-8è(€€€€€€€É…¥Í”IÕ¹Ñ¥µ•ÉÉ½È ‰	=Q}Q=-8‰Õ±Õ¹…µ…“Ä„ˆ¤((€€€¥˜¹½Ğ=II}!Q}%è(€€€€€€€É…¥Í”IÕ¹Ñ¥µ•ÉÉ½È ‰=II}!Q}%‰Õ±Õ¹…µ…“Ä„ˆ¤((€€€¥˜¹½ĞY9=I}1IQ}!Q}%è(€€€€€€€ÁÉ¥¹Ğ (€€€€€€€€€€€€‰Y9=I}1IQ}!Q}%…å…É±…¹µ…·Ç|èƒñå”­…çÅÑ±…ËÄÙ”ÁÕ…¹±…µ„€ˆ(€€€€€€€€€€€€‹…³ÇÅÈ°…¹…¬Í…ÓÅÄÕå…ËÅÏÄ¡§‰¥ÈÉÕ‰„ŸÙ¹‘•É¥±µ•è¸ˆ(€€€€€€€€¤(4(€€€¥¹¥Ñ}Ù•¹‘½É}‘ˆ ¤(€€€…ÁÀ€ôÁÁ±¥…Ñ¥½¸¹‰Õ¥±‘•È ¤¹Ñ½­•¸¡Q=-8¤¹‰Õ¥± ¤(4(€€€…ÁÀ¹…‘‘}¡…¹‘±•È (€€€€€€€½µµ…¹‘!…¹‘±•È ‰ÍÑ…ÉĞˆ°ÍÑ…ÉĞ¤(€€€€¤((€€€…ÁÀ¹…‘‘}¡…¹‘±•È (€€€€€€€¡…Ñ)½¥¹I•ÅÕ•ÍÑ!…¹‘±•È (€€€€€€€€€€€©½¥¹}É•ÅÕ•ÍĞ°(€€€€€€€€€€€¡…Ñ}¥õA%9-A9Q!I}I=UA}%(€€€€€€€€¤(€€€€¤((€€€…ÁÀ¹…‘‘}¡…¹‘±•È (€€€€€€€¡…Ñ5•µ‰•É!…¹‘±•È¡¡…Ñ}µ•µ‰•É}ÕÁ‘…Ñ”°¡…Ñ5•µ‰•É!…¹‘±•È¹!Q}55	H¤(€€€€¤((€€€¥˜…ÁÀ¹©½‰}ÅÕ•Õ”è(€€€€€€€…ÁÀ¹©½‰}ÅÕ•Õ”¹ÉÕ¹}É•Á•…Ñ¥¹œ (€€€€€€€€€€€Í…¹}Ù•¹‘½É}…¹‘¥‘…Ñ•Ì°(€€€€€€€€€€€¥¹Ñ•ÉÙ…°õY9=I}M9}%9QIY0°(€€€€€€€€€€€™¥ÉÍĞôÄÀ°(€€€€€€€€€€€¹…µ”ô‰Ù•¹‘½Èµ…¹‘¥‘…Ñ”µÍ…¸ˆ°(€€€€€€€€¤(4(€€€…ÁÀ¹…‘‘}¡…¹‘±•È 4(€€€€€€€…±±‰…­EÕ•Éå!…¹‘±•È¡‰ÕÑÑ½¹}¡…¹‘±•È¤4(€€€€¤4(4(€€€…ÁÀ¹…‘‘}¡…¹‘±•È 4(€€€€€€€5•ÍÍ…•!…¹‘±•È 4(€€€€€€€€€€€™¥±Ñ•ÉÌ¹1=Q%=8°4(€€€€€€€€€€€±½…Ñ¥½¹}¡…¹‘±•È4(€€€€€€€€¤4(€€€€¤4(4(€€€…ÁÀ¹…‘‘}¡…¹‘±•È 4(€€€€€€€5•ÍÍ…•!…¹‘±•È 4(€€€€€€€€€€€™¥±Ñ•ÉÌ¹QaP€˜ù™¥±Ñ•ÉÌ¹=559°4(€€€€€€€€€€€Ñ•áÑ}¡…¹‘±•È4(€€€€€€€€¤4(€€€€¤4(4(€€€ÁÉ¥¹Ğ ‰A¥¹­A…¹Ñ¡•È	½Ğƒ…³ÇÅå½È¸¸¸ˆ¤4(€€€…ÁÀ¹…‘‘}¡…¹‘±•È¡½µµ…¹‘!…¹‘±•È ‰¥ˆ°Í¡½İ}¥¤¤4(€€€…ÁÀ¹ÉÕ¹}Á½±±¥¹œ 4(€€€€€€€…±±½İ•‘}ÕÁ‘…Ñ•ÌõUÁ‘…Ñ”¹11}QeAL4(€€€€¤4(4(4)¥˜}}¹…µ•}|€ôô€‰}}µ…¥¹}|ˆè4(€€€µ…¥¸ ¤4(
+            "âš ï¸ Please do not make any payment before receiving your product."
+        ),
+
+        "support_not_ready": (
+            "ğŸ†˜ Live Support is currently being configured.\n"
+            "Please try again shortly."
+        ),
+
+        "restart": "ğŸ”„ Please enter the product name or product code again.",
+
+        "invalid_quantity": (
+            "âš ï¸ Minimum order is 5 pieces.\n"
+            "Please enter one of these quantities: 5, 10, 15 or 25."
+        ),
+    },
+
+    "de": {
+        "language_selected": "ğŸ‡©ğŸ‡ª Deutsch ausgewÃ¤hlt.",
+
+        "welcome": (
+            "âš ï¸ WICHTIG â€“ BITTE SORGFÃ„LTIG LESEN\n\n"
+            "ğŸ¾ Willkommen beim PinkPanther Bot\n\n"
+            "Hallo! Ich bin der PinkPanther Bot. Ich bin hier, um dir dabei zu helfen, "
+            "deine Bestellung schnell und einfach aufzugeben.\n\n"
+            "ğŸ’µ Nur Barzahlung.\n"
+            "âœ… Du musst nichts bezahlen, bevor du dein Produkt erhalten hast.\n"
+            "ğŸ¤ Eine persÃ¶nliche Ãœbergabe ist mÃ¶glich.\n"
+            "ğŸš— Die Lieferung durch unseren Fahrer ist KOSTENLOS.\n"
+            "ğŸ“ Deinen Standort kannst du direkt Ã¼ber Telegram senden.\n"
+            "ğŸ†˜ Falls du Fragen oder Probleme hast, kannst du deine Bestellung "
+            "Ã¼ber den Live-Support fortsetzen.\n\n"
+            "Bitte wÃ¤hle unten eine Option:"
+        ),
+
+        "order_button": "ğŸ› Bestellung aufgeben",
+        "support_button": "ğŸ†˜ Live-Support",
+
+        "product": (
+            "ğŸ› PRODUKTKATALOG\n\n"
+            "ğŸ€ Blatt\n"
+            "ğŸ« Schokolade\n"
+            "â„ï¸ Schnee\n\n"
+            "WÃ¤hle unten ein oder mehrere Produkte und Mengen aus.\n"
+            "DrÃ¼cke anschlieÃŸend auf Weiter."
+        ),
+
+        "brand_prompt": (
+            "âœï¸ Bitte schreibe die Marke/den Namen des ausgewÃ¤hlten Produkts.\n\n"
+            "Sende sie als normale Textnachricht; fÃ¼r diesen Schritt gibt es keine SchaltflÃ¤che."
+        ),
+
+        "quantity": (
+            "ğŸ”¢ Wie viele StÃ¼ck mÃ¶chtest du bestellen?\n\n"
+            "Mindestbestellmenge: 5 StÃ¼ck\n\n"
+            "5 StÃ¼ck = 50 â‚¬\n"
+            "10 StÃ¼ck = 100 â‚¬\n"
+            "15 StÃ¼ck = 130 â‚¬\n"
+            "25 StÃ¼ck = 190 â‚¬\n\n"
+            "Bitte gib eine dieser Mengen ein: 5, 10, 15 oder 25."
+        ),
+
+        "address": (
+            "ğŸ“ LIEFERINFORMATIONEN\n\n"
+            "Bitte sende deine vollstÃ¤ndige Lieferadresse und Postleitzahl zusammen.\n\n"
+            "Beispiel:\n"
+            "MusterstraÃŸe 12, 12345 Berlin\n\n"
+            "â„¹ï¸ HINWEIS:\n"
+            "Wenn du deine vollstÃ¤ndige Adresse oder Postleitzahl nicht kennst, "
+            "gib einfach den Stadtteil oder die Gegend an, in der du dich befindest.\n\n"
+            "Du kannst deinen genauen Standort auch direkt Ã¼ber Telegram mit der "
+            "SchaltflÃ¤che ğŸ“ Standort senden teilen.\n\n"
+            "Falls du Hilfe benÃ¶tigst, kannst du Ã¼ber den ğŸ†˜ Live-Support fortfahren."
+        ),
+
+        "share_location": "ğŸ“ Standort senden",
+        "skip_location": "â¡ï¸ Ohne Standort fortfahren",
+
+        "location_question": (
+            "ğŸ“ Wenn du mÃ¶chtest, kannst du jetzt deinen genauen Standort senden.\n\n"
+            "So kÃ¶nnen wir den Lieferort leichter finden.\n\n"
+            "Du kannst auch ohne Standort fortfahren."
+        ),
+
+        "location_received": "âœ… Standort erhalten.",
+
+        "confirm": "âœ… Bestellung bestÃ¤tigen",
+        "change": "âœï¸ Angaben Ã¤ndern",
+        "cancel": "âŒ Bestellung stornieren",
+
+        "cancelled": (
+            "âŒ Deine Bestellung wurde storniert.\n\n"
+            "Du kannst jederzeit mit /start neu beginnen."
+        ),
+
+        "success": (
+            "âœ… DEINE BESTELLUNG WURDE ERFOLGREICH AUFGENOMMEN.\n\n"
+            "Vielen Dank fÃ¼r deine Bestellung. Wir werden dich bezÃ¼glich der "
+            "Lieferung kontaktieren.\n\n"
+            "ğŸš— Lieferung: KOSTENLOS\n"
+            "ğŸ’µ Zahlung: Barzahlung bei Ãœbergabe\n\n"
+            "âš ï¸ Bitte bezahle nichts, bevor du dein Produkt erhalten hast."
+        ),
+
+        "support_not_ready": (
+            "ğŸ†˜ Der Live-Support wird derzeit eingerichtet.\n"
+            "Bitte versuche es spÃ¤ter erneut."
+        ),
+
+        "restart": "ğŸ”„ Bitte gib den Produktnamen oder Produktcode erneut ein.",
+
+        "invalid_quantity": (
+            "âš ï¸ Die Mindestbestellmenge betrÃ¤gt 5 StÃ¼ck.\n"
+            "Bitte gib eine dieser Mengen ein: 5, 10, 15 oder 25."
+        ),
+    }
+}
+
+
+# Ek dil Ã§evirileri
+TEXTS.update({
+    "tr": {
+        "language_selected": "ğŸ‡¹ğŸ‡· TÃ¼rkÃ§e seÃ§ildi.",
+        "welcome": (
+            "âš ï¸ Ã–NEMLÄ° â€“ LÃœTFEN DÄ°KKATLÄ°CE OKUYUN\n\n"
+            "ğŸ¾ PinkPanther Bot'a hoÅŸ geldiniz\n\n"
+            "SipariÅŸinizi hÄ±zlÄ± ve kolayca oluÅŸturmanÄ±za yardÄ±mcÄ± olacaÄŸÄ±m.\n\n"
+            "ğŸ’µ YalnÄ±zca nakit Ã¶deme.\nâœ… ÃœrÃ¼nÃ¼ teslim almadan Ã¶deme yapmayÄ±n.\n"
+            "ğŸš— Kurye teslimatÄ± ÃœCRETSÄ°ZDÄ°R.\nğŸ“ Konumunuzu Telegram Ã¼zerinden paylaÅŸabilirsiniz.\n\n"
+            "LÃ¼tfen aÅŸaÄŸÄ±dan bir seÃ§enek belirleyin:"
+        ),
+        "order_button": "ğŸ› SipariÅŸ Ver",
+        "support_button": "ğŸ†˜ CanlÄ± Destek",
+        "product": (
+            "ğŸ› ÃœRÃœN KATALOÄU\n\n"
+            "ğŸ€ Yaprak\n"
+            "ğŸ« Ã‡ikolata\n"
+            "â„ï¸ Kar\n\n"
+            "Bir veya daha fazla Ã¼rÃ¼n ve miktar seÃ§in. Sonra Devam'a basÄ±n."
+        ),
+        "brand_prompt": "âœï¸ SeÃ§tiÄŸiniz Ã¼rÃ¼nÃ¼n markasÄ±nÄ±/adÄ±nÄ± normal mesaj olarak yazÄ±n.",
+        "quantity": "ğŸ”¢ LÃ¼tfen miktarÄ± seÃ§in.",
+        "address": (
+            "ğŸ“ TESLÄ°MAT BÄ°LGÄ°LERÄ°\n\nTam adresinizi ve posta kodunuzu birlikte yazÄ±n.\n\n"
+            "Ã–rnek: MusterstraÃŸe 12, 12345 Berlin\n\nTam adresi bilmiyorsanÄ±z bÃ¶lgenizi yazabilirsiniz."
+        ),
+        "share_location": "ğŸ“ Konum PaylaÅŸ",
+        "skip_location": "â¡ï¸ Konum Olmadan Devam Et",
+        "location_question": "ğŸ“ Ä°sterseniz tam konumunuzu paylaÅŸabilirsiniz. Konum paylaÅŸmadan da devam edebilirsiniz.",
+        "location_received": "âœ… Konum alÄ±ndÄ±.",
+        "confirm": "âœ… SipariÅŸi Onayla",
+        "change": "âœï¸ Bilgileri DeÄŸiÅŸtir",
+        "cancel": "âŒ SipariÅŸi Ä°ptal Et",
+        "cancelled": "âŒ SipariÅŸiniz iptal edildi.\n\n/start ile yeniden baÅŸlayabilirsiniz.",
+        "success": "âœ… SÄ°PARÄ°ÅÄ°NÄ°Z ALINDI.\n\nTeslimat iÃ§in sizinle iletiÅŸime geÃ§ilecektir.\n\nğŸš— Teslimat: ÃœCRETSÄ°Z\nğŸ’µ Ã–deme: Teslimatta nakit",
+        "support_not_ready": "ğŸ†˜ CanlÄ± destek hazÄ±rlanÄ±yor. LÃ¼tfen daha sonra tekrar deneyin.",
+        "restart": "ğŸ”„ LÃ¼tfen Ã¼rÃ¼n adÄ±nÄ± veya kodunu tekrar girin.",
+        "invalid_quantity": "âš ï¸ LÃ¼tfen geÃ§erli bir miktar seÃ§in.",
+    },
+    "es": {
+        "language_selected": "ğŸ‡ªğŸ‡¸ EspaÃ±ol seleccionado.",
+        "welcome": (
+            "âš ï¸ IMPORTANTE â€“ LEE ATENTAMENTE\n\nğŸ¾ Bienvenido a PinkPanther Bot\n\n"
+            "Te ayudarÃ© a realizar tu pedido de forma rÃ¡pida y sencilla.\n\n"
+            "ğŸ’µ Solo pago en efectivo.\nâœ… No pagues antes de recibir el producto.\n"
+            "ğŸš— La entrega es GRATIS.\nğŸ“ Puedes compartir tu ubicaciÃ³n por Telegram.\n\n"
+            "Elige una opciÃ³n:"
+        ),
+        "order_button": "ğŸ› Hacer un pedido",
+        "support_button": "ğŸ†˜ Soporte en vivo",
+        "product": (
+            "ğŸ› CATÃLOGO DE PRODUCTOS\n\n"
+            "ğŸ€ Hoja\nğŸ« Chocolate\nâ„ï¸ Nieve\n\n"
+            "Selecciona productos y cantidades. Luego pulsa Continuar."
+        ),
+        "brand_prompt": "âœï¸ Escribe la marca o el nombre del producto seleccionado como mensaje normal.",
+        "quantity": "ğŸ”¢ Selecciona una cantidad.",
+        "address": "ğŸ“ DATOS DE ENTREGA\n\nEscribe tu direcciÃ³n completa y cÃ³digo postal.\n\nEjemplo: MusterstraÃŸe 12, 12345 Berlin\n\nSi no conoces la direcciÃ³n completa, escribe tu zona.",
+        "share_location": "ğŸ“ Compartir ubicaciÃ³n",
+        "skip_location": "â¡ï¸ Continuar sin ubicaciÃ³n",
+        "location_question": "ğŸ“ Si quieres, comparte tu ubicaciÃ³n exacta. TambiÃ©n puedes continuar sin compartirla.",
+        "location_received": "âœ… UbicaciÃ³n recibida.",
+        "confirm": "âœ… Confirmar pedido",
+        "change": "âœï¸ Cambiar informaciÃ³n",
+        "cancel": "âŒ Cancelar pedido",
+        "cancelled": "âŒ Tu pedido ha sido cancelado.\n\nPuedes empezar de nuevo con /start.",
+        "success": "âœ… PEDIDO RECIBIDO.\n\nNos pondremos en contacto contigo para la entrega.\n\nğŸš— Entrega: GRATIS\nğŸ’µ Pago: En efectivo al recibir",
+        "support_not_ready": "ğŸ†˜ El soporte se estÃ¡ configurando. IntÃ©ntalo mÃ¡s tarde.",
+        "restart": "ğŸ”„ Introduce de nuevo el nombre o cÃ³digo del producto.",
+        "invalid_quantity": "âš ï¸ Selecciona una cantidad vÃ¡lida.",
+    },
+    "it": {
+        "language_selected": "ğŸ‡®ğŸ‡¹ Italiano selezionato.",
+        "welcome": (
+            "âš ï¸ IMPORTANTE â€“ LEGGI ATTENTAMENTE\n\nğŸ¾ Benvenuto nel PinkPanther Bot\n\n"
+            "Ti aiuterÃ² a effettuare l'ordine in modo semplice e veloce.\n\n"
+            "ğŸ’µ Solo pagamento in contanti.\nâœ… Non pagare prima di ricevere il prodotto.\n"
+            "ğŸš— Consegna GRATUITA.\nğŸ“ Puoi condividere la posizione tramite Telegram.\n\nScegli un'opzione:"
+        ),
+        "order_button": "ğŸ› Effettua un ordine",
+        "support_button": "ğŸ†˜ Assistenza",
+        "product": (
+            "ğŸ› CATALOGO PRODOTTI\n\n"
+            "ğŸ€ Foglia\nğŸ« Cioccolato\nâ„ï¸ Neve\n\n"
+            "Seleziona prodotti e quantitÃ , poi premi Continua."
+        ),
+        "brand_prompt": "âœï¸ Scrivi la marca o il nome del prodotto scelto come messaggio normale.",
+        "quantity": "ğŸ”¢ Seleziona una quantitÃ .",
+        "address": "ğŸ“ DATI DI CONSEGNA\n\nScrivi indirizzo completo e codice postale.\n\nEsempio: MusterstraÃŸe 12, 12345 Berlin\n\nSe non conosci l'indirizzo completo, scrivi la zona.",
+        "share_location": "ğŸ“ Condividi posizione",
+        "skip_location": "â¡ï¸ Continua senza posizione",
+        "location_question": "ğŸ“ Se vuoi, condividi la posizione esatta. Puoi anche continuare senza condividerla.",
+        "location_received": "âœ… Posizione ricevuta.",
+        "confirm": "âœ… Conferma ordine",
+        "change": "âœï¸ Modifica dati",
+        "cancel": "âŒ Annulla ordine",
+        "cancelled": "âŒ Il tuo ordine Ã¨ stato annullato.\n\nPuoi ricominciare con /start.",
+        "success": "âœ… ORDINE RICEVUTO.\n\nTi contatteremo per la consegna.\n\nğŸš— Consegna: GRATUITA\nğŸ’µ Pagamento: Contanti alla consegna",
+        "support_not_ready": "ğŸ†˜ L'assistenza Ã¨ in fase di configurazione. Riprova piÃ¹ tardi.",
+        "restart": "ğŸ”„ Inserisci nuovamente nome o codice del prodotto.",
+        "invalid_quantity": "âš ï¸ Seleziona una quantitÃ  valida.",
+    },
+    "ru": {
+        "language_selected": "ğŸ‡·ğŸ‡º Ğ’Ñ‹Ğ±Ñ€Ğ°Ğ½ Ñ€ÑƒÑÑĞºĞ¸Ğ¹ ÑĞ·Ñ‹Ğº.",
+        "welcome": (
+            "âš ï¸ Ğ’ĞĞ–ĞĞ â€“ ĞŸĞ ĞĞ§Ğ˜Ğ¢ĞĞ™Ğ¢Ğ• Ğ’ĞĞ˜ĞœĞĞ¢Ğ•Ğ›Ğ¬ĞĞ\n\nğŸ¾ Ğ”Ğ¾Ğ±Ñ€Ğ¾ Ğ¿Ğ¾Ğ¶Ğ°Ğ»Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ğ² PinkPanther Bot\n\n"
+            "Ğ¯ Ğ¿Ğ¾Ğ¼Ğ¾Ğ³Ñƒ Ğ±Ñ‹ÑÑ‚Ñ€Ğ¾ Ğ¸ Ğ»ĞµĞ³ĞºĞ¾ Ğ¾Ñ„Ğ¾Ñ€Ğ¼Ğ¸Ñ‚ÑŒ Ğ·Ğ°ĞºĞ°Ğ·.\n\nğŸ’µ Ğ¢Ğ¾Ğ»ÑŒĞºĞ¾ Ğ½Ğ°Ğ»Ğ¸Ñ‡Ğ½Ñ‹Ğµ.\n"
+            "âœ… ĞĞµ Ğ¿Ğ»Ğ°Ñ‚Ğ¸Ñ‚Ğµ Ğ´Ğ¾ Ğ¿Ğ¾Ğ»ÑƒÑ‡ĞµĞ½Ğ¸Ñ Ñ‚Ğ¾Ğ²Ğ°Ñ€Ğ°.\nğŸš— Ğ”Ğ¾ÑÑ‚Ğ°Ğ²ĞºĞ° Ğ‘Ğ•Ğ¡ĞŸĞ›ĞĞ¢ĞĞĞ¯.\n"
+            "ğŸ“ Ğ’Ñ‹ Ğ¼Ğ¾Ğ¶ĞµÑ‚Ğµ Ğ¾Ñ‚Ğ¿Ñ€Ğ°Ğ²Ğ¸Ñ‚ÑŒ Ğ³ĞµĞ¾Ğ»Ğ¾ĞºĞ°Ñ†Ğ¸Ñ Ñ‡ĞµÑ€ĞµĞ· Telegram.\n\nĞ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ğ´ĞµĞ¹ÑÑ‚Ğ²Ğ¸Ğµ:"
+        ),
+        "order_button": "ğŸ› Ğ¡Ğ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ·Ğ°ĞºĞ°Ğ·",
+        "support_button": "ğŸ†˜ ĞŸĞ¾Ğ´Ğ´ĞµÑ€Ğ¶ĞºĞ°",
+        "product": (
+            "ğŸ› ĞšĞĞ¢ĞĞ›ĞĞ“ Ğ¢ĞĞ’ĞĞ ĞĞ’\n\n"
+            "ğŸ€ Ğ›Ğ¸ÑÑ‚\nğŸ« Ğ¨Ğ¾ĞºĞ¾Ğ»Ğ°Ğ´\nâ„ï¸ Ğ¡Ğ½ĞµĞ³\n\n"
+            "Ğ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ñ‚Ğ¾Ğ²Ğ°Ñ€Ñ‹ Ğ¸ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾, Ğ·Ğ°Ñ‚ĞµĞ¼ Ğ½Ğ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ ĞŸÑ€Ğ¾Ğ´Ğ¾Ğ»Ğ¶Ğ¸Ñ‚ÑŒ."
+        ),
+        "brand_prompt": "âœï¸ ĞĞ°Ğ¿Ğ¸ÑˆĞ¸Ñ‚Ğµ Ğ¼Ğ°Ñ€ĞºÑƒ Ğ¸Ğ»Ğ¸ Ğ½Ğ°Ğ·Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ²Ñ‹Ğ±Ñ€Ğ°Ğ½Ğ½Ğ¾Ğ³Ğ¾ Ñ‚Ğ¾Ğ²Ğ°Ñ€Ğ° Ğ¾Ğ±Ñ‹Ñ‡Ğ½Ñ‹Ğ¼ ÑĞ¾Ğ¾Ğ±Ñ‰ĞµĞ½Ğ¸ĞµĞ¼.",
+        "quantity": "ğŸ”¢ Ğ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾.",
+        "address": "ğŸ“ Ğ”ĞĞĞĞ«Ğ• Ğ”Ğ›Ğ¯ Ğ”ĞĞ¡Ğ¢ĞĞ’ĞšĞ˜\n\nĞĞ°Ğ¿Ğ¸ÑˆĞ¸Ñ‚Ğµ Ğ¿Ğ¾Ğ»Ğ½Ñ‹Ğ¹ Ğ°Ğ´Ñ€ĞµÑ Ğ¸ Ğ¿Ğ¾Ñ‡Ñ‚Ğ¾Ğ²Ñ‹Ğ¹ Ğ¸Ğ½Ğ´ĞµĞºÑ.\n\nĞŸÑ€Ğ¸Ğ¼ĞµÑ€: MusterstraÃŸe 12, 12345 Berlin\n\nĞ•ÑĞ»Ğ¸ Ğ¿Ğ¾Ğ»Ğ½Ğ¾Ğ³Ğ¾ Ğ°Ğ´Ñ€ĞµÑĞ° Ğ½ĞµÑ‚, ÑƒĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ Ñ€Ğ°Ğ¹Ğ¾Ğ½.",
+        "share_location": "ğŸ“ ĞÑ‚Ğ¿Ñ€Ğ°Ğ²Ğ¸Ñ‚ÑŒ Ğ³ĞµĞ¾Ğ»Ğ¾ĞºĞ°Ñ†Ğ¸Ñ",
+        "skip_location": "â¡ï¸ ĞŸÑ€Ğ¾Ğ´Ğ¾Ğ»Ğ¶Ğ¸Ñ‚ÑŒ Ğ±ĞµĞ· Ğ³ĞµĞ¾Ğ»Ğ¾ĞºĞ°Ñ†Ğ¸Ğ¸",
+        "location_question": "ğŸ“ ĞŸÑ€Ğ¸ Ğ¶ĞµĞ»Ğ°Ğ½Ğ¸Ğ¸ Ğ¾Ñ‚Ğ¿Ñ€Ğ°Ğ²ÑŒÑ‚Ğµ Ñ‚Ğ¾Ñ‡Ğ½ÑƒÑ Ğ³ĞµĞ¾Ğ»Ğ¾ĞºĞ°Ñ†Ğ¸Ñ. ĞœĞ¾Ğ¶Ğ½Ğ¾ Ğ¿Ñ€Ğ¾Ğ´Ğ¾Ğ»Ğ¶Ğ¸Ñ‚ÑŒ Ğ±ĞµĞ· Ğ½ĞµÑ‘.",
+        "location_received": "âœ… Ğ“ĞµĞ¾Ğ»Ğ¾ĞºĞ°Ñ†Ğ¸Ñ Ğ¿Ğ¾Ğ»ÑƒÑ‡ĞµĞ½Ğ°.",
+        "confirm": "âœ… ĞŸĞ¾Ğ´Ñ‚Ğ²ĞµÑ€Ğ´Ğ¸Ñ‚ÑŒ Ğ·Ğ°ĞºĞ°Ğ·",
+        "change": "âœï¸ Ğ˜Ğ·Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ Ğ´Ğ°Ğ½Ğ½Ñ‹Ğµ",
+        "cancel": "âŒ ĞÑ‚Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ Ğ·Ğ°ĞºĞ°Ğ·",
+        "cancelled": "âŒ Ğ—Ğ°ĞºĞ°Ğ· Ğ¾Ñ‚Ğ¼ĞµĞ½Ñ‘Ğ½.\n\nĞĞ°Ñ‡Ğ°Ñ‚ÑŒ Ğ·Ğ°Ğ½Ğ¾Ğ²Ğ¾: /start.",
+        "success": "âœ… Ğ—ĞĞšĞĞ— ĞŸĞ Ğ˜ĞĞ¯Ğ¢.\n\nĞœÑ‹ ÑĞ²ÑĞ¶ĞµĞ¼ÑÑ Ñ Ğ²Ğ°Ğ¼Ğ¸ Ğ¿Ğ¾ Ğ¿Ğ¾Ğ²Ğ¾Ğ´Ñƒ Ğ´Ğ¾ÑÑ‚Ğ°Ğ²ĞºĞ¸.\n\nğŸš— Ğ”Ğ¾ÑÑ‚Ğ°Ğ²ĞºĞ°: Ğ‘Ğ•Ğ¡ĞŸĞ›ĞĞ¢ĞĞ\nğŸ’µ ĞĞ¿Ğ»Ğ°Ñ‚Ğ°: ĞĞ°Ğ»Ğ¸Ñ‡Ğ½Ñ‹Ğ¼Ğ¸ Ğ¿Ñ€Ğ¸ Ğ¿Ğ¾Ğ»ÑƒÑ‡ĞµĞ½Ğ¸Ğ¸",
+        "support_not_ready": "ğŸ†˜ ĞŸĞ¾Ğ´Ğ´ĞµÑ€Ğ¶ĞºĞ° Ğ½Ğ°ÑÑ‚Ñ€Ğ°Ğ¸Ğ²Ğ°ĞµÑ‚ÑÑ. ĞŸĞ¾Ğ¿Ñ€Ğ¾Ğ±ÑƒĞ¹Ñ‚Ğµ Ğ¿Ğ¾Ğ·Ğ¶Ğµ.",
+        "restart": "ğŸ”„ Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ½Ğ°Ğ·Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ¸Ğ»Ğ¸ ĞºĞ¾Ğ´ Ñ‚Ğ¾Ğ²Ğ°Ñ€Ğ° ĞµÑ‰Ñ‘ Ñ€Ğ°Ğ·.",
+        "invalid_quantity": "âš ï¸ Ğ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ğ´Ğ¾Ğ¿ÑƒÑÑ‚Ğ¸Ğ¼Ğ¾Ğµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾.",
+    },
+    "pl": {
+        "language_selected": "ğŸ‡µğŸ‡± Wybrano jÄ™zyk polski.",
+        "welcome": (
+            "âš ï¸ WAÅ»NE â€“ PRZECZYTAJ UWAÅ»NIE\n\nğŸ¾ Witamy w PinkPanther Bot\n\n"
+            "PomogÄ™ Ci szybko i Å‚atwo zÅ‚oÅ¼yÄ‡ zamÃ³wienie.\n\nğŸ’µ Tylko pÅ‚atnoÅ›Ä‡ gotÃ³wkÄ….\n"
+            "âœ… Nie pÅ‚aÄ‡ przed otrzymaniem produktu.\nğŸš— Dostawa jest BEZPÅATNA.\n"
+            "ğŸ“ MoÅ¼esz udostÄ™pniÄ‡ lokalizacjÄ™ przez Telegram.\n\nWybierz opcjÄ™:"
+        ),
+        "order_button": "ğŸ› ZÅ‚Ã³Å¼ zamÃ³wienie",
+        "support_button": "ğŸ†˜ Pomoc na Å¼ywo",
+        "product": (
+            "ğŸ› KATALOG PRODUKTÃ“W\n\n"
+            "ğŸ€ LiÅ›Ä‡\nğŸ« Czekolada\nâ„ï¸ Åšnieg\n\n"
+            "Wybierz produkty i iloÅ›ci, a nastÄ™pnie naciÅ›nij Dalej."
+        ),
+        "brand_prompt": "âœï¸ Wpisz markÄ™ lub nazwÄ™ wybranego produktu jako zwykÅ‚Ä… wiadomoÅ›Ä‡.",
+        "quantity": "ğŸ”¢ Wybierz iloÅ›Ä‡.",
+        "address": "ğŸ“ DANE DOSTAWY\n\nWpisz peÅ‚ny adres i kod pocztowy.\n\nPrzykÅ‚ad: MusterstraÃŸe 12, 12345 Berlin\n\nJeÅ›li nie znasz peÅ‚nego adresu, podaj dzielnicÄ™.",
+        "share_location": "ğŸ“ UdostÄ™pnij lokalizacjÄ™",
+        "skip_location": "â¡ï¸ Kontynuuj bez lokalizacji",
+        "location_question": "ğŸ“ JeÅ›li chcesz, udostÄ™pnij dokÅ‚adnÄ… lokalizacjÄ™. MoÅ¼esz teÅ¼ kontynuowaÄ‡ bez niej.",
+        "location_received": "âœ… Otrzymano lokalizacjÄ™.",
+        "confirm": "âœ… PotwierdÅº zamÃ³wienie",
+        "change": "âœï¸ ZmieÅ„ dane",
+        "cancel": "âŒ Anuluj zamÃ³wienie",
+        "cancelled": "âŒ ZamÃ³wienie zostaÅ‚o anulowane.\n\nMoÅ¼esz zaczÄ…Ä‡ ponownie przez /start.",
+        "success": "âœ… ZAMÃ“WIENIE PRZYJÄ˜TE.\n\nSkontaktujemy siÄ™ w sprawie dostawy.\n\nğŸš— Dostawa: BEZPÅATNA\nğŸ’µ PÅ‚atnoÅ›Ä‡: GotÃ³wkÄ… przy odbiorze",
+        "support_not_ready": "ğŸ†˜ Pomoc jest konfigurowana. SprÃ³buj pÃ³Åºniej.",
+        "restart": "ğŸ”„ Wpisz ponownie nazwÄ™ lub kod produktu.",
+        "invalid_quantity": "âš ï¸ Wybierz prawidÅ‚owÄ… iloÅ›Ä‡.",
+    },
+    "fr": {
+        "language_selected": "ğŸ‡«ğŸ‡· FranÃ§ais sÃ©lectionnÃ©.",
+        "welcome": (
+            "âš ï¸ IMPORTANT â€“ LISEZ ATTENTIVEMENT\n\nğŸ¾ Bienvenue sur PinkPanther Bot\n\n"
+            "Je vais vous aider Ã  passer votre commande rapidement et facilement.\n\n"
+            "ğŸ’µ Paiement en espÃ¨ces uniquement.\nâœ… Ne payez pas avant de recevoir le produit.\n"
+            "ğŸš— Livraison GRATUITE.\nğŸ“ Vous pouvez partager votre position via Telegram.\n\nChoisissez une option :"
+        ),
+        "order_button": "ğŸ› Passer une commande",
+        "support_button": "ğŸ†˜ Assistance en direct",
+        "product": (
+            "ğŸ› CATALOGUE DE PRODUITS\n\n"
+            "ğŸ€ Feuille\nğŸ« Chocolat\nâ„ï¸ Neige\n\n"
+            "SÃ©lectionnez les produits et quantitÃ©s, puis appuyez sur Continuer."
+        ),
+        "brand_prompt": "âœï¸ Ã‰crivez la marque ou le nom du produit choisi dans un message normal.",
+        "quantity": "ğŸ”¢ SÃ©lectionnez une quantitÃ©.",
+        "address": "ğŸ“ INFORMATIONS DE LIVRAISON\n\nÃ‰crivez votre adresse complÃ¨te et votre code postal.\n\nExemple : MusterstraÃŸe 12, 12345 Berlin\n\nSi vous ne connaissez pas l'adresse complÃ¨te, indiquez votre quartier.",
+        "share_location": "ğŸ“ Partager la position",
+        "skip_location": "â¡ï¸ Continuer sans position",
+        "location_question": "ğŸ“ Si vous le souhaitez, partagez votre position exacte. Vous pouvez aussi continuer sans la partager.",
+        "location_received": "âœ… Position reÃ§ue.",
+        "confirm": "âœ… Confirmer la commande",
+        "change": "âœï¸ Modifier les informations",
+        "cancel": "âŒ Annuler la commande",
+        "cancelled": "âŒ Votre commande a Ã©tÃ© annulÃ©e.\n\nVous pouvez recommencer avec /start.",
+        "success": "âœ… COMMANDE REÃ‡UE.\n\nNous vous contacterons pour la livraison.\n\nğŸš— Livraison : GRATUITE\nğŸ’µ Paiement : En espÃ¨ces Ã  la livraison",
+        "support_not_ready": "ğŸ†˜ L'assistance est en cours de configuration. RÃ©essayez plus tard.",
+        "restart": "ğŸ”„ Saisissez Ã  nouveau le nom ou le code du produit.",
+        "invalid_quantity": "âš ï¸ SÃ©lectionnez une quantitÃ© valide.",
+    },
+})
+
+
+LANGUAGE_OPTIONS = (
+    ("en", "ğŸ‡¬ğŸ‡§ English"), ("de", "ğŸ‡©ğŸ‡ª Deutsch"),
+    ("tr", "ğŸ‡¹ğŸ‡· TÃ¼rkÃ§e"), ("es", "ğŸ‡ªğŸ‡¸ EspaÃ±ol"),
+    ("it", "ğŸ‡®ğŸ‡¹ Italiano"), ("ru", "ğŸ‡·ğŸ‡º Ğ ÑƒÑÑĞºĞ¸Ğ¹"),
+    ("pl", "ğŸ‡µğŸ‡± Polski"), ("fr", "ğŸ‡«ğŸ‡· FranÃ§ais"),
+)
+
+ADMIN_LANGUAGE_NAMES = {
+    "en": "Ä°ngilizce", "de": "Almanca", "tr": "TÃ¼rkÃ§e", "es": "Ä°spanyolca",
+    "it": "Ä°talyanca", "ru": "RusÃ§a", "pl": "LehÃ§e", "fr": "FransÄ±zca",
+}
+
+UI_TEXT = {
+    "en": {"selected": "Selected", "total": "Total", "continue": "Continue", "brand": "Brand", "brand_ok": "Brand", "received": "Received", "not_shared": "Not shared", "empty": "Please select at least one product.", "summary": "ORDER SUMMARY", "products": "Products", "total_price": "Total price", "address": "Address / Area", "location": "Location", "delivery": "Delivery: FREE", "payment": "Payment: Cash on delivery", "warning": "Do not make any payment before receiving your product."},
+    "de": {"selected": "AusgewÃ¤hlt", "total": "Gesamt", "continue": "Weiter", "brand": "Marke", "brand_ok": "Marke", "received": "Erhalten", "not_shared": "Nicht gesendet", "empty": "Bitte wÃ¤hle mindestens ein Produkt aus.", "summary": "BESTELLÃœBERSICHT", "products": "Produkte", "total_price": "Gesamtpreis", "address": "Adresse / Gebiet", "location": "Standort", "delivery": "Lieferung: KOSTENLOS", "payment": "Zahlung: Barzahlung bei Ãœbergabe", "warning": "Bitte bezahle nichts, bevor du dein Produkt erhalten hast."},
+    "tr": {"selected": "SeÃ§ilenler", "total": "Toplam", "continue": "Devam", "brand": "Marka", "brand_ok": "Marka", "received": "AlÄ±ndÄ±", "not_shared": "PaylaÅŸÄ±lmadÄ±", "empty": "LÃ¼tfen en az bir Ã¼rÃ¼n seÃ§in.", "summary": "SÄ°PARÄ°Å Ã–ZETÄ°", "products": "ÃœrÃ¼nler", "total_price": "Toplam fiyat", "address": "Adres / BÃ¶lge", "location": "Konum", "delivery": "Teslimat: ÃœCRETSÄ°Z", "payment": "Ã–deme: Teslimatta nakit", "warning": "ÃœrÃ¼nÃ¼nÃ¼zÃ¼ teslim almadan Ã¶deme yapmayÄ±n."},
+    "es": {"selected": "Seleccionado", "total": "Total", "continue": "Continuar", "brand": "Marca", "brand_ok": "Marca", "received": "Recibida", "not_shared": "No compartida", "empty": "Selecciona al menos un producto.", "summary": "RESUMEN DEL PEDIDO", "products": "Productos", "total_price": "Precio total", "address": "DirecciÃ³n / Zona", "location": "UbicaciÃ³n", "delivery": "Entrega: GRATIS", "payment": "Pago: En efectivo al recibir", "warning": "No pagues antes de recibir el producto."},
+    "it": {"selected": "Selezionato", "total": "Totale", "continue": "Continua", "brand": "Marca", "brand_ok": "Marca", "received": "Ricevuta", "not_shared": "Non condivisa", "empty": "Seleziona almeno un prodotto.", "summary": "RIEPILOGO ORDINE", "products": "Prodotti", "total_price": "Prezzo totale", "address": "Indirizzo / Zona", "location": "Posizione", "delivery": "Consegna: GRATUITA", "payment": "Pagamento: Contanti alla consegna", "warning": "Non pagare prima di ricevere il prodotto."},
+    "ru": {"selected": "Ğ’Ñ‹Ğ±Ñ€Ğ°Ğ½Ğ¾", "total": "Ğ˜Ñ‚Ğ¾Ğ³Ğ¾", "continue": "ĞŸÑ€Ğ¾Ğ´Ğ¾Ğ»Ğ¶Ğ¸Ñ‚ÑŒ", "brand": "ĞœĞ°Ñ€ĞºĞ°", "brand_ok": "ĞœĞ°Ñ€ĞºĞ°", "received": "ĞŸĞ¾Ğ»ÑƒÑ‡ĞµĞ½Ğ°", "not_shared": "ĞĞµ Ğ¾Ñ‚Ğ¿Ñ€Ğ°Ğ²Ğ»ĞµĞ½Ğ°", "empty": "Ğ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ñ…Ğ¾Ñ‚Ñ Ğ±Ñ‹ Ğ¾Ğ´Ğ¸Ğ½ Ñ‚Ğ¾Ğ²Ğ°Ñ€.", "summary": "Ğ¡Ğ’ĞĞ”ĞšĞ Ğ—ĞĞšĞĞ—Ğ", "products": "Ğ¢Ğ¾Ğ²Ğ°Ñ€Ñ‹", "total_price": "Ğ˜Ñ‚Ğ¾Ğ³Ğ¾Ğ²Ğ°Ñ Ñ†ĞµĞ½Ğ°", "address": "ĞĞ´Ñ€ĞµÑ / Ğ Ğ°Ğ¹Ğ¾Ğ½", "location": "Ğ“ĞµĞ¾Ğ»Ğ¾ĞºĞ°Ñ†Ğ¸Ñ", "delivery": "Ğ”Ğ¾ÑÑ‚Ğ°Ğ²ĞºĞ°: Ğ‘Ğ•Ğ¡ĞŸĞ›ĞĞ¢ĞĞ", "payment": "ĞĞ¿Ğ»Ğ°Ñ‚Ğ°: ĞĞ°Ğ»Ğ¸Ñ‡Ğ½Ñ‹Ğ¼Ğ¸ Ğ¿Ñ€Ğ¸ Ğ¿Ğ¾Ğ»ÑƒÑ‡ĞµĞ½Ğ¸Ğ¸", "warning": "ĞĞµ Ğ¿Ğ»Ğ°Ñ‚Ğ¸Ñ‚Ğµ Ğ´Ğ¾ Ğ¿Ğ¾Ğ»ÑƒÑ‡ĞµĞ½Ğ¸Ñ Ñ‚Ğ¾Ğ²Ğ°Ñ€Ğ°."},
+    "pl": {"selected": "Wybrano", "total": "Razem", "continue": "Dalej", "brand": "Marka", "brand_ok": "Marka", "received": "Otrzymana", "not_shared": "NieudostÄ™pniona", "empty": "Wybierz co najmniej jeden produkt.", "summary": "PODSUMOWANIE ZAMÃ“WIENIA", "products": "Produkty", "total_price": "Cena Å‚Ä…czna", "address": "Adres / Rejon", "location": "Lokalizacja", "delivery": "Dostawa: BEZPÅATNA", "payment": "PÅ‚atnoÅ›Ä‡: GotÃ³wkÄ… przy odbiorze", "warning": "Nie pÅ‚aÄ‡ przed otrzymaniem produktu."},
+    "fr": {"selected": "SÃ©lectionnÃ©", "total": "Total", "continue": "Continuer", "brand": "Marque", "brand_ok": "Marque", "received": "ReÃ§ue", "not_shared": "Non partagÃ©e", "empty": "SÃ©lectionnez au moins un produit.", "summary": "RÃ‰SUMÃ‰ DE LA COMMANDE", "products": "Produits", "total_price": "Prix total", "address": "Adresse / Quartier", "location": "Position", "delivery": "Livraison : GRATUITE", "payment": "Paiement : En espÃ¨ces Ã  la livraison", "warning": "Ne payez pas avant de recevoir le produit."},
+}
+
+
+# =========================================================
+# YARDIMCI FONKSÄ°YONLAR
+# =========================================================
+
+def get_lang(context):
+    lang = context.user_data.get("lang", "en")
+    return lang if lang in TEXTS else "en"
+
+
+def reset_order(context):
+    lang = context.user_data.get("lang")
+
+    context.user_data.clear()
+
+    if lang:
+        context.user_data["lang"] = lang
+
+
+def support_keyboard(lang):
+    buttons = []
+
+    if SUPPORT_USERNAME:
+        buttons.append([
+            InlineKeyboardButton(
+                TEXTS[lang]["support_button"],
+                url=f"https://t.me/{SUPPORT_USERNAME}"
+            )
+        ])
+
+    return buttons
+
+
+def language_keyboard():
+    return [
+        [
+            InlineKeyboardButton(label, callback_data=f"lang_{code}")
+            for code, label in LANGUAGE_OPTIONS[index:index + 2]
+        ]
+        for index in range(0, len(LANGUAGE_OPTIONS), 2)
+    ]
+
+
+def quantity_text(lang, product, quantity):
+    if product.get("grams_per_unit"):
+        grams = quantity * product["grams_per_unit"]
+        return f"{quantity}x ({grams} g)"
+
+    unit = product.get("unit", "g")
+    return f"{quantity} {unit}"
+
+
+def cart_lines(lang, cart, brand=None):
+    lines = []
+    for product_key, quantity in cart.items():
+        product = PRODUCTS[product_key]
+        price = product["prices"][quantity]
+        amount = quantity_text(lang, product, quantity)
+        lines.append(f"{product[lang]} â€” {amount} = {price} â‚¬")
+
+    if brand and cart:
+        brand_label = UI_TEXT[lang]["brand"]
+        lines.append(f"ğŸ·ï¸ {brand_label}: {brand}")
+    return lines
+
+
+def cart_total(cart):
+    return sum(
+        PRODUCTS[product_key]["prices"][quantity]
+        for product_key, quantity in cart.items()
+    )
+
+
+def selection_text(lang, cart):
+    text = TEXTS[lang]["product"]
+    if not cart:
+        return text
+
+    selected_title = f"âœ… {UI_TEXT[lang]['selected']}:"
+    total_label = UI_TEXT[lang]["total"]
+    return (
+        f"{text}\n\n{selected_title}\n"
+        + "\n".join(cart_lines(lang, cart))
+        + f"\n\nğŸ’¶ {total_label}: {cart_total(cart)} â‚¬"
+    )
+
+
+def selection_keyboard(lang, cart):
+    keyboard = []
+    for product_key, product in PRODUCTS.items():
+        keyboard.append([
+            InlineKeyboardButton(product[lang], callback_data="selection_info")
+        ])
+        option_row = []
+        for quantity, price in product["prices"].items():
+            selected = cart.get(product_key) == quantity
+            prefix = "âœ… " if selected else ""
+            amount = quantity_text(lang, product, quantity)
+            option_row.append(InlineKeyboardButton(
+                f"{prefix}{amount} = {price} â‚¬",
+                callback_data=f"pick_{product_key}_{quantity}"
+            ))
+            if len(option_row) == 2:
+                keyboard.append(option_row)
+                option_row = []
+        if option_row:
+            keyboard.append(option_row)
+
+    continue_text = f"â¡ï¸ {UI_TEXT[lang]['continue']}"
+    keyboard.append([
+        InlineKeyboardButton(continue_text, callback_data="cart_continue")
+    ])
+    return keyboard
+
+
+async def show_main_menu(message, context):
+    lang = get_lang(context)
+
+    keyboard = [
+        [
+            InlineKeyboardButton(
+                TEXTS[lang]["order_button"],
+                callback_data="new_order"
+            )
+        ]
+    ]
+
+    keyboard.extend(support_keyboard(lang))
+
+    await message.reply_text(
+        TEXTS[lang]["welcome"],
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+
+
+async def show_summary(update, context):
+    lang = get_lang(context)
+
+    cart = context.user_data.get("cart", {})
+    order_lines = "\n".join(
+        cart_lines(lang, cart, context.user_data.get("brand"))
+    ) or "-"
+    price = cart_total(cart)
+    address = context.user_data.get("address", "-")
+
+    latitude = context.user_data.get("latitude")
+    longitude = context.user_data.get("longitude")
+
+    ui = UI_TEXT[lang]
+    location_status = (
+        f"âœ… {ui['received']}" if latitude and longitude
+        else f"â– {ui['not_shared']}"
+    )
+    summary = (
+        f"ğŸ§¾ {ui['summary']}\n\n"
+        f"ğŸ› {ui['products']}:\n{order_lines}\n"
+        f"ğŸ’¶ {ui['total_price']}: {price} â‚¬\n"
+        f"ğŸ“ {ui['address']}: {address}\n"
+        f"ğŸ—º {ui['location']}: {location_status}\n\n"
+        f"ğŸš— {ui['delivery']}\n"
+        f"ğŸ’µ {ui['payment']}\n\n"
+        f"âš ï¸ {ui['warning']}"
+    )
+
+    keyboard = [
+        [
+            InlineKeyboardButton(
+                TEXTS[lang]["confirm"],
+                callback_data="confirm_order"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                TEXTS[lang]["change"],
+                callback_data="change_order"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                TEXTS[lang]["cancel"],
+                callback_data="cancel_order"
+            )
+        ]
+    ]
+
+    await update.effective_message.reply_text(
+        summary,
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+
+    context.user_data["state"] = "summary"
+
+
+# =========================================================
+# /START
+# =========================================================
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    context.user_data.clear()
+
+    keyboard = [
+        [
+            InlineKeyboardButton("ğŸ‡¬ğŸ‡§ English", callback_data="lang_en"),
+            InlineKeyboardButton("ğŸ‡©ğŸ‡ª Deutsch", callback_data="lang_de"),
+        ]
+    ]
+
+    keyboard = language_keyboard()
+
+    await update.message.reply_text(
+        "ğŸŒ Choose your language / Sprache auswÃ¤hlen",
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+
+
+async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    request = update.chat_join_request
+
+    if request is None or request.chat.id != PINKPANTHER_GROUP_ID:
+        return
+
+    keyboard = [
+        [
+            InlineKeyboardButton("ğŸ‡¬ğŸ‡§ English", callback_data="lang_en"),
+            InlineKeyboardButton("ğŸ‡©ğŸ‡ª Deutsch", callback_data="lang_de"),
+        ]
+    ]
+
+    keyboard = language_keyboard()
+
+    try:
+        # Telegram bu Ã¶zel sohbet kimliÄŸini katÄ±lma isteÄŸiyle birlikte verir.
+        # BÃ¶ylece kullanÄ±cÄ± daha Ã¶nce /start yazmamÄ±ÅŸ olsa da mesaj gÃ¶nderilebilir.
+        await context.bot.send_message(
+            chat_id=request.user_chat_id,
+            text="ğŸŒ Choose your language / Sprache auswÃ¤hlen",
+            reply_markup=InlineKeyboardMarkup(keyboard)
+        )
+    except Exception as error:
+        print("KatÄ±lma isteÄŸine Ã¶zel mesaj gÃ¶nderilemedi:", error)
+
+    # Ã–zel mesaj baÅŸarÄ±sÄ±z olsa bile katÄ±lÄ±m onayÄ± ayrÄ±ca Ã§alÄ±ÅŸÄ±r.
+    try:
+        await context.bot.approve_chat_join_request(
+            chat_id=request.chat.id,
+            user_id=request.from_user.id
+        )
+    except Exception as error:
+        print("KatÄ±lma isteÄŸi otomatik onaylanamadÄ±:", error)
+
+
+async def select_language(query, context, lang):
+    context.user_data.clear()
+    context.user_data["lang"] = lang
+
+    # KatÄ±lma isteÄŸiyle aÃ§Ä±lan geÃ§ici Ã¶zel sohbette Telegram bazen ikinci bir
+    # mesajÄ± reddeder. Bu yÃ¼zden dil mesajÄ±nÄ± doÄŸrudan ana menÃ¼ye Ã§eviriyoruz.
+    keyboard = [[
+        InlineKeyboardButton(
+            TEXTS[lang]["order_button"],
+            callback_data="new_order"
+        )
+    ]]
+    keyboard.extend(support_keyboard(lang))
+
+    await query.edit_message_text(
+        TEXTS[lang]["welcome"],
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+
+
+
+# =========================================================
+# BUTONLAR
+# =========================================================
+
+async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    data = query.data
+
+
+    # -------------------------
+    # DÄ°L SEÃ‡Ä°MÄ°
+    # -------------------------
+
+    if data.startswith("lang_"):
+        selected_lang = data.removeprefix("lang_")
+        if selected_lang in TEXTS:
+            await select_language(query, context, selected_lang)
+        return
+
+
+    lang = get_lang(context)
+
+
+    # -------------------------
+    # YENÄ° SÄ°PARÄ°Å
+    # -------------------------
+
+    if data == "new_order":
+        reset_order(context)
+
+        context.user_data["state"] = "product_selection"
+        context.user_data["cart"] = {}
+
+        await query.edit_message_text(
+            selection_text(lang, {}),
+            reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, {}))
+        )
+        return
+
+
+    if data == "selection_info":
+        return
+
+
+    if data.startswith("pick_"):
+        _, product_key, quantity_text = data.split("_", 2)
+        quantity = float(quantity_text) if "." in quantity_text else int(quantity_text)
+        if (
+            product_key not in PRODUCTS
+            or quantity not in PRODUCTS[product_key]["prices"]
+        ):
+            return
+
+        cart = context.user_data.setdefault("cart", {})
+        cart[product_key] = quantity
+
+        await query.edit_message_text(
+            selection_text(lang, cart),
+            reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, cart))
+        )
+        return
+
+
+    if data == "cart_continue":
+        cart = context.user_data.get("cart", {})
+        if not cart:
+            warning = f"âš ï¸ {UI_TEXT[lang]['empty']}"
+            await query.edit_message_text(
+                f"{selection_text(lang, cart)}\n\n{warning}",
+                reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, cart))
+            )
+            return
+
+        context.user_data["state"] = "brand_entry"
+        await query.edit_message_text(TEXTS[lang]["brand_prompt"])
+        return
+
+
+    # -------------------------
+    # SÄ°PARÄ°ÅÄ° ONAYLA
+    # -------------------------
+
+    if data == "confirm_order":
+
+        cart = context.user_data.get("cart", {})
+        order_lines = "\n".join(
+            cart_lines("en", cart, context.user_data.get("brand"))
+        ) or "-"
+        price = cart_total(cart)
+        address = context.user_data.get("address", "-")
+
+        latitude = context.user_data.get("latitude")
+        longitude = context.user_data.get("longitude")
+
+        user = query.from_user
+
+        # Keep seller detection separate from the existing order state machine.
+        record_order(user)
+
+        username = f"@{user.username}" if user.username else "No username"
+
+        customer_name = user.full_name or "Unknown"
+
+        if latitude and longitude:
+            maps_link = f"https://maps.google.com/?q={latitude},{longitude}"
+            location_text = f"âœ… {latitude}, {longitude}\n{maps_link}"
+        else:
+            location_text = "âŒ Konum gÃ¶nderilmedi"
+
+        admin_message = (
+            "ğŸš¨ YENÄ° SÄ°PARÄ°Å ğŸš¨\n\n"
+            f"ğŸ‘¤ MÃ¼ÅŸteri: {customer_name}\n"
+            f"ğŸ“± Telegram: {username}\n"
+            f"ğŸ†” KullanÄ±cÄ± ID: {user.id}\n"
+            f"ğŸŒ Dil: {ADMIN_LANGUAGE_NAMES.get(lang, lang)}\n\n"
+            f"ğŸ› ÃœrÃ¼nler:\n{order_lines}\n"
+            f"ğŸ’¶ Toplam fiyat: {price} â‚¬\n"
+            f"ğŸ  Adres / BÃ¶lge: {address}\n\n"
+            f"ğŸ“ Konum:\n{location_text}\n\n"
+            "ğŸš— Teslimat: Ãœcretsiz\n"
+            "ğŸ’µ Ã–deme: Teslimatta nakit"
+        )
+
+        if ORDER_CHAT_ID:
+            try:
+                await context.bot.send_message(
+                    chat_id=ORDER_CHAT_ID,
+                    text=admin_message,
+                    disable_web_page_preview=True
+                )
+
+                if latitude and longitude:
+                    await context.bot.send_location(
+                        chat_id=ORDER_CHAT_ID,
+                        latitude=latitude,
+                        longitude=longitude
+                    )
+
+            except Exception as e:
+                print("SipariÅŸ grubuna gÃ¶nderme hatasÄ±:", e)
+
+        else:
+            print("ORDER_CHAT_ID ayarlanmamÄ±ÅŸ.")
+            print(admin_message)
+
+        await query.edit_message_reply_markup(reply_markup=None)
+
+        await query.message.reply_text(
+            TEXTS[lang]["success"],
+            reply_markup=ReplyKeyboardRemove()
+        )
+
+        reset_order(context)
+
+        return
+
+
+    # -------------------------
+    # BÄ°LGÄ°LERÄ° DEÄÄ°ÅTÄ°R
+    # -------------------------
+
+    if data == "change_order":
+        reset_order(context)
+
+        context.user_data["state"] = "product_selection"
+        context.user_data["cart"] = {}
+
+        await query.edit_message_text(
+            selection_text(lang, {}),
+            reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, {}))
+        )
+
+        return
+
+
+    # -------------------------
+    # SÄ°PARÄ°ÅÄ° Ä°PTAL ET
+    # -------------------------
+
+    if data == "cancel_order":
+        await query.edit_message_reply_markup(reply_markup=None)
+
+        await query.message.reply_text(
+            TEXTS[lang]["cancelled"],
+            reply_markup=ReplyKeyboardRemove()
+        )
+
+        reset_order(context)
+
+        return
+
+
+    # -------------------------
+    # KONUM OLMADAN DEVAM
+    # -------------------------
+
+    if data == "skip_location":
+        await query.edit_message_reply_markup(reply_markup=None)
+
+        await show_summary(update, context)
+
+        return
+
+
+# =========================================================
+# YAZILI MESAJLAR
+# =========================================================
+
+async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    state = context.user_data.get("state")
+
+    if not state:
+        return
+
+    lang = get_lang(context)
+
+    text = update.message.text.strip()
+
+
+    # -------------------------
+    # MARKA (YAZILI MESAJ)
+    # -------------------------
+
+    if state == "brand_entry":
+        context.user_data["brand"] = text
+        context.user_data["state"] = "address"
+
+        brand_label = UI_TEXT[lang]["brand_ok"]
+        await update.message.reply_text(
+            f"âœ… {brand_label}: {text}\n\n{TEXTS[lang]['address']}"
+        )
+        return
+
+
+    # -------------------------
+    # ADRES / BÃ–LGE
+    # -------------------------
+
+    if state == "address":
+
+        context.user_data["address"] = text
+        context.user_data["state"] = "location"
+
+        skip_keyboard = [
+            [
+                InlineKeyboardButton(
+                    TEXTS[lang]["skip_location"],
+                    callback_data="skip_location"
+                )
+            ]
+        ]
+
+        skip_keyboard.extend(support_keyboard(lang))
+
+        await update.message.reply_text(
+            TEXTS[lang]["location_question"],
+            reply_markup=InlineKeyboardMarkup(skip_keyboard)
+        )
+
+        return
+
+
+# =========================================================
+# KONUM MESAJI
+# =========================================================
+async def show_id(update, context):
+    await update.message.reply_text(f"Bu grubun ID'si: {update.effective_chat.id}")
+async def location_handler(
+    update: Update,
+    context: ContextTypes.DEFAULT_TYPE
+):
+
+    state = context.user_data.get("state")
+
+    if state != "location":
+        return
+
+    lang = get_lang(context)
+
+    location = update.message.location
+
+    context.user_data["latitude"] = location.latitude
+    context.user_data["longitude"] = location.longitude
+
+    await update.message.reply_text(
+        TEXTS[lang]["location_received"],
+        reply_markup=ReplyKeyboardRemove()
+    )
+
+    await show_summary(update, context)
+
+
+# =========================================================
+# ANA PROGRAM
+# =========================================================
+
+def main():
+
+    if not TOKEN:
+        raise RuntimeError("BOT_TOKEN bulunamadÄ±!")
+
+    if not ORDER_CHAT_ID:
+        raise RuntimeError("ORDER_CHAT_ID bulunamadÄ±!")
+
+    if not VENDOR_ALERT_CHAT_ID:
+        print(
+            "VENDOR_ALERT_CHAT_ID ayarlanmamÄ±ÅŸ: Ã¼ye kayÄ±tlarÄ± ve puanlama "
+            "Ã§alÄ±ÅŸÄ±r, ancak satÄ±cÄ± uyarÄ±sÄ± hiÃ§bir gruba gÃ¶nderilmez."
+        )
+
+    init_vendor_db()
+    app = Application.builder().token(TOKEN).build()
+
+    app.add_handler(
+        CommandHandler("start", start)
+    )
+
+    app.add_handler(
+        ChatJoinRequestHandler(
+            join_request,
+            chat_id=PINKPANTHER_GROUP_ID
+        )
+    )
+
+    app.add_handler(
+        ChatMemberHandler(chat_member_update, ChatMemberHandler.CHAT_MEMBER)
+    )
+
+    if app.job_queue:
+        app.job_queue.run_repeating(
+            scan_vendor_candidates,
+            interval=VENDOR_SCAN_INTERVAL,
+            first=10,
+            name="vendor-candidate-scan",
+        )
+
+    app.add_handler(
+        CallbackQueryHandler(button_handler)
+    )
+
+    app.add_handler(
+        MessageHandler(
+            filters.LOCATION,
+            location_handler
+        )
+    )
+
+    app.add_handler(
+        MessageHandler(
+            filters.TEXT & ~filters.COMMAND,
+            text_handler
+        )
+    )
+
+    print("PinkPanther Bot Ã§alÄ±ÅŸÄ±yor...")
+    app.add_handler(CommandHandler("id", show_id))
+    app.run_polling(
+        allowed_updates=Update.ALL_TYPES
+    )
+
+
+if __name__ == "__main__":
+    main()

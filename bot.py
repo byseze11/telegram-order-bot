@@ -1,4 +1,6 @@
 import os
+import sqlite3
+from datetime import datetime, timezone
 from telegram import (
     Update,
     InlineKeyboardButton,
@@ -7,6 +9,7 @@ from telegram import (
 )
 from telegram.ext import (
     Application,
+    ChatMemberHandler,
     ChatJoinRequestHandler,
     CommandHandler,
     CallbackQueryHandler,
@@ -33,6 +36,27 @@ PINKPANTHER_GROUP_ID = int(
 # Canlı destek için Telegram kullanıcı adın
 # @ işareti OLMADAN yazılacak. Örnek: PinkPantherSupport
 SUPPORT_USERNAME = os.getenv("SUPPORT_USERNAME", "")
+
+# Seller alerts always use their own group; they never fall back to the order group.
+VENDOR_ALERT_CHAT_ID = os.getenv(
+    "VENDOR_ALERT_CHAT_ID", "-1004348363207"
+)
+VENDOR_DB_PATH = os.getenv("VENDOR_DB_PATH", "vendor_detection.db")
+VENDOR_SCORE_THRESHOLD = int(os.getenv("VENDOR_SCORE_THRESHOLD", "5"))
+VENDOR_REENTRY_POINTS = int(os.getenv("VENDOR_REENTRY_POINTS", "2"))
+VENDOR_INACTIVE_DAYS = int(os.getenv("VENDOR_INACTIVE_DAYS", "7"))
+VENDOR_INACTIVE_POINTS = int(os.getenv("VENDOR_INACTIVE_POINTS", "3"))
+VENDOR_USERNAME_POINTS = int(os.getenv("VENDOR_USERNAME_POINTS", "2"))
+VENDOR_SCAN_INTERVAL = int(os.getenv("VENDOR_SCAN_INTERVAL", "3600"))
+VENDOR_KEYWORDS = tuple(
+    item.strip().lower()
+    for item in os.getenv(
+        "VENDOR_KEYWORDS",
+        "cannabis,weed,hash,hashish,marijuana,420,thc,plug,vendor,shop,store,"
+        "seller,wholesale,toptan,coke",
+    ).split(",")
+    if item.strip()
+)
 
 # Ürün çeşitleri ve seçim -> toplam fiyat (€) listesi
 PRODUCTS = {
@@ -78,6 +102,220 @@ PRODUCTS = {
 # =========================================================
 # METİNLER
 # =========================================================
+
+def db_connection():
+    connection = sqlite3.connect(VENDOR_DB_PATH, timeout=10)
+    connection.row_factory = sqlite3.Row
+    return connection
+
+
+def init_vendor_db():
+    with db_connection() as connection:
+        connection.execute(
+            """
+            CREATE TABLE IF NOT EXISTS member_activity (
+                user_id INTEGER PRIMARY KEY,
+                username TEXT,
+                full_name TEXT NOT NULL DEFAULT '',
+                first_joined_at TEXT,
+                last_joined_at TEXT,
+                last_left_at TEXT,
+                is_member INTEGER NOT NULL DEFAULT 0,
+                join_count INTEGER NOT NULL DEFAULT 0,
+                reentry_count INTEGER NOT NULL DEFAULT 0,
+                total_stay_seconds INTEGER NOT NULL DEFAULT 0,
+                has_ordered INTEGER NOT NULL DEFAULT 0,
+                first_ordered_at TEXT,
+                last_ordered_at TEXT,
+                order_count INTEGER NOT NULL DEFAULT 0,
+                candidate_notified INTEGER NOT NULL DEFAULT 0,
+                last_score INTEGER NOT NULL DEFAULT 0,
+                updated_at TEXT NOT NULL
+            )
+            """
+        )
+
+
+def utc_now():
+    return datetime.now(timezone.utc)
+
+
+def parse_time(value):
+    return datetime.fromisoformat(value) if value else None
+
+
+def record_member_join(user):
+    now = utc_now().isoformat()
+    with db_connection() as connection:
+        row = connection.execute(
+            "SELECT is_member FROM member_activity WHERE user_id = ?", (user.id,)
+        ).fetchone()
+        if row is None:
+            connection.execute(
+                """INSERT INTO member_activity
+                   (user_id, username, full_name, first_joined_at, last_joined_at,
+                    is_member, join_count, updated_at)
+                   VALUES (?, ?, ?, ?, ?, 1, 1, ?)""",
+                (user.id, user.username, user.full_name or "", now, now, now),
+            )
+        elif not row["is_member"]:
+            connection.execute(
+                """UPDATE member_activity
+                   SET username = ?, full_name = ?, last_joined_at = ?, is_member = 1,
+                       join_count = join_count + 1, reentry_count = reentry_count + 1,
+                       updated_at = ? WHERE user_id = ?""",
+                (user.username, user.full_name or "", now, now, user.id),
+            )
+
+
+def record_member_leave(user):
+    now_dt = utc_now()
+    now = now_dt.isoformat()
+    with db_connection() as connection:
+        row = connection.execute(
+            "SELECT last_joined_at, is_member FROM member_activity WHERE user_id = ?",
+            (user.id,),
+        ).fetchone()
+        if row is None:
+            connection.execute(
+                """INSERT INTO member_activity
+                   (user_id, username, full_name, last_left_at, updated_at)
+                   VALUES (?, ?, ?, ?, ?)""",
+                (user.id, user.username, user.full_name or "", now, now),
+            )
+        elif row["is_member"]:
+            joined = parse_time(row["last_joined_at"])
+            stay = max(0, int((now_dt - joined).total_seconds())) if joined else 0
+            connection.execute(
+                """UPDATE member_activity SET username = ?, full_name = ?,
+                   last_left_at = ?, is_member = 0,
+                   total_stay_seconds = total_stay_seconds + ?, updated_at = ?
+                   WHERE user_id = ?""",
+                (user.username, user.full_name or "", now, stay, now, user.id),
+            )
+
+
+def record_order(user):
+    now = utc_now().isoformat()
+    with db_connection() as connection:
+        connection.execute(
+            """INSERT INTO member_activity
+               (user_id, username, full_name, has_ordered, first_ordered_at,
+                last_ordered_at, order_count, updated_at)
+               VALUES (?, ?, ?, 1, ?, ?, 1, ?)
+               ON CONFLICT(user_id) DO UPDATE SET username = excluded.username,
+                   full_name = excluded.full_name, has_ordered = 1,
+                   first_ordered_at = COALESCE(member_activity.first_ordered_at, excluded.first_ordered_at),
+                   last_ordered_at = excluded.last_ordered_at,
+                   order_count = member_activity.order_count + 1,
+                   candidate_notified = 0, updated_at = excluded.updated_at""",
+            (user.id, user.username, user.full_name or "", now, now, now),
+        )
+
+
+def vendor_score(row):
+    score = row["reentry_count"] * VENDOR_REENTRY_POINTS
+    reasons = []
+    if row["reentry_count"]:
+        reasons.append(f"{row['reentry_count']} yeniden giriş")
+    username = (row["username"] or "").lower()
+    matches = [word for word in VENDOR_KEYWORDS if word in username]
+    if matches:
+        score += VENDOR_USERNAME_POINTS
+        reasons.append("kullanıcı adı: " + ", ".join(matches))
+    joined = parse_time(row["first_joined_at"])
+    age_days = (utc_now() - joined).days if joined else 0
+    if not row["has_ordered"] and age_days >= VENDOR_INACTIVE_DAYS:
+        score += VENDOR_INACTIVE_POINTS
+        reasons.append(f"{age_days} gündür sipariş yok")
+    return score, reasons, age_days
+
+
+async def evaluate_vendor_candidate(context, user_id):
+    with db_connection() as connection:
+        row = connection.execute(
+            "SELECT * FROM member_activity WHERE user_id = ?", (user_id,)
+        ).fetchone()
+        if row is None:
+            return
+        score, reasons, age_days = vendor_score(row)
+        should_notify = (
+            score >= VENDOR_SCORE_THRESHOLD
+            and not row["candidate_notified"]
+            and not row["has_ordered"]
+        )
+        connection.execute(
+            "UPDATE member_activity SET last_score = ?, updated_at = ? WHERE user_id = ?",
+            (score, utc_now().isoformat(), user_id),
+        )
+    if not should_notify or not VENDOR_ALERT_CHAT_ID:
+        return
+    username = f"@{row['username']}" if row["username"] else "Kullanıcı adı yok"
+    stay_seconds = row["total_stay_seconds"]
+    if row["is_member"] and row["last_joined_at"]:
+        stay_seconds += max(
+            0, int((utc_now() - parse_time(row["last_joined_at"])).total_seconds())
+        )
+    await context.bot.send_message(
+        chat_id=VENDOR_ALERT_CHAT_ID,
+        text=(
+            "⚠️ Potansiyel Satıcı\n\n"
+            f"👤 {row['full_name'] or '-'}\n"
+            f"📱 {username}\n"
+            f"🆔 {row['user_id']}\n"
+            f"📊 Puan: {score}/{VENDOR_SCORE_THRESHOLD}\n"
+            f"🔁 Gir-çık / yeniden giriş: {row['reentry_count']}\n"
+            f"⏱ Grupta toplam süre: {stay_seconds // 86400} gün\n"
+            f"🗓 İlk girişten beri: {age_days} gün\n"
+            f"🛒 Sipariş: Hayır\n"
+            f"🔎 Nedenler: {', '.join(reasons) or '-'}"
+        ),
+    )
+    with db_connection() as connection:
+        connection.execute(
+            "UPDATE member_activity SET candidate_notified = 1 WHERE user_id = ?",
+            (user_id,),
+        )
+
+
+def is_active_member(chat_member):
+    if chat_member.status in ("member", "administrator", "creator"):
+        return True
+    return chat_member.status == "restricted" and bool(chat_member.is_member)
+
+
+async def chat_member_update(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    change = update.chat_member
+    if change is None or change.chat.id != PINKPANTHER_GROUP_ID:
+        return
+    old_member = is_active_member(change.old_chat_member)
+    new_member = is_active_member(change.new_chat_member)
+    user = change.new_chat_member.user
+    if user.is_bot:
+        return
+    if not old_member and new_member:
+        record_member_join(user)
+        await evaluate_vendor_candidate(context, user.id)
+    elif old_member and not new_member:
+        record_member_leave(user)
+        await evaluate_vendor_candidate(context, user.id)
+
+
+async def scan_vendor_candidates(context: ContextTypes.DEFAULT_TYPE):
+    with db_connection() as connection:
+        user_ids = [
+            row["user_id"]
+            for row in connection.execute(
+                "SELECT user_id FROM member_activity "
+                "WHERE has_ordered = 0 AND candidate_notified = 0"
+            )
+        ]
+    for user_id in user_ids:
+        try:
+            await evaluate_vendor_candidate(context, user_id)
+        except Exception as error:
+            print("Satıcı adayı kontrol hatası:", user_id, error)
+
 
 TEXTS = {
     "en": {
@@ -873,6 +1111,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         user = query.from_user
 
+        # Keep seller detection separate from the existing order state machine.
+        record_order(user)
+
         username = f"@{user.username}" if user.username else "No username"
 
         customer_name = user.full_name or "Unknown"
@@ -1078,6 +1319,13 @@ def main():
     if not ORDER_CHAT_ID:
         raise RuntimeError("ORDER_CHAT_ID bulunamadı!")
 
+    if not VENDOR_ALERT_CHAT_ID:
+        print(
+            "VENDOR_ALERT_CHAT_ID ayarlanmamış: üye kayıtları ve puanlama "
+            "çalışır, ancak satıcı uyarısı hiçbir gruba gönderilmez."
+        )
+
+    init_vendor_db()
     app = Application.builder().token(TOKEN).build()
 
     app.add_handler(
@@ -1090,6 +1338,18 @@ def main():
             chat_id=PINKPANTHER_GROUP_ID
         )
     )
+
+    app.add_handler(
+        ChatMemberHandler(chat_member_update, ChatMemberHandler.CHAT_MEMBER)
+    )
+
+    if app.job_queue:
+        app.job_queue.run_repeating(
+            scan_vendor_candidates,
+            interval=VENDOR_SCAN_INTERVAL,
+            first=10,
+            name="vendor-candidate-scan",
+        )
 
     app.add_handler(
         CallbackQueryHandler(button_handler)

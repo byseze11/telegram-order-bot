@@ -284,6 +284,54 @@ def is_active_member(chat_member):
     return chat_member.status == "restricted" and bool(chat_member.is_member)
 
 
+async def send_member_activity_alert(context, user, event_name):
+    """Send every join/leave event to the dedicated tracking group."""
+    if not VENDOR_ALERT_CHAT_ID:
+        return
+
+    bio = ""
+    try:
+        profile = await context.bot.get_chat(user.id)
+        bio = (getattr(profile, "bio", None) or "").strip()
+    except Exception as error:
+        # Telegram does not always expose a user's bio to bots.
+        print("Profil açıklaması alınamadı:", user.id, error)
+
+    searchable = " ".join(
+        part for part in (user.username or "", user.full_name or "", bio) if part
+    ).lower()
+    matches = sorted({word for word in VENDOR_KEYWORDS if word in searchable})
+
+    with db_connection() as connection:
+        row = connection.execute(
+            "SELECT join_count, reentry_count, order_count FROM member_activity "
+            "WHERE user_id = ?",
+            (user.id,),
+        ).fetchone()
+
+    username = f"@{user.username}" if user.username else "Yok"
+    join_count = row["join_count"] if row else 0
+    reentry_count = row["reentry_count"] if row else 0
+    order_count = row["order_count"] if row else 0
+    suspicious = ", ".join(matches) if matches else "Bulunmadı"
+
+    await context.bot.send_message(
+        chat_id=VENDOR_ALERT_CHAT_ID,
+        text=(
+            f"{event_name}\n\n"
+            f"👤 Ad / lakap: {user.full_name or '-'}\n"
+            f"📱 Kullanıcı adı: {username}\n"
+            f"🆔 Telegram ID: {user.id}\n"
+            f"📝 Profil açıklaması: {bio[:500] or 'Görülemiyor / yok'}\n"
+            f"🔎 Şüpheli kelimeler: {suspicious}\n"
+            f"🚪 Toplam giriş: {join_count}\n"
+            f"🔁 Yeniden giriş: {reentry_count}\n"
+            f"🛒 Sipariş sayısı: {order_count}\n"
+            f"🕒 Kayıt zamanı (UTC): {utc_now().strftime('%Y-%m-%d %H:%M:%S')}"
+        ),
+    )
+
+
 async def chat_member_update(update: Update, context: ContextTypes.DEFAULT_TYPE):
     change = update.chat_member
     if change is None or change.chat.id != PINKPANTHER_GROUP_ID:
@@ -295,9 +343,11 @@ async def chat_member_update(update: Update, context: ContextTypes.DEFAULT_TYPE)
         return
     if not old_member and new_member:
         record_member_join(user)
+        await send_member_activity_alert(context, user, "🟢 PinkPanther grubuna giriş")
         await evaluate_vendor_candidate(context, user.id)
     elif old_member and not new_member:
         record_member_leave(user)
+        await send_member_activity_alert(context, user, "🔴 PinkPanther grubundan çıkış")
         await evaluate_vendor_candidate(context, user.id)
 
 

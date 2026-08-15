@@ -284,54 +284,6 @@ def is_active_member(chat_member):
     return chat_member.status == "restricted" and bool(chat_member.is_member)
 
 
-async def send_member_activity_alert(context, user, event_name):
-    """Send every join/leave event to the dedicated tracking group."""
-    if not VENDOR_ALERT_CHAT_ID:
-        return
-
-    bio = ""
-    try:
-        profile = await context.bot.get_chat(user.id)
-        bio = (getattr(profile, "bio", None) or "").strip()
-    except Exception as error:
-        # Telegram does not always expose a user's bio to bots.
-        print("Profil açıklaması alınamadı:", user.id, error)
-
-    searchable = " ".join(
-        part for part in (user.username or "", user.full_name or "", bio) if part
-    ).lower()
-    matches = sorted({word for word in VENDOR_KEYWORDS if word in searchable})
-
-    with db_connection() as connection:
-        row = connection.execute(
-            "SELECT join_count, reentry_count, order_count FROM member_activity "
-            "WHERE user_id = ?",
-            (user.id,),
-        ).fetchone()
-
-    username = f"@{user.username}" if user.username else "Yok"
-    join_count = row["join_count"] if row else 0
-    reentry_count = row["reentry_count"] if row else 0
-    order_count = row["order_count"] if row else 0
-    suspicious = ", ".join(matches) if matches else "Bulunmadı"
-
-    await context.bot.send_message(
-        chat_id=VENDOR_ALERT_CHAT_ID,
-        text=(
-            f"{event_name}\n\n"
-            f"👤 Ad / lakap: {user.full_name or '-'}\n"
-            f"📱 Kullanıcı adı: {username}\n"
-            f"🆔 Telegram ID: {user.id}\n"
-            f"📝 Profil açıklaması: {bio[:500] or 'Görülemiyor / yok'}\n"
-            f"🔎 Şüpheli kelimeler: {suspicious}\n"
-            f"🚪 Toplam giriş: {join_count}\n"
-            f"🔁 Yeniden giriş: {reentry_count}\n"
-            f"🛒 Sipariş sayısı: {order_count}\n"
-            f"🕒 Kayıt zamanı (UTC): {utc_now().strftime('%Y-%m-%d %H:%M:%S')}"
-        ),
-    )
-
-
 async def chat_member_update(update: Update, context: ContextTypes.DEFAULT_TYPE):
     change = update.chat_member
     if change is None or change.chat.id != PINKPANTHER_GROUP_ID:
@@ -343,11 +295,9 @@ async def chat_member_update(update: Update, context: ContextTypes.DEFAULT_TYPE)
         return
     if not old_member and new_member:
         record_member_join(user)
-        await send_member_activity_alert(context, user, "🟢 PinkPanther grubuna giriş")
         await evaluate_vendor_candidate(context, user.id)
     elif old_member and not new_member:
         record_member_leave(user)
-        await send_member_activity_alert(context, user, "🔴 PinkPanther grubundan çıkış")
         await evaluate_vendor_candidate(context, user.id)
 
 
@@ -373,8 +323,8 @@ TEXTS = {
 
         "welcome": (
             "⚠️ IMPORTANT – PLEASE READ CAREFULLY\n\n"
-            "🐾 Welcome to PinkPanther Bot\n\n"
-            "Hello! I’m PinkPanther Bot. I’m here to help you place your order "
+            "🐾 Welcome to GreenPantherBot\n\n"
+            "Hello! I’m GreenPantherBot. I’m here to help you place your order "
             "quickly and easily.\n\n"
             "💵 Cash payment only.\n"
             "✅ No payment is required before you receive your product.\n"
@@ -472,8 +422,8 @@ TEXTS = {
 
         "welcome": (
             "⚠️ WICHTIG – BITTE SORGFÄLTIG LESEN\n\n"
-            "🐾 Willkommen beim PinkPanther Bot\n\n"
-            "Hallo! Ich bin der PinkPanther Bot. Ich bin hier, um dir dabei zu helfen, "
+            "🐾 Willkommen beim GreenPantherBot\n\n"
+            "Hallo! Ich bin der GreenPantherBot. Ich bin hier, um dir dabei zu helfen, "
             "deine Bestellung schnell und einfach aufzugeben.\n\n"
             "💵 Nur Barzahlung.\n"
             "✅ Du musst nichts bezahlen, bevor du dein Produkt erhalten hast.\n"
@@ -575,7 +525,7 @@ TEXTS.update({
         "language_selected": "🇹🇷 Türkçe seçildi.",
         "welcome": (
             "⚠️ ÖNEMLİ – LÜTFEN DİKKATLİCE OKUYUN\n\n"
-            "🐾 PinkPanther Bot'a hoş geldiniz\n\n"
+            "🐾 GreenPantherBot'a hoş geldiniz\n\n"
             "Siparişinizi hızlı ve kolayca oluşturmanıza yardımcı olacağım.\n\n"
             "💵 Yalnızca nakit ödeme.\n✅ Ürünü teslim almadan ödeme yapmayın.\n"
             "🚗 Kurye teslimatı ÜCRETSİZDİR.\n📍 Konumunuzu Telegram üzerinden paylaşabilirsiniz.\n\n"
@@ -612,7 +562,7 @@ TEXTS.update({
     "es": {
         "language_selected": "🇪🇸 Español seleccionado.",
         "welcome": (
-            "⚠️ IMPORTANTE – LEE ATENTAMENTE\n\n🐾 Bienvenido a PinkPanther Bot\n\n"
+            "⚠️ IMPORTANTE – LEE ATENTAMENTE\n\n🐾 Bienvenido a GreenPantherBot\n\n"
             "Te ayudaré a realizar tu pedido de forma rápida y sencilla.\n\n"
             "💵 Solo pago en efectivo.\n✅ No pagues antes de recibir el producto.\n"
             "🚗 La entrega es GRATIS.\n📍 Puedes compartir tu ubicación por Telegram.\n\n"
@@ -644,7 +594,7 @@ TEXTS.update({
     "it": {
         "language_selected": "🇮🇹 Italiano selezionato.",
         "welcome": (
-            "⚠️ IMPORTANTE – LEGGI ATTENTAMENTE\n\n🐾 Benvenuto nel PinkPanther Bot\n\n"
+            "⚠️ IMPORTANTE – LEGGI ATTENTAMENTE\n\n🐾 Benvenuto nel GreenPantherBot\n\n"
             "Ti aiuterò a effettuare l'ordine in modo semplice e veloce.\n\n"
             "💵 Solo pagamento in contanti.\n✅ Non pagare prima di ricevere il prodotto.\n"
             "🚗 Consegna GRATUITA.\n📍 Puoi condividere la posizione tramite Telegram.\n\nScegli un'opzione:"
@@ -675,7 +625,7 @@ TEXTS.update({
     "ru": {
         "language_selected": "🇷🇺 Выбран русский язык.",
         "welcome": (
-            "⚠️ ВАЖНО – ПРОЧИТАЙТЕ ВНИМАТЕЛЬНО\n\n🐾 Добро пожаловать в PinkPanther Bot\n\n"
+            "⚠️ ВАЖНО – ПРОЧИТАЙТЕ ВНИМАТЕЛЬНО\n\n🐾 Добро пожаловать в GreenPantherBot\n\n"
             "Я помогу быстро и легко оформить заказ.\n\n💵 Только наличные.\n"
             "✅ Не платите до получения товара.\n🚗 Доставка БЕСПЛАТНАЯ.\n"
             "📍 Вы можете отправить геолокацию через Telegram.\n\nВыберите действие:"
@@ -706,7 +656,7 @@ TEXTS.update({
     "pl": {
         "language_selected": "🇵🇱 Wybrano język polski.",
         "welcome": (
-            "⚠️ WAŻNE – PRZECZYTAJ UWAŻNIE\n\n🐾 Witamy w PinkPanther Bot\n\n"
+            "⚠️ WAŻNE – PRZECZYTAJ UWAŻNIE\n\n🐾 Witamy w GreenPantherBot\n\n"
             "Pomogę Ci szybko i łatwo złożyć zamówienie.\n\n💵 Tylko płatność gotówką.\n"
             "✅ Nie płać przed otrzymaniem produktu.\n🚗 Dostawa jest BEZPŁATNA.\n"
             "📍 Możesz udostępnić lokalizację przez Telegram.\n\nWybierz opcję:"
@@ -737,7 +687,7 @@ TEXTS.update({
     "fr": {
         "language_selected": "🇫🇷 Français sélectionné.",
         "welcome": (
-            "⚠️ IMPORTANT – LISEZ ATTENTIVEMENT\n\n🐾 Bienvenue sur PinkPanther Bot\n\n"
+            "⚠️ IMPORTANT – LISEZ ATTENTIVEMENT\n\n🐾 Bienvenue sur GreenPantherBot\n\n"
             "Je vais vous aider à passer votre commande rapidement et facilement.\n\n"
             "💵 Paiement en espèces uniquement.\n✅ Ne payez pas avant de recevoir le produit.\n"
             "🚗 Livraison GRATUITE.\n📍 Vous pouvez partager votre position via Telegram.\n\nChoisissez une option :"
@@ -1419,7 +1369,7 @@ def main():
         )
     )
 
-    print("PinkPanther Bot çalışıyor...")
+    print("GreenPantherBot çalışıyor...")
     app.add_handler(CommandHandler("id", show_id))
     app.run_polling(
         allowed_updates=Update.ALL_TYPES

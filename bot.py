@@ -1009,15 +1009,6 @@ async def select_language(query, context, lang):
 
     await query.edit_message_text(TEXTS[lang]["language_selected"])
 
-    try:
-        with open(MENU_IMAGE_PATH, "rb") as menu_image:
-            await context.bot.send_photo(
-                chat_id=query.message.chat.id,
-                photo=menu_image,
-            )
-    except Exception as error:
-        print("Menü resmi gönderilemedi:", error)
-
     await show_main_menu(query.message, context)
 
 
@@ -1057,7 +1048,16 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.user_data["state"] = "product_selection"
         context.user_data["cart"] = {}
 
-        await query.edit_message_text(
+        try:
+            with open(MENU_IMAGE_PATH, "rb") as menu_image:
+                await context.bot.send_photo(
+                    chat_id=query.message.chat.id,
+                    photo=menu_image,
+                )
+        except Exception as error:
+            print("Menü resmi gönderilemedi:", error)
+
+        await query.message.reply_text(
             selection_text(lang, {}),
             reply_markup=InlineKeyboardMarkup(selection_keyboard(lang, {}))
         )

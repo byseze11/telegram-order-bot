@@ -5,6 +5,8 @@ from telegram import (
     Update,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
+    KeyboardButton,
+    ReplyKeyboardMarkup,
     ReplyKeyboardRemove,
 )
 from telegram.ext import (
@@ -23,6 +25,10 @@ from telegram.ext import (
 # =========================================================
 
 TOKEN = os.getenv("BOT_TOKEN")
+MENU_IMAGE_PATH = os.getenv(
+    "MENU_IMAGE_PATH",
+    os.path.join(os.path.dirname(__file__), "assets", "menu.png"),
+)
 
 # BUNLARI SONRA BİRLİKTE AYARLAYACAĞIZ
 # Siparişlerin geleceği özel Telegram grubunun ID'si
@@ -369,10 +375,9 @@ TEXTS = {
             "Example:\n"
             "Musterstraße 12, 12345 Berlin\n\n"
             "ℹ️ NOTE:\n"
-            "If you don’t know your full address or postal code, simply enter "
-            "the area or district you are in.\n\n"
-            "You can also share your exact location directly through Telegram "
-            "using the 📍 Share Location button.\n\n"
+            "If you don’t know your full address or postal code, enter the area "
+            "or district you know. On the next step, use the 📍 Share Location "
+            "button to send your exact delivery point.\n\n"
             "If you need help, you can continue through 🆘 Live Support."
         ),
 
@@ -380,8 +385,8 @@ TEXTS = {
         "skip_location": "➡️ Continue Without Location",
 
         "location_question": (
-            "📍 If you want, you can now share your exact location.\n\n"
-            "This helps us find the delivery point more easily.\n\n"
+            "📍 Use the Share Location button to send your exact delivery point.\n\n"
+            "If you do not know the full address, sending your location is the easiest option.\n\n"
             "You can also continue without sharing your location."
         ),
 
@@ -469,9 +474,8 @@ TEXTS = {
             "Musterstraße 12, 12345 Berlin\n\n"
             "ℹ️ HINWEIS:\n"
             "Wenn du deine vollständige Adresse oder Postleitzahl nicht kennst, "
-            "gib einfach den Stadtteil oder die Gegend an, in der du dich befindest.\n\n"
-            "Du kannst deinen genauen Standort auch direkt über Telegram mit der "
-            "Schaltfläche 📍 Standort senden teilen.\n\n"
+            "gib den bekannten Stadtteil ein. Tippe im nächsten Schritt auf "
+            "📍 Standort senden, um den genauen Lieferort zu teilen.\n\n"
             "Falls du Hilfe benötigst, kannst du über den 🆘 Live-Support fortfahren."
         ),
 
@@ -479,8 +483,8 @@ TEXTS = {
         "skip_location": "➡️ Ohne Standort fortfahren",
 
         "location_question": (
-            "📍 Wenn du möchtest, kannst du jetzt deinen genauen Standort senden.\n\n"
-            "So können wir den Lieferort leichter finden.\n\n"
+            "📍 Tippe auf Standort senden, um den genauen Lieferort zu teilen.\n\n"
+            "Wenn du die vollständige Adresse nicht kennst, ist das Senden des Standorts am einfachsten.\n\n"
             "Du kannst auch ohne Standort fortfahren."
         ),
 
@@ -544,12 +548,19 @@ TEXTS.update({
         "quantity": "🔢 Lütfen miktarı seçin.",
         "address": (
             "📍 TESLİMAT BİLGİLERİ\n\nTam adresinizi ve posta kodunuzu birlikte yazın.\n\n"
-            "Örnek: Musterstraße 12, 12345 Berlin\n\nTam adresi bilmiyorsanız bölgenizi yazabilirsiniz."
+            "Örnek: Musterstraße 12, 12345 Berlin\n\n"
+            "Tam adresinizi bilmiyorsanız bildiğiniz bölgeyi yazın. Sonraki adımda "
+            "📍 Konum Gönder butonuna basarak kesin konumunuzu paylaşabilirsiniz."
         ),
-        "share_location": "📍 Konum Paylaş",
-        "skip_location": "➡️ Konum Olmadan Devam Et",
-        "location_question": "📍 İsterseniz tam konumunuzu paylaşabilirsiniz. Konum paylaşmadan da devam edebilirsiniz.",
+        "share_location": "📍 Konum Gönder",
+        "skip_location": "➡️ Siparişe Devam Et",
+        "location_question": (
+            "📍 Teslimat noktasını doğru bulabilmemiz için konumunuzu gönderebilirsiniz.\n\n"
+            "Tam adresinizi bilmiyorsanız 📍 Konum Gönder butonuna basın.\n\n"
+            "Konum paylaşmak istemiyorsanız ➡️ Siparişe Devam Et seçeneğini kullanın."
+        ),
         "location_received": "✅ Konum alındı.",
+        "location_skipped": "➡️ Konum paylaşılmadan siparişe devam ediliyor.",
         "confirm": "✅ Siparişi Onayla",
         "change": "✏️ Bilgileri Değiştir",
         "cancel": "❌ Siparişi İptal Et",
@@ -577,10 +588,10 @@ TEXTS.update({
         ),
         "brand_prompt": "✍️ Escribe la marca o el nombre del producto seleccionado como mensaje normal.",
         "quantity": "🔢 Selecciona una cantidad.",
-        "address": "📍 DATOS DE ENTREGA\n\nEscribe tu dirección completa y código postal.\n\nEjemplo: Musterstraße 12, 12345 Berlin\n\nSi no conoces la dirección completa, escribe tu zona.",
+        "address": "📍 DATOS DE ENTREGA\n\nEscribe tu dirección completa y código postal.\n\nEjemplo: Musterstraße 12, 12345 Berlin\n\nSi no conoces la dirección completa, escribe la zona que conozcas. En el siguiente paso, pulsa 📍 Compartir ubicación para enviar el punto exacto.",
         "share_location": "📍 Compartir ubicación",
         "skip_location": "➡️ Continuar sin ubicación",
-        "location_question": "📍 Si quieres, comparte tu ubicación exacta. También puedes continuar sin compartirla.",
+        "location_question": "📍 Pulsa Compartir ubicación para enviar el punto exacto. Si no conoces la dirección completa, esta es la opción más sencilla. También puedes continuar sin compartirla.",
         "location_received": "✅ Ubicación recibida.",
         "confirm": "✅ Confirmar pedido",
         "change": "✏️ Cambiar información",
@@ -608,10 +619,10 @@ TEXTS.update({
         ),
         "brand_prompt": "✍️ Scrivi la marca o il nome del prodotto scelto come messaggio normale.",
         "quantity": "🔢 Seleziona una quantità.",
-        "address": "📍 DATI DI CONSEGNA\n\nScrivi indirizzo completo e codice postale.\n\nEsempio: Musterstraße 12, 12345 Berlin\n\nSe non conosci l'indirizzo completo, scrivi la zona.",
+        "address": "📍 DATI DI CONSEGNA\n\nScrivi indirizzo completo e codice postale.\n\nEsempio: Musterstraße 12, 12345 Berlin\n\nSe non conosci l'indirizzo completo, scrivi la zona che conosci. Nel passaggio successivo, premi 📍 Condividi posizione per inviare il punto esatto.",
         "share_location": "📍 Condividi posizione",
         "skip_location": "➡️ Continua senza posizione",
-        "location_question": "📍 Se vuoi, condividi la posizione esatta. Puoi anche continuare senza condividerla.",
+        "location_question": "📍 Premi Condividi posizione per inviare il punto esatto. Se non conosci l'indirizzo completo, questa è l'opzione più semplice. Puoi anche continuare senza condividerla.",
         "location_received": "✅ Posizione ricevuta.",
         "confirm": "✅ Conferma ordine",
         "change": "✏️ Modifica dati",
@@ -639,10 +650,10 @@ TEXTS.update({
         ),
         "brand_prompt": "✍️ Напишите марку или название выбранного товара обычным сообщением.",
         "quantity": "🔢 Выберите количество.",
-        "address": "📍 ДАННЫЕ ДЛЯ ДОСТАВКИ\n\nНапишите полный адрес и почтовый индекс.\n\nПример: Musterstraße 12, 12345 Berlin\n\nЕсли полного адреса нет, укажите район.",
+        "address": "📍 ДАННЫЕ ДЛЯ ДОСТАВКИ\n\nНапишите полный адрес и почтовый индекс.\n\nПример: Musterstraße 12, 12345 Berlin\n\nЕсли вы не знаете полный адрес, укажите известный район. На следующем шаге нажмите 📍 Отправить геолокацию, чтобы передать точную точку.",
         "share_location": "📍 Отправить геолокацию",
         "skip_location": "➡️ Продолжить без геолокации",
-        "location_question": "📍 При желании отправьте точную геолокацию. Можно продолжить без неё.",
+        "location_question": "📍 Нажмите Отправить геолокацию, чтобы передать точную точку доставки. Если вы не знаете полный адрес, это самый простой вариант. Можно продолжить без геолокации.",
         "location_received": "✅ Геолокация получена.",
         "confirm": "✅ Подтвердить заказ",
         "change": "✏️ Изменить данные",
@@ -670,10 +681,10 @@ TEXTS.update({
         ),
         "brand_prompt": "✍️ Wpisz markę lub nazwę wybranego produktu jako zwykłą wiadomość.",
         "quantity": "🔢 Wybierz ilość.",
-        "address": "📍 DANE DOSTAWY\n\nWpisz pełny adres i kod pocztowy.\n\nPrzykład: Musterstraße 12, 12345 Berlin\n\nJeśli nie znasz pełnego adresu, podaj dzielnicę.",
+        "address": "📍 DANE DOSTAWY\n\nWpisz pełny adres i kod pocztowy.\n\nPrzykład: Musterstraße 12, 12345 Berlin\n\nJeśli nie znasz pełnego adresu, wpisz znaną dzielnicę. W następnym kroku naciśnij 📍 Udostępnij lokalizację, aby wysłać dokładny punkt.",
         "share_location": "📍 Udostępnij lokalizację",
         "skip_location": "➡️ Kontynuuj bez lokalizacji",
-        "location_question": "📍 Jeśli chcesz, udostępnij dokładną lokalizację. Możesz też kontynuować bez niej.",
+        "location_question": "📍 Naciśnij Udostępnij lokalizację, aby wysłać dokładny punkt dostawy. Jeśli nie znasz pełnego adresu, jest to najprostsza opcja. Możesz też kontynuować bez lokalizacji.",
         "location_received": "✅ Otrzymano lokalizację.",
         "confirm": "✅ Potwierdź zamówienie",
         "change": "✏️ Zmień dane",
@@ -701,10 +712,10 @@ TEXTS.update({
         ),
         "brand_prompt": "✍️ Écrivez la marque ou le nom du produit choisi dans un message normal.",
         "quantity": "🔢 Sélectionnez une quantité.",
-        "address": "📍 INFORMATIONS DE LIVRAISON\n\nÉcrivez votre adresse complète et votre code postal.\n\nExemple : Musterstraße 12, 12345 Berlin\n\nSi vous ne connaissez pas l'adresse complète, indiquez votre quartier.",
+        "address": "📍 INFORMATIONS DE LIVRAISON\n\nÉcrivez votre adresse complète et votre code postal.\n\nExemple : Musterstraße 12, 12345 Berlin\n\nSi vous ne connaissez pas l'adresse complète, indiquez le quartier connu. À l'étape suivante, appuyez sur 📍 Partager la position pour envoyer le point exact.",
         "share_location": "📍 Partager la position",
         "skip_location": "➡️ Continuer sans position",
-        "location_question": "📍 Si vous le souhaitez, partagez votre position exacte. Vous pouvez aussi continuer sans la partager.",
+        "location_question": "📍 Appuyez sur Partager la position pour envoyer le point de livraison exact. Si vous ne connaissez pas l'adresse complète, c'est l'option la plus simple. Vous pouvez aussi continuer sans partager la position.",
         "location_received": "✅ Position reçue.",
         "confirm": "✅ Confirmer la commande",
         "change": "✏️ Modifier les informations",
@@ -996,20 +1007,18 @@ async def select_language(query, context, lang):
     context.user_data.clear()
     context.user_data["lang"] = lang
 
-    # Katılma isteğiyle açılan geçici özel sohbette Telegram bazen ikinci bir
-    # mesajı reddeder. Bu yüzden dil mesajını doğrudan ana menüye çeviriyoruz.
-    keyboard = [[
-        InlineKeyboardButton(
-            TEXTS[lang]["order_button"],
-            callback_data="new_order"
-        )
-    ]]
-    keyboard.extend(support_keyboard(lang))
+    await query.edit_message_text(TEXTS[lang]["language_selected"])
 
-    await query.edit_message_text(
-        TEXTS[lang]["welcome"],
-        reply_markup=InlineKeyboardMarkup(keyboard)
-    )
+    try:
+        with open(MENU_IMAGE_PATH, "rb") as menu_image:
+            await context.bot.send_photo(
+                chat_id=query.message.chat.id,
+                photo=menu_image,
+            )
+    except Exception as error:
+        print("Menü resmi gönderilemedi:", error)
+
+    await show_main_menu(query.message, context)
 
 
 
@@ -1233,6 +1242,18 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = update.message.text.strip()
 
+    if state == "location":
+        if text == TEXTS[lang]["skip_location"]:
+            await update.message.reply_text(
+                TEXTS[lang].get(
+                    "location_skipped",
+                    TEXTS[lang]["skip_location"],
+                ),
+                reply_markup=ReplyKeyboardRemove(),
+            )
+            await show_summary(update, context)
+        return
+
 
     # -------------------------
     # MARKA (YAZILI MESAJ)
@@ -1258,20 +1279,23 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.user_data["address"] = text
         context.user_data["state"] = "location"
 
-        skip_keyboard = [
+        location_keyboard = ReplyKeyboardMarkup(
             [
-                InlineKeyboardButton(
-                    TEXTS[lang]["skip_location"],
-                    callback_data="skip_location"
-                )
-            ]
-        ]
-
-        skip_keyboard.extend(support_keyboard(lang))
+                [
+                    KeyboardButton(
+                        TEXTS[lang]["share_location"],
+                        request_location=True,
+                    )
+                ],
+                [KeyboardButton(TEXTS[lang]["skip_location"])],
+            ],
+            resize_keyboard=True,
+            one_time_keyboard=True,
+        )
 
         await update.message.reply_text(
             TEXTS[lang]["location_question"],
-            reply_markup=InlineKeyboardMarkup(skip_keyboard)
+            reply_markup=location_keyboard,
         )
 
         return

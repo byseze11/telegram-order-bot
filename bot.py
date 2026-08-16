@@ -758,18 +758,28 @@ UI_TEXT = {
 # YARDIMCI FONKSİYONLAR
 # =========================================================
 
+def get_order_data(update, context):
+    chat = update.effective_chat if update else None
+    if chat and chat.type != "private":
+        return context.chat_data
+    return context.user_data
+
+
 def get_lang(context):
-    lang = context.user_data.get("lang", "en")
+    chat_data = context.chat_data or {}
+    user_data = context.user_data or {}
+    lang = chat_data.get("lang", user_data.get("lang", "en"))
     return lang if lang in TEXTS else "en"
 
 
-def reset_order(context):
-    lang = context.user_data.get("lang")
+def reset_order(update, context):
+    order_data = get_order_data(update, context)
+    lang = order_data.get("lang")
 
-    context.user_data.clear()
+    order_data.clear()
 
     if lang:
-        context.user_data["lang"] = lang
+        order_data["lang"] = lang
 
 
 def support_keyboard(lang):
@@ -890,16 +900,17 @@ async def show_main_menu(message, context):
 
 async def show_summary(update, context):
     lang = get_lang(context)
+    order_data = get_order_data(update, context)
 
-    cart = context.user_data.get("cart", {})
+    cart = order_data.get("cart", {})
     order_lines = "\n".join(
-        cart_lines(lang, cart, context.user_data.get("brand"))
+        cart_lines(lang, cart, order_data.get("brand"))
     ) or "-"
     price = cart_total(cart)
-    address = context.user_data.get("address", "-")
+    address = order_data.get("address", "-")
 
-    latitude = context.user_data.get("latitude")
-    longitude = context.user_data.get("longitude")
+    latitude = order_data.get("latitude")
+    longitude = order_data.get("longitude")
 
     ui = UI_TEXT[lang]
     location_status = (
@@ -943,7 +954,7 @@ async def show_summary(update, context):
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-    context.user_data["state"] = "summary"
+    order_data["state"] = "summary"
 
 
 # =========================================================
@@ -951,7 +962,8 @@ async def show_summary(update, context):
 # =========================================================
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    context.user_data.clear()
+    order_data = get_order_data(update, context)
+    order_data.clear()
 
     keyboard = [
         [
@@ -1007,6 +1019,9 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def select_language(query, context, lang):
     context.user_data.clear()
     context.user_data["lang"] = lang
+    if query.message.chat.type != "private":
+        context.chat_data.clear()
+        context.chat_data["lang"] = lang
 
     await query.edit_message_text(TEXTS[lang]["language_selected"])
 
@@ -1037,6 +1052,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
     lang = get_lang(context)
+    order_data = get_order_data(update, context)
 
 
     # -------------------------
@@ -1044,10 +1060,10 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # -------------------------
 
     if data == "new_order":
-        reset_order(context)
+        reset_order(update, context)
 
-        context.user_data["state"] = "product_selection"
-        context.user_data["cart"] = {}
+        order_data["state"] = "product_selection"
+        order_data["cart"] = {}
 
         try:
             with open(MENU_IMAGE_PATH, "rb") as menu_image:
@@ -1078,7 +1094,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ):
             return
 
-        cart = context.user_data.setdefault("cart", {})
+        cart = order_data.setdefault("cart", {})
         cart[product_key] = quantity
 
         await query.edit_message_text(
@@ -1089,7 +1105,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
     if data == "cart_continue":
-        cart = context.user_data.get("cart", {})
+        cart = order_data.get("cart", {})
         if not cart:
             warning = f"⚠️ {UI_TEXT[lang]['empty']}"
             await query.edit_message_text(
@@ -1098,7 +1114,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             return
 
-        context.user_data["state"] = "brand_entry"
+        order_data["state"] = "brand_entry"
         await query.edit_message_reply_markup(reply_markup=None)
         user_mention = query.from_user.mention_html()
         await query.message.reply_text(
@@ -1118,15 +1134,15 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if data == "confirm_order":
 
-        cart = context.user_data.get("cart", {})
+        cart = order_data.get("cart", {})
         order_lines = "\n".join(
-            cart_lines("en", cart, context.user_data.get("brand"))
+            cart_lines("en", cart, order_data.get("brand"))
         ) or "-"
         price = cart_total(cart)
-        address = context.user_data.get("address", "-")
+        address = order_data.get("address", "-")
 
-        latitude = context.user_data.get("latitude")
-        longitude = context.user_data.get("longitude")
+        latitude = order_data.get("latitude")
+        longitude = order_data.get("longitude")
 
         user = query.from_user
 
@@ -1186,7 +1202,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=ReplyKeyboardRemove()
         )
 
-        reset_order(context)
+        reset_order(update, context)
 
         return
 
@@ -1196,10 +1212,10 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # -------------------------
 
     if data == "change_order":
-        reset_order(context)
+        reset_order(update, context)
 
-        context.user_data["state"] = "product_selection"
-        context.user_data["cart"] = {}
+        order_data["state"] = "product_selection"
+        order_data["cart"] = {}
 
         await query.edit_message_text(
             selection_text(lang, {}),
@@ -1221,7 +1237,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=ReplyKeyboardRemove()
         )
 
-        reset_order(context)
+        reset_order(update, context)
 
         return
 
@@ -1243,7 +1259,17 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # =========================================================
 
 async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    state = context.user_data.get("state")
+    order_data = get_order_data(update, context)
+    state = order_data.get("state")
+
+    print(
+        "Yazılı mesaj alındı: "
+        f"chat_type={update.effective_chat.type}, "
+        f"user={'var' if update.effective_user else 'yok'}, "
+        f"sender_chat={'var' if update.message.sender_chat else 'yok'}, "
+        f"state={state or 'yok'}",
+        flush=True,
+    )
 
     if not state:
         return
@@ -1270,8 +1296,8 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # -------------------------
 
     if state == "brand_entry":
-        context.user_data["brand"] = text
-        context.user_data["state"] = "address"
+        order_data["brand"] = text
+        order_data["state"] = "address"
 
         brand_label = UI_TEXT[lang]["brand_ok"]
         await update.message.reply_text(
@@ -1290,11 +1316,11 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if state == "address":
 
-        context.user_data["address"] = text
-        context.user_data["state"] = "location"
+        order_data["address"] = text
+        order_data["state"] = "location"
 
-        location_keyboard = ReplyKeyboardMarkup(
-            [
+        if update.effective_chat.type == "private":
+            location_rows = [
                 [
                     KeyboardButton(
                         TEXTS[lang]["share_location"],
@@ -1302,13 +1328,24 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     )
                 ],
                 [KeyboardButton(TEXTS[lang]["skip_location"])],
-            ],
+            ]
+            location_text = TEXTS[lang]["location_question"]
+        else:
+            location_rows = [[KeyboardButton(TEXTS[lang]["skip_location"])]]
+            location_text = (
+                f"{TEXTS[lang]['location_question']}\n\n"
+                "Grup içinde konum göndermek için Telegram'ın ataç menüsünden "
+                "Konum'u seçin."
+            )
+
+        location_keyboard = ReplyKeyboardMarkup(
+            location_rows,
             resize_keyboard=True,
             one_time_keyboard=True,
         )
 
         await update.message.reply_text(
-            TEXTS[lang]["location_question"],
+            location_text,
             reply_markup=location_keyboard,
         )
 
@@ -1320,12 +1357,22 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # =========================================================
 async def show_id(update, context):
     await update.message.reply_text(f"Bu grubun ID'si: {update.effective_chat.id}")
+
+
+async def error_handler(update, context):
+    print(
+        f"Bot işlem hatası: {type(context.error).__name__}: {context.error}",
+        flush=True,
+    )
+
+
 async def location_handler(
     update: Update,
     context: ContextTypes.DEFAULT_TYPE
 ):
 
-    state = context.user_data.get("state")
+    order_data = get_order_data(update, context)
+    state = order_data.get("state")
 
     if state != "location":
         return
@@ -1334,8 +1381,8 @@ async def location_handler(
 
     location = update.message.location
 
-    context.user_data["latitude"] = location.latitude
-    context.user_data["longitude"] = location.longitude
+    order_data["latitude"] = location.latitude
+    order_data["longitude"] = location.longitude
 
     await update.message.reply_text(
         TEXTS[lang]["location_received"],
@@ -1365,6 +1412,7 @@ def main():
 
     init_vendor_db()
     app = Application.builder().token(TOKEN).build()
+    app.add_error_handler(error_handler)
 
     app.add_handler(
         CommandHandler("start", start)

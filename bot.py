@@ -6,6 +6,7 @@ from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
     KeyboardButton,
+    ForceReply,
     ReplyKeyboardMarkup,
     ReplyKeyboardRemove,
 )
@@ -1098,7 +1099,16 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         context.user_data["state"] = "brand_entry"
-        await query.edit_message_text(TEXTS[lang]["brand_prompt"])
+        await query.edit_message_reply_markup(reply_markup=None)
+        user_mention = query.from_user.mention_html()
+        await query.message.reply_text(
+            f"{user_mention}\n{TEXTS[lang]['brand_prompt']}",
+            parse_mode="HTML",
+            reply_markup=ForceReply(
+                selective=True,
+                input_field_placeholder=UI_TEXT[lang]["brand"],
+            ),
+        )
         return
 
 
@@ -1265,7 +1275,11 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         brand_label = UI_TEXT[lang]["brand_ok"]
         await update.message.reply_text(
-            f"✅ {brand_label}: {text}\n\n{TEXTS[lang]['address']}"
+            f"✅ {brand_label}: {text}\n\n{TEXTS[lang]['address']}",
+            reply_markup=ForceReply(
+                selective=True,
+                input_field_placeholder=UI_TEXT[lang]["address"],
+            ),
         )
         return
 
